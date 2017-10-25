@@ -47,11 +47,11 @@ $config = [
             ],
         ],
         */
-
+//
 //        'view' => [
 //            'theme' => [
 //                'pathMap' => [
-//                    '@app/views' => '@vendor/....',
+//                    '@app/views' => '@vendor/yiister/yii2-gentelella/views',
 //                ],
 //            ],
 //        ],
