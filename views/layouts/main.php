@@ -64,7 +64,40 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                         \yiister\gentelella\widgets\Menu::widget(
                             [
                                 "items" => [
-                                    ["label" => "Home", "url" => "/", "icon" => "home"],
+                                    ["label" => "Trang chủ", "url" => "/", "icon" => "home"],
+
+                                    [
+                                        'label' => 'Quản lý thành viên', 'icon' => 'users', 'url' => "#",
+                                        'items' => [
+                                            ['label' => 'Danh sách thành viên', 'icon' => 'user', 'url' => ['/user/index'],  ],
+                                            ['label' => 'Nhóm quyền',           'icon' => 'users', 'url' => ['/role'],],
+                                            ['label' => 'Danh sách quyền',      'icon' => 'expeditedssl', 'url' => ['/permission'],],
+                                            ['label' => 'Xem log đăng nhập',    'icon' => 'sticky-note-o', 'url' => ['/user-visit-log/index'],],
+                                        ]
+                                    ],
+
+                                    [
+                                        'label' => 'Quản lý lô tem', 'icon' => 'users', 'url' => "#",
+                                        'items' => [
+                                            ['label' => 'Danh sách lô tem', 'icon' => 'user', 'url' => ['/parcel-stamp'],  ],
+                                            ['label' => 'Danh sách sản phẩm',           'icon' => 'users', 'url' => ['/products'],],
+                                        ]
+                                    ],
+
+                                    [
+                                        "label" => "auth",
+                                        "icon" => "th",
+                                        "url" => "#",
+                                        "items" => [
+                                            ['label'=>'Login', 'url'=>['/user-management/auth/login']],
+                                            ['label'=>'Logout', 'url'=>['/user-management/auth/logout']],
+                                            ['label'=>'Registration', 'url'=>['/user-management/auth/registration']],
+                                            ['label'=>'Change own password', 'url'=>['/user-management/auth/change-own-password']],
+                                            ['label'=>'Password recovery', 'url'=>['/user-management/auth/password-recovery']],
+                                            ['label'=>'E-mail confirmation', 'url'=>['/user-management/auth/confirm-email']],
+                                        ],
+                                    ],
+
                                     ["label" => "Layout", "url" => ["site/layout"], "icon" => "files-o"],
                                     ["label" => "Error page", "url" => ["site/error-page"], "icon" => "close"],
                                     [
@@ -165,7 +198,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="http://placehold.it/128x128" alt="">John Doe
+                                <img src="http://placehold.it/128x128" alt=""><?=Yii::$app->user->username?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -267,20 +300,31 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
 
         <!-- page content -->
         <div class="right_col" role="main">
-            <?php if (isset($this->params['h1'])): ?>
+
+            <?php if (isset($this->title)): ?>
                 <div class="page-title">
                     <div class="title_left">
-                        <h1><?= $this->params['h1'] ?></h1>
+                        <h1><?= $this->title ?></h1>
                     </div>
-                    <div class="title_right">
-                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Go!</button>
-                            </span>
-                            </div>
-                        </div>
+                    <div class="text-right">
+<!--                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">-->
+<!--                            <div class="input-group">-->
+<!--                                <input type="text" class="form-control" placeholder="Search for...">-->
+<!--                                <span class="input-group-btn">-->
+<!--                                <button class="btn btn-default" type="button">Go!</button>-->
+<!--                            </span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <?=
+                        \yii\widgets\Breadcrumbs::widget(
+                            [
+                                'homeLink' => [
+                                    'label' => Yii::t('yii', 'Trang chủ'),
+                                    'url' => Yii::$app->homeUrl,
+                                ],
+                                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                            ]
+                        ) ?>
                     </div>
                 </div>
             <?php endif; ?>

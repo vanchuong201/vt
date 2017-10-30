@@ -1,0 +1,3 @@
+ALTER TABLE `user`
+ADD COLUMN `type`  smallint(6) NULL DEFAULT 0 COMMENT '0: Normal user\r\n1: Business\r\n2: Mod\r\n3: Admin' AFTER `email_confirmed`;
+

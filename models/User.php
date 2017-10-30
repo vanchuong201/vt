@@ -1,104 +1,63 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: vanchuong201
+ * Date: 10/30/2017
+ * Time: 12:23 AM
+ */
 
 namespace app\models;
+use webvimark\modules\UserManagement\UserManagementModule;
+use Yii;
 
-class User extends \yii\base\Object implements \yii\web\IdentityInterface
+/**
+ * This is the model class for table "user".
+ *
+ * @property integer $type
+ * @property integer $business_id
+ */
+
+class User extends \webvimark\modules\UserManagement\models\User
 {
-    public $id;
-    public $username;
-    public $password;
-    public $authKey;
-    public $accessToken;
+    const USER_NORMAL = 0;
+    const USER_BUSINESS = 1;
+    const USER_MOD = 2;
+    const USER_ADMIN = 3;
 
-    private static $users = [
-        '100' => [
-            'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
-        ],
-    ];
-
-
-    /**
-     * @inheritdoc
-     */
-    public static function findIdentity($id)
+    public static function getTypeList()
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return array(
+            self::USER_NORMAL => 'Nhân viên',
+            self::USER_BUSINESS => 'Doanh nghiệp',
+            self::USER_MOD      => 'Moderator',
+            self::USER_ADMIN    => 'Admin',
+        );
     }
 
-    /**
-     * @inheritdoc
-     */
-    public static function findIdentityByAccessToken($token, $type = null)
-    {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
-
-        return null;
+    public static function getBusinessId($id=false){
+        $user = $id ? User::findOne($id) : Yii::$app->user->identity;
+        $business_id = $user->type == self::USER_BUSINESS ? $user->id : $user->business_id;
+        return $business_id;
     }
 
-    /**
-     * Finds user by username
-     *
-     * @param string $username
-     * @return static|null
-     */
-    public static function findByUsername($username)
+    public function attributeLabels()
     {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getAuthKey()
-    {
-        return $this->authKey;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function validateAuthKey($authKey)
-    {
-        return $this->authKey === $authKey;
-    }
-
-    /**
-     * Validates password
-     *
-     * @param string $password password to validate
-     * @return bool if password provided is valid for current user
-     */
-    public function validatePassword($password)
-    {
-        return $this->password === $password;
+        return [
+            'id'                 => 'ID',
+            'username'           => UserManagementModule::t('back', 'Login'),
+            'superadmin'         => UserManagementModule::t('back', 'Superadmin'),
+            'confirmation_token' => UserManagementModule::t('back', 'Confirmation Token'),
+            'registration_ip'    => UserManagementModule::t('back', 'Registration IP'),
+            'bind_to_ip'         => UserManagementModule::t('back', 'Bind to IP'),
+            'status'             => UserManagementModule::t('back', 'Status'),
+            'gridRoleSearch'     => UserManagementModule::t('back', 'Roles'),
+            'created_at'         => UserManagementModule::t('back', 'Created'),
+            'updated_at'         => UserManagementModule::t('back', 'Updated'),
+            'password'           => UserManagementModule::t('back', 'Password'),
+            'repeat_password'    => UserManagementModule::t('back', 'Repeat password'),
+            'email_confirmed'    => UserManagementModule::t('back', 'E-mail confirmed'),
+            'email'              => UserManagementModule::t('back', 'E-mail'),
+            'type'               => UserManagementModule::t('back', 'Kiểu thành viên')
+        ];
     }
 }
