@@ -1,0 +1,22 @@
+<svg width='350.155mm' height='748.344mm' viewBox='0 0 350.155 748.344' xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink'>
+    <style>
+        .outline {
+            fill: none;
+            stroke: black;
+            stroke-width: 0.1;
+        }
+    </style>
+
+
+
+<symbol id="page" overflow="visible">
+    <use xlink:href='#row0' y='0.000000' />
+<use xlink:href='#row1' y='60.031000' />
+<use xlink:href='#row2' y='120.062000' />
+<use xlink:href='#row3' y='180.093000' />
+<use xlink:href='#row4' y='240.124000' />
+<use xlink:href='#row5' y='300.155000' />
+</symbol>
+
+<use xlink:href='#page' x='0.000000' y='0.000000' />
+    </svg>
