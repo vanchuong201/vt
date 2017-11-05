@@ -99,6 +99,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                         'label' => 'Quản lý lô tem', 'icon' => 'tags', 'url' => "#",
                                         'items' => [
                                             ['label' => 'Danh sách lô tem', 'icon' => 'tag', 'url' => ['/parcel-stamp'],],
+                                            ['label' => 'Danh sách tem', 'icon' => 'tag', 'url' => ['/stamps'],],
                                             ['label' => 'Danh sách sản phẩm', 'icon' => 'barcode', 'url' => ['/products'],],
                                         ]
                                     ],

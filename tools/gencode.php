@@ -67,7 +67,7 @@ if( !empty($arItem)  ) {
             `serial`  varchar(128) NULL DEFAULT '' ,
             `qrm`  varchar(128) NULL DEFAULT '' ,
             `code_sms`  varchar(128) NULL DEFAULT '' ,
-            `item_id`  int(11) NULL DEFAULT 0 COMMENT 'ID sản phẩm' ,
+            `product_id`  int(11) NULL DEFAULT 0 COMMENT 'ID sản phẩm' ,
             `name` varchar(128) NULL DEFAULT '' COMMENT 'Tên sản phẩm khi quét',
             `order_id`  int(11) NULL DEFAULT 0 COMMENT 'ID đơn hàng (lô tem)' ,
             `type`  varchar(10) NULL DEFAULT '' COMMENT 'Kiểu: 0 tem thường, 1: tem bảo hành, 2: tem tràn hàng',
@@ -120,7 +120,7 @@ if( !empty($arItem)  ) {
     //build sql
     $arVal = array();
     $created_time = time();
-    $sql = "insert into $table (id, code_id, serial, qrm, `code_sms`, `item_id`, `name`, `order_id`, `type`, status, created_time, stamp_service) values";
+    $sql = "insert into $table (id, code_id, serial, qrm, `code_sms`, `product_id`, `name`, `order_id`, `type`, status, created_time, stamp_service) values";
     $i = 0;
     $ii = 0;
 
@@ -164,13 +164,13 @@ if( !empty($arItem)  ) {
         $qrm = base_convert($prefix_code_id . $i . (!$prefix ? '03' : '04'), 10, 36) . strlen($i);
 
         $status = 0;
-        $arVal[] = "($i, '$code_id', '$serial', '$qrm', '$code_sms', '{$arItem['item_id']}', '{$arProduct['name']}', '{$arItem['id']}', {$stamp_service}, $status, $created_time,{$stamp_service})";
+        $arVal[] = "($i, '$code_id', '$serial', '$qrm', '$code_sms', '{$arItem['product_id']}', '{$arProduct['name']}', '{$arItem['id']}', {$stamp_service}, $status, $created_time,{$stamp_service})";
         $ii++;
         if ($ii > 10000) {
             $sql .= join(',', $arVal);
 
             $mysql->setQuery($sql);
-            $sql = "insert into $table (id, code_id, serial, qrm, `code_sms`, `item_id`, `name`, `order_id`, `type`, status, created_time, stamp_service) values";
+            $sql = "insert into $table (id, code_id, serial, qrm, `code_sms`, `product_id`, `name`, `order_id`, `type`, status, created_time, stamp_service) values";
             $arVal = [];
             $ii = 0;
         }
@@ -190,7 +190,7 @@ if( !empty($arItem)  ) {
         //cập nhật lại số bắt đầu chạy jobs
 
     }
-    $sqlUp = "update parcel_stamp set status=1  WHERE id=".$arItem['id'];
+    $sqlUp = "update orders set status=1  WHERE id=".$arItem['id'];
     $mysql->setQuery( $sqlUp );
 }
 
