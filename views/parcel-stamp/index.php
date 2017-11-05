@@ -2,12 +2,13 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\ParcelStamp;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\searchs\ParcelStampSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Parcel Stamps';
+$this->title = 'Quản lý lô tem';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="parcel-stamp-index">
@@ -15,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Parcel Stamp', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Tạo mới', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -23,19 +24,33 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+//            [
+//                'attribute' => 'id',
+//                'filter' => false
+//            ],
             'name',
-            'user_id',
+//            'user_id',
             'quantity',
             'service',
             // 'expiry_time',
-            // 'status',
-            // 'created_at',
+             'status',
+             [
+                 'attribute' => 'created_at',
+                 'format' => 'raw',
+                 'value' => function(ParcelStamp $model){
+                     return date('H:i:i', $model->created_at).'<br>'.date('d-m-Y', $model->created_at);
+                 }
+             ],
             // 'created_by',
             // 'status_zip_excel',
             // 'link_excel',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'visibleButtons' => [
+                    'update' => \app\models\User::canRoute('delete')
+                ]
+            ],
         ],
     ]); ?>
 </div>

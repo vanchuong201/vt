@@ -52,14 +52,14 @@ class ParcelStamp extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'user_id' => 'User ID',
-            'quantity' => 'Quantity',
-            'service' => 'Service',
+            'name' => 'Tên lô tem',
+            'user_id' => 'Doanh nghiệp',
+            'quantity' => 'Số lượng tem',
+            'service' => 'Dịch vụ tem',
             'expiry_time' => 'Expiry Time',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'created_by' => 'Created By',
+            'status' => 'Trạng thái',
+            'created_at' => 'Thời gian tạo',
+            'created_by' => 'Người tạo',
             'status_zip_excel' => 'Status Zip Excel',
             'link_excel' => 'Link Excel',
         ];

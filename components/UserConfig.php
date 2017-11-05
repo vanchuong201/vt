@@ -9,11 +9,21 @@
 namespace common\components;
 
 use app\models\User;
+use Yii;
 
 class UserConfig extends \webvimark\modules\UserManagement\components\UserConfig
 {
+    public $loginUrl = ['/vt/auth/login'];
+
     public function getIsBusiness()
     {
         return @Yii::$app->user->identity->type == User::USER_BUSINESS;
     }
+
+
+    public function getIsAdminGroup(){
+        return Yii::$app->user->isSuperadmin;
+    }
+
+
 }

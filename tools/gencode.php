@@ -39,9 +39,11 @@ if( !empty($arItem)  ) {
     $table = 'items_'.$arUser['id'];
 
     //thông tin sp
-    $sqlProduct = "select id, sku, name, status,serial_prefix from items where id = ".$arItem['item_id'];
-    $re = $mysql->setQuery( $sqlProduct );
-    $arProduct = $mysql->getOneRow( $re );
+//    $sqlProduct = "select id, sku, name, status,serial_prefix from products where id = ".$arItem['item_id'];
+//    echo $sqlProduct;die;
+//    $re = $mysql->setQuery( $sqlProduct );
+//    $arProduct = $mysql->getOneRow( $re );
+
     $serial_prefix = "";
     if( !empty($arProduct) ) {
         $arProduct['name'] = addslashes(stripslashes($arProduct['name']));

@@ -14,10 +14,10 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta charset="<?= Yii::$app->charset ?>" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="<?= Yii::$app->charset ?>"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -27,7 +27,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="nav-<?= !empty($_COOKIE['menuIsCollapsed']) && $_COOKIE['menuIsCollapsed'] == 'true' ? 'sm' : 'md' ?>" >
+<body class="nav-<?= !empty($_COOKIE['menuIsCollapsed']) && $_COOKIE['menuIsCollapsed'] == 'true' ? 'sm' : 'md' ?>">
 <?php $this->beginBody(); ?>
 <div class="container body">
 
@@ -37,7 +37,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+                    <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>VQR Solution</span></a>
                 </div>
                 <div class="clearfix"></div>
 
@@ -48,12 +48,12 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>John Doe</h2>
+                        <h2>ABC Company</h2>
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
 
-                <br />
+                <br/>
 
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -69,95 +69,104 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                     [
                                         'label' => 'Quản lý thành viên', 'icon' => 'users', 'url' => "#",
                                         'items' => [
-                                            ['label' => 'Danh sách thành viên', 'icon' => 'user', 'url' => ['/user/index'],  ],
-                                            ['label' => 'Nhóm quyền',           'icon' => 'users', 'url' => ['/role'],],
-                                            ['label' => 'Danh sách quyền',      'icon' => 'expeditedssl', 'url' => ['/permission'],],
-                                            ['label' => 'Xem log đăng nhập',    'icon' => 'sticky-note-o', 'url' => ['/user-visit-log/index'],],
+                                            ['label' => 'Danh sách thành viên', 'icon' => 'user', 'url' => ['/user/index'],],
+                                            ['label' => 'Nhóm quyền', 'icon' => 'users', 'url' => ['/role'],],
+                                            ['label' => 'Danh sách quyền', 'icon' => 'expeditedssl', 'url' => ['/permission'],],
+                                            ['label' => 'Xem log đăng nhập', 'icon' => 'sticky-note-o', 'url' => ['/user-visit-log/index'],],
                                         ]
                                     ],
 
                                     [
-                                        'label' => 'Quản lý lô tem', 'icon' => 'users', 'url' => "#",
+                                        'label' => 'Quản lý lô tem', 'icon' => 'tags', 'url' => "#",
                                         'items' => [
-                                            ['label' => 'Danh sách lô tem', 'icon' => 'user', 'url' => ['/parcel-stamp'],  ],
-                                            ['label' => 'Danh sách sản phẩm',           'icon' => 'users', 'url' => ['/products'],],
+                                            ['label' => 'Danh sách lô tem', 'icon' => 'tag', 'url' => ['/parcel-stamp'],],
+                                            ['label' => 'Danh sách sản phẩm', 'icon' => 'barcode', 'url' => ['/products'],],
                                         ]
                                     ],
 
                                     [
-                                        "label" => "auth",
+                                        'label' => 'Dịch vụ chống giả', 'icon' => 'asterisk', 'url' => "#",
+                                        'items' => [
+                                            ['label' => 'Danh sách tem', 'icon' => 'qrcode', 'url' => ['#'],],
+                                            ['label' => 'Lịch sử quét tem', 'icon' => 'history', 'url' => ['#'],],
+                                            ['label' => 'Thống kê quét tem', 'icon' => 'bar-chart', 'url' => ['#'],],
+                                        ]
+                                    ],
+
+                                    [
+                                        "label" => "Thông tin tài khoản",
                                         "icon" => "th",
                                         "url" => "#",
                                         "items" => [
-                                            ['label'=>'Login', 'url'=>['/user-management/auth/login']],
-                                            ['label'=>'Logout', 'url'=>['/user-management/auth/logout']],
-                                            ['label'=>'Registration', 'url'=>['/user-management/auth/registration']],
-                                            ['label'=>'Change own password', 'url'=>['/user-management/auth/change-own-password']],
-                                            ['label'=>'Password recovery', 'url'=>['/user-management/auth/password-recovery']],
-                                            ['label'=>'E-mail confirmation', 'url'=>['/user-management/auth/confirm-email']],
+                                            ['label' => 'Login', 'url' => ['/user-management/auth/login']],
+                                            ['label' => 'Logout', 'url' => ['/user-management/auth/logout']],
+                                            ['label' => 'Registration', 'url' => ['/user-management/auth/registration']],
+                                            ['label' => 'Change own password', 'url' => ['/user-management/auth/change-own-password']],
+                                            ['label' => 'Password recovery', 'url' => ['/user-management/auth/password-recovery']],
+                                            ['label' => 'E-mail confirmation', 'url' => ['/user-management/auth/confirm-email']],
                                         ],
                                     ],
 
-                                    ["label" => "Layout", "url" => ["site/layout"], "icon" => "files-o"],
-                                    ["label" => "Error page", "url" => ["site/error-page"], "icon" => "close"],
-                                    [
-                                        "label" => "Widgets",
-                                        "icon" => "th",
-                                        "url" => "#",
-                                        "items" => [
-                                            ["label" => "Menu", "url" => ["site/menu"]],
-                                            ["label" => "Panel", "url" => ["site/panel"]],
-                                        ],
-                                    ],
-                                    [
-                                        "label" => "Badges",
-                                        "url" => "#",
-                                        "icon" => "table",
-                                        "items" => [
-                                            [
-                                                "label" => "Default",
-                                                "url" => "#",
-                                                "badge" => "123",
-                                            ],
-                                            [
-                                                "label" => "Success",
-                                                "url" => "#",
-                                                "badge" => "new",
-                                                "badgeOptions" => ["class" => "label-success"],
-                                            ],
-                                            [
-                                                "label" => "Danger",
-                                                "url" => "#",
-                                                "badge" => "!",
-                                                "badgeOptions" => ["class" => "label-danger"],
-                                            ],
-                                        ],
-                                    ],
-                                    [
-                                        "label" => "Multilevel",
-                                        "url" => "#",
-                                        "icon" => "table",
-                                        "items" => [
-                                            [
-                                                "label" => "Second level 1",
-                                                "url" => "#",
-                                            ],
-                                            [
-                                                "label" => "Second level 2",
-                                                "url" => "#",
-                                                "items" => [
-                                                    [
-                                                        "label" => "Third level 1",
-                                                        "url" => "#",
-                                                    ],
-                                                    [
-                                                        "label" => "Third level 2",
-                                                        "url" => "#",
-                                                    ],
-                                                ],
-                                            ],
-                                        ],
-                                    ],
+//                                    ["label" => "Layout", "url" => ["site/layout"], "icon" => "files-o"],
+//                                    ["label" => "Error page", "url" => ["site/error-page"], "icon" => "close"],
+//                                    [
+//                                        "label" => "Widgets",
+//                                        "icon" => "th",
+//                                        "url" => "#",
+//                                        "items" => [
+//                                            ["label" => "Menu", "url" => ["site/menu"]],
+//                                            ["label" => "Panel", "url" => ["site/panel"]],
+//                                        ],
+//                                    ],
+//                                    [
+//                                        "label" => "Badges",
+//                                        "url" => "#",
+//                                        "icon" => "table",
+//                                        "items" => [
+//                                            [
+//                                                "label" => "Default",
+//                                                "url" => "#",
+//                                                "badge" => "123",
+//                                            ],
+//                                            [
+//                                                "label" => "Success",
+//                                                "url" => "#",
+//                                                "badge" => "new",
+//                                                "badgeOptions" => ["class" => "label-success"],
+//                                            ],
+//                                            [
+//                                                "label" => "Danger",
+//                                                "url" => "#",
+//                                                "badge" => "!",
+//                                                "badgeOptions" => ["class" => "label-danger"],
+//                                            ],
+//                                        ],
+//                                    ],
+//                                    [
+//                                        "label" => "Multilevel",
+//                                        "url" => "#",
+//                                        "icon" => "table",
+//                                        "items" => [
+//                                            [
+//                                                "label" => "Second level 1",
+//                                                "url" => "#",
+//                                            ],
+//                                            [
+//                                                "label" => "Second level 2",
+//                                                "url" => "#",
+//                                                "items" => [
+//                                                    [
+//                                                        "label" => "Third level 1",
+//                                                        "url" => "#",
+//                                                    ],
+//                                                    [
+//                                                        "label" => "Third level 2",
+//                                                        "url" => "#",
+//                                                    ],
+//                                                ],
+//                                            ],
+//                                        ],
+//                                    ],
                                 ],
                             ]
                         )
@@ -197,12 +206,13 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
-                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="http://placehold.it/128x128" alt=""><?=Yii::$app->user->username?>
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="http://placehold.it/128x128" alt=""><?php // echo Yii::$app->user->username ?>ABC Company
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                <li><a href="javascript:;">  Profile</a>
+                                <li><a href="javascript:;"> Profile</a>
                                 </li>
                                 <li>
                                     <a href="javascript:;">
@@ -219,7 +229,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                         </li>
 
                         <li role="presentation" class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown"
+                               aria-expanded="false">
                                 <i class="fa fa-envelope-o"></i>
                                 <span class="badge bg-green">6</span>
                             </a>
@@ -227,13 +238,13 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 <li>
                                     <a>
                       <span class="image">
-                                        <img src="http://placehold.it/128x128" alt="Profile Image" />
+                                        <img src="http://placehold.it/128x128" alt="Profile Image"/>
                                     </span>
-                      <span>
+                                        <span>
                                         <span>John Smith</span>
                       <span class="time">3 mins ago</span>
                       </span>
-                      <span class="message">
+                                        <span class="message">
                                         Film festivals used to be do-or-die moments for movie makers. They were where...
                                     </span>
                                     </a>
@@ -241,13 +252,13 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 <li>
                                     <a>
                       <span class="image">
-                                        <img src="http://placehold.it/128x128" alt="Profile Image" />
+                                        <img src="http://placehold.it/128x128" alt="Profile Image"/>
                                     </span>
-                      <span>
+                                        <span>
                                         <span>John Smith</span>
                       <span class="time">3 mins ago</span>
                       </span>
-                      <span class="message">
+                                        <span class="message">
                                         Film festivals used to be do-or-die moments for movie makers. They were where...
                                     </span>
                                     </a>
@@ -255,13 +266,13 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 <li>
                                     <a>
                       <span class="image">
-                                        <img src="http://placehold.it/128x128" alt="Profile Image" />
+                                        <img src="http://placehold.it/128x128" alt="Profile Image"/>
                                     </span>
-                      <span>
+                                        <span>
                                         <span>John Smith</span>
                       <span class="time">3 mins ago</span>
                       </span>
-                      <span class="message">
+                                        <span class="message">
                                         Film festivals used to be do-or-die moments for movie makers. They were where...
                                     </span>
                                     </a>
@@ -269,13 +280,13 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 <li>
                                     <a>
                       <span class="image">
-                                        <img src="http://placehold.it/128x128" alt="Profile Image" />
+                                        <img src="http://placehold.it/128x128" alt="Profile Image"/>
                                     </span>
-                      <span>
+                                        <span>
                                         <span>John Smith</span>
                       <span class="time">3 mins ago</span>
                       </span>
-                      <span class="message">
+                                        <span class="message">
                                         Film festivals used to be do-or-die moments for movie makers. They were where...
                                     </span>
                                     </a>
@@ -307,14 +318,14 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                         <h1><?= $this->title ?></h1>
                     </div>
                     <div class="text-right">
-<!--                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">-->
-<!--                            <div class="input-group">-->
-<!--                                <input type="text" class="form-control" placeholder="Search for...">-->
-<!--                                <span class="input-group-btn">-->
-<!--                                <button class="btn btn-default" type="button">Go!</button>-->
-<!--                            </span>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <!--                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">-->
+                        <!--                            <div class="input-group">-->
+                        <!--                                <input type="text" class="form-control" placeholder="Search for...">-->
+                        <!--                                <span class="input-group-btn">-->
+                        <!--                                <button class="btn btn-default" type="button">Go!</button>-->
+                        <!--                            </span>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
                         <?=
                         \yii\widgets\Breadcrumbs::widget(
                             [
@@ -336,7 +347,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a><br />
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a><br/>
                 Extension for Yii framework 2 by <a href="http://yiister.ru" rel="nofollow" target="_blank">Yiister</a>
             </div>
             <div class="clearfix"></div>
