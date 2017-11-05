@@ -2,10 +2,12 @@
 
 namespace app\models\searchs;
 
+use app\models\User;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\ParcelStamp;
+use yii\helpers\VarDumper;
 
 /**
  * ParcelStampSearch represents the model behind the search form about `app\models\ParcelStamp`.
@@ -43,11 +45,18 @@ class ParcelStampSearch extends ParcelStamp
     {
         $query = ParcelStamp::find();
 
+        if(!Yii::$app->user->isAdminGroup){
+            $query->where(['user_id'=>User::getBusinessId()]);
+            $query->andWhere(['!=','status',ParcelStamp::BLOCKED]);
+        }
+
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+
+
 
         $this->load($params);
 

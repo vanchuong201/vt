@@ -16,7 +16,7 @@ $id = @$_GET['oid'] ;
 
 $mysql = Mysql::getInstance();
 //Trạng thái: 0: yêu cầu, 1: hoàn thành, -1 hủy, 2: duyệt; -2: la dang sinh tem do; -4 huy cac order cung user id
-$sql = "select * from orders where status=2";
+$sql = "select * from parcel_stamp where status=2";
 
 $re = $mysql->setQuery( $sql );
 $arItem = $mysql->getOneRow( $re );
@@ -25,11 +25,11 @@ $arItem = $mysql->getOneRow( $re );
 if( !empty($arItem)  ) {
     $stamp_service = $arItem["service"];
     // update sang trang thai -2( dang sinh)
-    $sql ="UPDATE orders SET `status`=-2 where id=".$arItem["id"];
+    $sql ="UPDATE parcel_stamp SET `status`=-2 where id=".$arItem["id"];
     $re = $mysql->setQuery( $sql );
 
     //update sang trang thai =-4 la tam nghi
-    $sql ="UPDATE orders SET `status`=-4 where status=2 and user_id=".$arItem["user_id"];
+    $sql ="UPDATE parcel_stamp SET `status`=-4 where status=2 and user_id=".$arItem["user_id"];
     $re = $mysql->setQuery( $sql );
 
     //
@@ -179,7 +179,7 @@ if( !empty($arItem)  ) {
         //}
     }
 // update order dang dung ve trang thai cho sinh tem (=2)
-    $sql11 ="UPDATE orders SET `status`=2 where status=-4 and user_id=".$arItem["user_id"];
+    $sql11 ="UPDATE parcel_stamp SET `status`=2 where status=-4 and user_id=".$arItem["user_id"];
     $re = $mysql->setQuery( $sql11 );
 
 
@@ -190,7 +190,7 @@ if( !empty($arItem)  ) {
         //cập nhật lại số bắt đầu chạy jobs
 
     }
-    $sqlUp = "update orders set status=1  WHERE id=".$arItem['id'];
+    $sqlUp = "update parcel_stamp set status=1  WHERE id=".$arItem['id'];
     $mysql->setQuery( $sqlUp );
 }
 

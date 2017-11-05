@@ -50,10 +50,10 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
 
                     <a href="/" class="">
                         <i class="" style="display: inline-block; height: 100%; margin-top: 10px; margin-left: 3px;">
-                            <?=Html::img('css/images/logo_gtel1.png',['style'=>' height:80%'])?>
+                            <?=Html::img('/css/images/logo_gtel1.png',['style'=>' height:80%'])?>
                         </i>
 
-                        <span><?=Html::img('css/images/logo_gtel2.png',['style'=>' height:80%'])?></span>
+                        <span><?=Html::img('/css/images/logo_gtel2.png',['style'=>' height:80%'])?></span>
                     </a>
 
 
@@ -360,7 +360,23 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                 </div>
             <?php endif; ?>
             <div class="clearfix"></div>
+            <?php if ( Yii::$app->session->hasFlash('success') ): ?>
+                <div class="alert alert-success text-left">
+                    <?= Yii::$app->session->getFlash('success') ?>
+                </div>
+            <?php endif; ?>
 
+            <?php if ( Yii::$app->session->hasFlash('warning') ): ?>
+                <div class="alert alert-warning text-left">
+                    <?= Yii::$app->session->getFlash('warning') ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if ( Yii::$app->session->hasFlash('danger') ): ?>
+                <div class="alert alert-danger text-left">
+                    <?= Yii::$app->session->getFlash('danger') ?>
+                </div>
+            <?php endif; ?>
             <?= $content ?>
         </div>
         <!-- /page content -->

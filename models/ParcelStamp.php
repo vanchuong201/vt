@@ -21,8 +21,13 @@ use Yii;
  */
 class ParcelStamp extends \yii\db\ActiveRecord
 {
-    const INACTIVE = 0;
-    const ACTIVE = 1;
+    const REQUEST = 0;
+    const ACCEPTED = 2;
+    const GEN_SUCCESS = 1;
+    const BLOCKED = 3;
+
+    const GENERATING = -2;
+    const HOLDING = -4;
 
     /**
      * @inheritdoc
@@ -56,12 +61,32 @@ class ParcelStamp extends \yii\db\ActiveRecord
             'user_id' => 'Doanh nghiệp',
             'quantity' => 'Số lượng tem',
             'service' => 'Dịch vụ tem',
-            'expiry_time' => 'Expiry Time',
+            'expiry_time' => 'Số ngày bảo hành',
             'status' => 'Trạng thái',
             'created_at' => 'Thời gian tạo',
             'created_by' => 'Người tạo',
-            'status_zip_excel' => 'Status Zip Excel',
-            'link_excel' => 'Link Excel',
+            'status_zip_excel' => 'Yêu cầu tạo excel',
+            'link_excel' => 'Link tải excel',
         ];
+    }
+
+    public static function getStatus(){
+        return [
+            self::REQUEST => 'Yêu cầu',
+            self::ACCEPTED => 'Đã duyệt',
+            self::GEN_SUCCESS => 'Đã tạo tem',
+            self::BLOCKED => 'Đã khóa',
+            self::GENERATING => 'Đang tạo tem',
+            self::HOLDING => 'Đang chờ tạo tem',
+        ];
+    }
+
+
+
+    public function getUser_(){ // get Business
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+    public function getUser__(){ // get user
+        return $this->hasOne(User::className(), ['id' => 'created_by']);
     }
 }

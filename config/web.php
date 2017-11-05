@@ -22,7 +22,9 @@ $config = [
 
 
         'user' => [
-            'class' => 'webvimark\modules\UserManagement\components\UserConfig',
+            'class' => 'app\components\UserConfigCustomize',
+//            'class' => 'webvimark\modules\UserManagement\components\UserConfig',
+
 
             // Comment this if you don't want to record user logins
             'on afterLogin' => function($event) {

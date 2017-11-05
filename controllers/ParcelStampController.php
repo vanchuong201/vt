@@ -27,8 +27,10 @@ class ParcelStampController extends AdminDefaultController
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'searchModel'   => $searchModel,
+            'dataProvider'  => $dataProvider,
+            'all_service'   => Yii::$app->params['all_service'],
+            'all_status'    => ParcelStamp::getStatus(),
         ]);
     }
 
@@ -41,6 +43,8 @@ class ParcelStampController extends AdminDefaultController
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'all_service'   => Yii::$app->params['all_service'],
+            'all_status'    => ParcelStamp::getStatus(),
         ]);
     }
 
@@ -55,7 +59,7 @@ class ParcelStampController extends AdminDefaultController
         $request = Yii::$app->request;
 
         $model->user_id = User::getBusinessId($request->post('user_id',false));
-        $model->status = $request->post('status', ParcelStamp::ACTIVE);
+        $model->status = $request->post('status', ParcelStamp::ACCEPTED);
         $model->created_at = time();
         $model->created_by = Yii::$app->user->id;
 
@@ -95,8 +99,18 @@ class ParcelStampController extends AdminDefaultController
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+//        $this->findModel($id)->delete();
+//
+//        return $this->redirect(['index']);
 
+
+        $model = $this->findModel($id);
+        $model->status = $model::BLOCKED;
+        if(!$model->save()){
+            Yii::$app->getSession()->setFlash('warning', 'Thao tác xóa sản phẩm chưa thành công. Vui lòng thử lại !');
+        }else{
+            Yii::$app->getSession()->setFlash('success', 'Xóa lô tem thành công !');
+        }
         return $this->redirect(['index']);
     }
 
@@ -109,7 +123,13 @@ class ParcelStampController extends AdminDefaultController
      */
     protected function findModel($id)
     {
-        if (($model = ParcelStamp::findOne($id)) !== null) {
+        $query = ParcelStamp::find()->where(['id'=>$id]);
+        if(!Yii::$app->user->isAdminGroup){
+            $query->andWhere(['user_id'=>User::getBusinessId()])
+                    ->andWhere(['!=','status',ParcelStamp::BLOCKED]);
+        }
+//        if (($model = ParcelStamp::findOne($id)) !== null) {
+        if ( ($model = $query->one()) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
