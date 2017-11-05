@@ -15,6 +15,7 @@ use Yii;
  *
  * @property integer $type
  * @property integer $business_id
+ * @property string $full_name
  */
 
 class User extends \webvimark\modules\UserManagement\models\User
@@ -57,7 +58,9 @@ class User extends \webvimark\modules\UserManagement\models\User
             'repeat_password'    => UserManagementModule::t('back', 'Repeat password'),
             'email_confirmed'    => UserManagementModule::t('back', 'E-mail confirmed'),
             'email'              => UserManagementModule::t('back', 'E-mail'),
-            'type'               => UserManagementModule::t('back', 'Kiểu thành viên')
+            'type'               => UserManagementModule::t('back', 'Kiểu thành viên'),
+            'business_id'        => UserManagementModule::t('back', 'Mã doanh nghiệp'),
+            'full_name'          => UserManagementModule::t('back', 'Name'),
         ];
     }
 }

@@ -59,7 +59,7 @@ $config = [
             'enablePrettyUrl' => true,
             'rules' => [
                 's/<code>' => 'scan',
-                'vqr/auth/login' => 'user-management/auth/login'
+                'u/auth/login' => 'user-management/auth/login'
             ],
         ],
 

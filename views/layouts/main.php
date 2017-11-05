@@ -36,8 +36,28 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
 
-                <div class="navbar nav_title" style="border: 0;">
-                    <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>VQR Solution</span></a>
+                <div class="navbar nav_title" style="border: 0">
+<!--                    <a style="display: block; width: 80%; height: 80%; margin: auto; margin-top: 5px;">-->
+<!--                        --><?php // echo Html::img('css/images/logo_gtel.png',['style'=>' height:100%'])?>
+<!--                    </a>-->
+<!--
+                    <a href="/" class="site_title">
+                        <i class="fa fa-paw"></i>
+                        <span>VQR Solution</span>
+                    </a>
+-->
+
+
+                    <a href="/" class="">
+                        <i class="" style="display: inline-block; height: 100%; margin-top: 10px; margin-left: 3px;">
+                            <?=Html::img('css/images/logo_gtel1.png',['style'=>' height:80%'])?>
+                        </i>
+
+                        <span><?=Html::img('css/images/logo_gtel2.png',['style'=>' height:80%'])?></span>
+                    </a>
+
+
+
                 </div>
                 <div class="clearfix"></div>
 
@@ -47,8 +67,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                         <img src="http://placehold.it/128x128" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
-                        <span>Welcome,</span>
-                        <h2>ABC Company</h2>
+                        <span>Xin chào,</span>
+                        <h2><?=!empty(Yii::$app->user->identity->full_name)?Yii::$app->user->identity->full_name:'&nbsp;&nbsp;'?></h2>
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
@@ -59,12 +79,12 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
                     <div class="menu_section">
-                        <h3>General</h3>
+                        <h3>&nbsp;</h3>
                         <?=
                         \yiister\gentelella\widgets\Menu::widget(
                             [
                                 "items" => [
-                                    ["label" => "Trang chủ", "url" => "/", "icon" => "home"],
+                                    ["label" => "Giới thiệu", "url" => "/", "icon" => "info-circle"],
 
                                     [
                                         'label' => 'Quản lý thành viên', 'icon' => 'users', 'url' => "#",
@@ -98,7 +118,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                         "icon" => "th",
                                         "url" => "#",
                                         "items" => [
-                                            ['label' => 'Login', 'url' => ['/user-management/auth/login']],
+                                            ['label' => 'Login', 'url' => ['/u/auth/login']],
                                             ['label' => 'Logout', 'url' => ['/user-management/auth/logout']],
                                             ['label' => 'Registration', 'url' => ['/user-management/auth/registration']],
                                             ['label' => 'Change own password', 'url' => ['/user-management/auth/change-own-password']],
@@ -208,7 +228,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
                                aria-expanded="false">
-                                <img src="http://placehold.it/128x128" alt=""><?php // echo Yii::$app->user->username ?>ABC Company
+                                <img src="http://placehold.it/128x128" alt=""><?php echo @Yii::$app->user->identity->full_name ?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
