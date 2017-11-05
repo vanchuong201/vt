@@ -2,6 +2,7 @@
 
 namespace app\models\searchs;
 
+use app\models\User;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -42,6 +43,11 @@ class ProductsSearch extends Products
     public function search($params)
     {
         $query = Products::find();
+
+        if(!Yii::$app->user->isAdminGroup){
+            $query->where(['user_id'=>User::getBusinessId()]);
+            $query->andWhere(['!=','status',Products::PRODUCT_DELETED]);
+        }
 
         // add conditions that should always apply here
 

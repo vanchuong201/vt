@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use Yii;
 use app\models\Products;
 use app\models\searchs\ProductsSearch;
@@ -42,6 +43,7 @@ class ProductsController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'all_status' => Products::getStatus(),
         ]);
     }
 
@@ -54,6 +56,7 @@ class ProductsController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'all_status' => Products::getStatus(),
         ]);
     }
 
@@ -94,6 +97,7 @@ class ProductsController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'all_status' => Products::getStatus(),
             ]);
         }
     }
@@ -106,8 +110,17 @@ class ProductsController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+//        $this->findModel($id)->delete();
+//
+//        return $this->redirect(['index']);
 
+        $model = $this->findModel($id);
+        $model->status = $model::PRODUCT_DELETED;
+        if(!$model->save()){
+            Yii::$app->getSession()->setFlash('warning', 'Thao tác xóa sản phẩm chưa thành công. Vui lòng thử lại !');
+        }else{
+            Yii::$app->getSession()->setFlash('success', 'Xóa lô tem thành công !');
+        }
         return $this->redirect(['index']);
     }
 
@@ -120,10 +133,23 @@ class ProductsController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Products::findOne($id)) !== null) {
+//        if (($model = Products::findOne($id)) !== null) {
+//            return $model;
+//        } else {
+//            throw new NotFoundHttpException('The requested page does not exist.');
+//        }
+
+        $query = Products::find()->where(['id'=>$id]);
+        if(!Yii::$app->user->isAdminGroup){
+            $query->andWhere(['user_id'=>User::getBusinessId()])
+                ->andWhere(['!=','status',Products::PRODUCT_DELETED]);
+        }
+//        if (($model = ParcelStamp::findOne($id)) !== null) {
+        if ( ($model = $query->one()) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+
     }
 }

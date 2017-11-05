@@ -21,6 +21,8 @@ class Products extends \yii\db\ActiveRecord
 {
     const PRODUCT_INACTIVE = 0;
     const PRODUCT_ACTIVE = 1;
+    const PRODUCT_DELETED = -1;
+    const PRODUCT_HIDDEN = -2;
 
     /**
      * @inheritdoc
@@ -48,14 +50,29 @@ class Products extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
             'vid' => 'Vid',
-            'gtin' => 'Gtin',
-            'gln' => 'Gln',
-            'user_id' => 'User ID',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'created_by' => 'Created By',
+            'name' => 'Tên sản phẩm',
+            'gtin' => 'Mã code',
+            'gln' => 'Mã doanh nghiệp',
+            'user_id' => 'Doanh nghiệp',
+            'status' => 'Trạng thái',
+            'created_at' => 'Ngày tạo',
+            'created_by' => 'Người tạo',
         ];
+    }
+    public static function getStatus(){
+        return [
+            self::PRODUCT_INACTIVE => 'Chờ duyệt',
+            self::PRODUCT_ACTIVE => 'Kích hoạt',
+            self::PRODUCT_DELETED => 'Đã xóa',
+            self::PRODUCT_HIDDEN => 'Đã ẩn',
+        ];
+    }
+
+    public function getUser_(){ // get Business
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+    public function getUser__(){ // get user
+        return $this->hasOne(User::className(), ['id' => 'created_by']);
     }
 }
