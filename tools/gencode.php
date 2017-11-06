@@ -190,7 +190,7 @@ if( !empty($arItem)  ) {
         //cập nhật lại số bắt đầu chạy jobs
 
     }
-    $sqlUp = "update orders set status=1  WHERE id=".$arItem['id'];
+    $sqlUp = "update parcel_stamp set status=1  WHERE id=".$arItem['id'];
     $mysql->setQuery( $sqlUp );
 }
 

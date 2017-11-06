@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\VarDumper;
 
 /**
  * This is the model class for table "items_2".
@@ -45,6 +46,10 @@ class Stamps extends \yii\db\ActiveRecord
     const TO_DISPLAY = 3; // Sản phẩm trưng bày
     const REVOKED = 4; // Thu hồi
     const DELETED = 5; // HỦY
+
+    const ACTIVE_BY_PARCEL = 'parcel';
+    const ACTIVE_BY_BATCH = 'batch';
+    const ACTIVE_BY_LIST = 'list';
 
     public static function getStatus(){
         return [
@@ -126,5 +131,34 @@ class Stamps extends \yii\db\ActiveRecord
     }
     public function getOrder_(){
         return $this->hasOne(ParcelStamp::className(), ['id' => 'order_id']);
+    }
+
+
+    public static function activeStamps($type,$con){
+        if($type==self::ACTIVE_BY_PARCEL){
+            if(!empty($count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], ['order_id'=>$con, 'status'=>[self::INACTIVE,self::REVOKED]]))){
+                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! Số lượng: '.$count);
+            }else{
+                Yii::$app->getSession()->setFlash('warning', 'Kích hoạt chưa thành công, vui lòng thử lại !');
+            }
+        }
+
+        elseif ($type==self::ACTIVE_BY_BATCH){
+            $condition = ['and',['>=', 'id', $con[0]],['<=', 'id', $con[1]], ['status'=>[self::INACTIVE,self::REVOKED]] ];
+            if(!empty($count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition))){
+                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! Số lượng: '.$count);
+            }else{
+                Yii::$app->getSession()->setFlash('warning', 'Kích hoạt chưa thành công, vui lòng thử lại !');
+            }
+        }
+
+        elseif ($type==self::ACTIVE_BY_LIST){
+            $condition = ['id'=>$con];
+            if(!empty($count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition))){
+                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! Số lượng: '.$count);
+            }else{
+                Yii::$app->getSession()->setFlash('warning', 'Kích hoạt chưa thành công, vui lòng thử lại !');
+            }
+        }
     }
 }
