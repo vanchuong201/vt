@@ -1,41 +1,51 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\logs;
 
-use app\components\AdminDefaultController;
-use app\models\User;
 use Yii;
-use app\models\Products;
-use app\models\search\ProductsSearch;
-use yii\helpers\VarDumper;
+use app\models\logs\LogsStatus;
+use app\models\logs\search\LogsStatusSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProductsController implements the CRUD actions for Products model.
+ * LogsStatusController implements the CRUD actions for LogsStatus model.
  */
-class ProductsController extends AdminDefaultController
+class LogsStatusController extends Controller
 {
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+        ];
+    }
 
     /**
-     * Lists all Products models.
+     * Lists all LogsStatus models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProductsSearch();
+        $searchModel = new LogsStatusSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'all_status' => Products::getStatus(),
         ]);
     }
 
     /**
-     * Displays a single Products model.
+     * Displays a single LogsStatus model.
      * @param integer $id
      * @return mixed
      */
@@ -43,22 +53,17 @@ class ProductsController extends AdminDefaultController
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'all_status' => Products::getStatus(),
         ]);
     }
 
     /**
-     * Creates a new Products model.
+     * Creates a new LogsStatus model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Products();
-        $model->status = Products::PRODUCT_ACTIVE;
-        $model->user_id = Yii::$app->user->id;
-        $model->created_at = time();
-        $model->created_by = Yii::$app->user->id;
+        $model = new LogsStatus();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -70,7 +75,7 @@ class ProductsController extends AdminDefaultController
     }
 
     /**
-     * Updates an existing Products model.
+     * Updates an existing LogsStatus model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -84,59 +89,36 @@ class ProductsController extends AdminDefaultController
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'all_status' => Products::getStatus(),
             ]);
         }
     }
 
     /**
-     * Deletes an existing Products model.
+     * Deletes an existing LogsStatus model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
-//        $this->findModel($id)->delete();
-//
-//        return $this->redirect(['index']);
+        $this->findModel($id)->delete();
 
-        $model = $this->findModel($id);
-        $model->status = $model::PRODUCT_DELETED;
-        if(!$model->save()){
-            Yii::$app->getSession()->setFlash('warning', 'Thao tác xóa sản phẩm chưa thành công. Vui lòng thử lại !');
-        }else{
-            Yii::$app->getSession()->setFlash('success', 'Xóa lô tem thành công !');
-        }
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Products model based on its primary key value.
+     * Finds the LogsStatus model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Products the loaded model
+     * @return LogsStatus the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-//        if (($model = Products::findOne($id)) !== null) {
-//            return $model;
-//        } else {
-//            throw new NotFoundHttpException('The requested page does not exist.');
-//        }
-
-        $query = Products::find()->where(['id'=>$id]);
-        if(!Yii::$app->user->isAdminGroup){
-            $query->andWhere(['user_id'=>User::getBusinessId()])
-                ->andWhere(['!=','status',Products::PRODUCT_DELETED]);
-        }
-//        if (($model = ParcelStamp::findOne($id)) !== null) {
-        if ( ($model = $query->one()) !== null) {
+        if (($model = LogsStatus::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-
     }
 }

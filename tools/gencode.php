@@ -67,40 +67,37 @@ if( !empty($arItem)  ) {
             `serial`  varchar(128) NULL DEFAULT '' ,
             `qrm`  varchar(128) NULL DEFAULT '' ,
             `code_sms`  varchar(128) NULL DEFAULT '' ,
+            `otp`  varchar(128) NULL DEFAULT '' ,
             `product_id`  int(11) NULL DEFAULT 0 COMMENT 'ID sản phẩm' ,
-            `name` varchar(128) NULL DEFAULT '' COMMENT 'Tên sản phẩm khi quét',
-            `order_id`  int(11) NULL DEFAULT 0 COMMENT 'ID đơn hàng (lô tem)' ,
-            `type`  varchar(10) NULL DEFAULT '' COMMENT 'Kiểu: 0 tem thường, 1: tem bảo hành, 2: tem tràn hàng',
-            `status`  tinyint(1) NULL DEFAULT 0 COMMENT 'Trạng thái: 0: chưa kích hoạt, 1 kích hoạt, -1:khóa, thu hồi, chỉ dành cho con id' ,
-            `user_scan` varchar(128) DEFAULT '' COMMENT 'ID người quét mã đầu tiên, chi danh cho active code_id, id cua người dùng iCheck',
-              `device_id` varchar(128) DEFAULT '' COMMENT 'Id thiết bị, chi danh cho active code_id',
-              `phone` varchar(128) DEFAULT '' COMMENT 'Số điện thoại kích hoạt, chi danh cho active code_id',
-              `country` varchar(128) DEFAULT '' COMMENT 'Đất nước kích hoạt, chi danh cho active code_id',
-              `city` varchar(128) DEFAULT '' COMMENT 'Thành phố quét lần đầu, chi danh cho active code_id',
-              `geo_location`  varchar(128) NULL DEFAULT '' ,
-              `ip`  varchar(128) NULL DEFAULT '' ,
-              `district` varchar(128) DEFAULT '' COMMENT 'Quận quét lần đấu, chi danh cho active code_id',
-              `to_city` varchar(128) DEFAULT '' COMMENT 'Thành phố nơi sản phẩm được xuất đến, chi danh cho active code_id',
-              `to_district` varchar(128) DEFAULT '' COMMENT 'Quận nơi sản phẩm được xuất đến, chi danh cho active code_id',
-              `to_address` varchar(128) DEFAULT '' COMMENT 'Quận nơi sản phẩm được xuất đến, chi danh cho active code_id',
-              `active_time` int(11) DEFAULT '0' COMMENT 'Thời gian kích hoạt, chi danh cho active code_id',
-              `own_product` int(11) DEFAULT '0' COMMENT '= customer.id : Chủ sở hữu sản phẩm, mua sản phẩm, cái này dùng cho bảo hành',
-              `sim_manage` VARCHAR (128) DEFAULT '0' COMMENT '= Số sim trên thiết bị',
+            `parcel_id`  int(11) NULL DEFAULT 0 COMMENT 'ID đơn hàng (lô tem)' ,
+            `status`  tinyint(1) NULL DEFAULT 0 COMMENT '' ,
+            `device_id` varchar(128) DEFAULT '' COMMENT 'Id thiết bị',
+            `phone` varchar(128) DEFAULT '' COMMENT 'Số điện thoại kích hoạt',
+            `geo_location`  varchar(128) NULL DEFAULT '' ,
+            `city` varchar(128) DEFAULT '' COMMENT 'Thành phố active',
+            `district` varchar(128) DEFAULT '' COMMENT 'Quận active',
+            `address` varchar(128) DEFAULT '' COMMENT 'address active',
+            `ip`  varchar(128) NULL DEFAULT '' ,
+            `to_city` varchar(128) DEFAULT '' COMMENT 'city phan phoi sp',
+            `to_district` varchar(128) DEFAULT '' COMMENT 'Quan huyen phan phoi san pham',
+            `to_address` varchar(128) DEFAULT '' COMMENT 'dia chi phan phoi san pham',
+            `active_time` int(11) DEFAULT '0' COMMENT 'thời gian lúc xác thực',
+            `own_product` int(11) DEFAULT '0' COMMENT '= customer.id : Chủ sở hữu sản phẩm, mua sản phẩm, cái này dùng cho bảo hành',
+            `sim_manage` VARCHAR (128) DEFAULT '0' COMMENT '= Số sim trên thiết bị',
             `expire_time`  int(11) NULL DEFAULT 0 COMMENT 'Thời gian hết hạn bảo hành',
             `created_time`  int(11) NULL DEFAULT 0 ,
             `stamp_service` int(11) NULL DEFAULT 1 COMMENT 'Loai dich vu cua tem: params[stamp_service]' ,
             `counter` int(11) NULL DEFAULT 1000 COMMENT 'tong so lan dem'  ,
             `current_counter` int(11) NULL DEFAULT 1 COMMENT 'dem so lan kich hoat' ,
             PRIMARY KEY (`id`),
-            KEY `idx_item` (`order_id`) USING BTREE,
-            KEY `idx_type` (`id`,`type`) USING BTREE
+            KEY `idx_stamp_service` (`id`,`stamp_service`) USING HASH
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
         var_dump( $mysql->setQuery( $create_table ) );
     } else{
 
         $lo_id =$arItem["id"];
         // xoa du lieu co lien quan den lo
-        $sql_check_tb = "delete from ".$table." WHERE `order_id`='".$arItem["id"]."';";
+        $sql_check_tb = "delete from ".$table." WHERE `parcel_id`='".$arItem["id"]."';";
         $re = $mysql->setQuery( $sql_check_tb );
 
     }
@@ -120,7 +117,7 @@ if( !empty($arItem)  ) {
     //build sql
     $arVal = array();
     $created_time = time();
-    $sql = "insert into $table (id, code_id, serial, qrm, `code_sms`, `product_id`, `name`, `order_id`, `type`, status, created_time, stamp_service) values";
+    $sql = "insert into $table (id, code_id, serial, qrm, `code_sms`, `product_id`, `parcel_id`, status, created_time, stamp_service) values";
     $i = 0;
     $ii = 0;
 
@@ -164,13 +161,13 @@ if( !empty($arItem)  ) {
         $qrm = base_convert($prefix_code_id . $i . (!$prefix ? '03' : '04'), 10, 36) . strlen($i);
 
         $status = 0;
-        $arVal[] = "($i, '$code_id', '$serial', '$qrm', '$code_sms', '{$arItem['product_id']}', '{$arProduct['name']}', '{$arItem['id']}', {$stamp_service}, $status, $created_time,{$stamp_service})";
+        $arVal[] = "($i, '$code_id', '$serial', '$qrm', '$code_sms', '{$arItem['product_id']}', '{$arItem['id']}', $status, $created_time,{$stamp_service})";
         $ii++;
         if ($ii > 10000) {
             $sql .= join(',', $arVal);
 
             $mysql->setQuery($sql);
-            $sql = "insert into $table (id, code_id, serial, qrm, `code_sms`, `product_id`, `name`, `order_id`, `type`, status, created_time, stamp_service) values";
+            $sql = "insert into $table (id, code_id, serial, qrm, `code_sms`, `product_id`, `parcel_id`, status, created_time, stamp_service) values";
             $arVal = [];
             $ii = 0;
         }

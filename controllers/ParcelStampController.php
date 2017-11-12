@@ -6,7 +6,7 @@ use app\models\User;
 use webvimark\components\AdminDefaultController;
 use Yii;
 use app\models\ParcelStamp;
-use app\models\searchs\ParcelStampSearch;
+use app\models\search\ParcelStampSearch;
 use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -85,7 +85,7 @@ class ParcelStampController extends AdminDefaultController
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
+            return $this->renderIsAjax('update', [
                 'model' => $model,
             ]);
         }

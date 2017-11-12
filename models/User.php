@@ -66,7 +66,7 @@ class User extends \webvimark\modules\UserManagement\models\User
 
     public static function getBusinessId($id=false){
         $user = $id ? User::findOne($id) : Yii::$app->user->identity;
-        $business_id = $user->type == self::USER_BUSINESS ? $user->id : $user->business_id;
+        $business_id = @$user->type == self::USER_BUSINESS ? @$user->id : @$user->business_id;
         return $business_id;
     }
 

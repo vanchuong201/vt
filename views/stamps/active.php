@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <label><input type="radio" name="type_active" value="<?=Stamps::ACTIVE_BY_BATCH?>">Kích hoạt dãy tem</label>
             </div>
             <div class="radio">
-                <label><input type="radio" name="type_active" value="<?=Stamps::ACTIVE_BY_LIST?>">Kích hoạt dánh sách tem</label>
+                <label><input type="radio" name="type_active" value="<?=Stamps::ACTIVE_BY_LIST?>">Kích hoạt danh sách tem</label>
             </div>
         </div>
         <div class="col-md-6 col-xs-12">

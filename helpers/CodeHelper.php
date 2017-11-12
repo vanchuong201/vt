@@ -1,8 +1,8 @@
 <?php
 
 namespace app\helpers;
-use frontend\models\Items;
-use frontend\models\User;
+use app\models\Products;
+use app\models\User;
 use Yii;
 use yii\helpers\VarDumper;
 
@@ -29,8 +29,8 @@ class CodeHelper
 
                 $arCode['id']  = (int)substr( $code, $i );
 
-                $sqlProduct = "select user_id from items where serial_prefix =upper('".$sprefix."') limit 1 ";//.$arItem['item_id'];
-                $re = Items::findBySql( $sqlProduct )->one();
+                $sqlProduct = "select user_id from products where serial_prefix =upper('".$sprefix."') limit 1 ";//.$arItem['item_id'];
+                $re = Products::findBySql( $sqlProduct )->one();
                 //$arProduct = $re->user_id;
 
                 if( !empty($re->user_id) ) {
@@ -84,12 +84,10 @@ class CodeHelper
         $len_id = (int)substr( $code, strlen($code)-1 );
         $code = substr( $code, 0, strlen($code)-1 );
         $code = base_convert( $code, 36, 10 );
-        $arCode['type_code']  = (int)substr( $code, strlen($code)-2 );
+        $arCode['type_code']  = (int)substr( $code, strlen($code)-2 );  //01,02: code id; 03,04: qrm: Đéo hiểu, tìm hiểu sau
         $arCode['id']       = (int)substr( $code, (strlen($code)-($len_id+2)), $len_id );
         $code = substr( $code, 0, strlen($code)-($len_id+2) );
-
 //        echo $arCode['id'];
-
 //        $arNumber = str_split( Yii::$app->params['code_char'] );
 //        if( $arCode['type_code'] == 1 || $arCode['type_code'] == 2 ) {
 //            $arCode['user_id'] = base_convert($code, 36, 10);
@@ -122,6 +120,15 @@ class CodeHelper
 
         return $arCode;
     }
+
+    static function endCodeSms($code) {
+        $arNumber = str_split( Yii::$app->params['code_char'] );
+        $code = self::encode( $code, $arNumber, 24 );
+        $arCode['id']  = (int)substr( $code, strlen($code)-7 );
+        $arCode['user_id'] = substr( $code, 0, strlen($code)-7);
+        return $arCode;
+    }
+
     //giải mã
     static function encode ( $number, $arNumber, $hex = 36 ) {
         $arNum= str_split($number);

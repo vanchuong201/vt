@@ -1,11 +1,11 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use app\models\Products;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\searchs\ProductsSearch */
+/* @var $searchModel app\models\search\ProductsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $all_status */
 

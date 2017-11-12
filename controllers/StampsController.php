@@ -4,11 +4,13 @@ namespace app\controllers;
 
 use app\helpers\CodeHelper;
 use app\models\ParcelStamp;
-use app\models\searchs\StampsSearch;
+use app\models\search\StampsSearch;
 use app\models\Stamps;
 use app\models\User;
 use webvimark\components\AdminDefaultController;
 use Yii;
+use yii\helpers\Url;
+use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 
 /**
@@ -16,6 +18,35 @@ use yii\web\NotFoundHttpException;
  */
 class StampsController extends AdminDefaultController
 {
+
+    public function beforeAction($action)
+    {
+        $user_id = Yii::$app->request->get('u',null);
+        Stamps::$user_id = ($user_id && Yii::$app->user->isAdminGroup) ? $user_id : User::getBusinessId();
+        if(!Stamps::tableName()){ // Chưa có bảng tem
+            if(!Yii::$app->user->isAdminGroup){
+                Yii::$app->getSession()->setFlash('warning', 'Doanh nghiệp của bạn chưa có tem, Hãy bắt đầu bằng cách tạo lô tem ở đây !');
+            }
+            $this->redirect(['/parcel-stamp/index']);
+            return false;
+        }
+        if ( parent::beforeAction($action) )
+        {
+            if ( $this->enableOnlyActions !== [] AND in_array($action->id, $this->_implementedActions) AND !in_array($action->id, $this->enableOnlyActions) )
+            {
+                throw new NotFoundHttpException('Page not found');
+            }
+
+            if ( in_array($action->id, $this->disabledActions) )
+            {
+                throw new NotFoundHttpException('Page not found');
+            }
+
+            return true;
+        }
+
+        return false;
+    }
 
     /**
      * Lists all Stamps models.
@@ -44,7 +75,9 @@ class StampsController extends AdminDefaultController
             $end = $request->post('end',0);
             $list = $request->post('list',0);
 
-            if($type == Stamps::ACTIVE_BY_PARCEL){
+
+
+            if($type === Stamps::ACTIVE_BY_PARCEL){
                 if(empty($parcel)){
                     Yii::$app->getSession()->setFlash('warning', 'Bạn chưa chọn lô tem !');
                 }else{
@@ -52,7 +85,7 @@ class StampsController extends AdminDefaultController
                 }
             }
 
-            elseif ($type == Stamps::ACTIVE_BY_BATCH){
+            elseif ($type === Stamps::ACTIVE_BY_BATCH){
                 if(empty($start) && empty($end)){
                     Yii::$app->getSession()->setFlash('warning', 'Bạn chưa nhập đủ serial đầu, cuối !');
                 }else{
@@ -62,7 +95,7 @@ class StampsController extends AdminDefaultController
                 }
             }
 
-            elseif ($type == Stamps::ACTIVE_BY_LIST){
+            elseif ($type === Stamps::ACTIVE_BY_LIST){
                 if(empty($list)){
                     Yii::$app->getSession()->setFlash('warning', 'Bạn chưa nhập đủ serial đầu, cuối !');
                 }else{
@@ -74,12 +107,9 @@ class StampsController extends AdminDefaultController
                     Stamps::activeStamps($type, $list_id);
                 }
             }
-
             else{
                 Yii::$app->getSession()->setFlash('warning', 'Bạn chưa chọn kiểu kích hoạt !');
             }
-
-
             return $this->redirect(['active']);
         }
 
@@ -101,6 +131,9 @@ class StampsController extends AdminDefaultController
      */
     public function actionView($id)
     {
+        if(!Yii::$app->user->isAdminGroup){
+            return $this->redirect('index');
+        }
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -113,6 +146,10 @@ class StampsController extends AdminDefaultController
      */
     public function actionCreate()
     {
+        if(!Yii::$app->user->isAdminGroup){
+            return $this->redirect('index');
+        }
+
         $model = new Stamps();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -132,6 +169,10 @@ class StampsController extends AdminDefaultController
      */
     public function actionUpdate($id)
     {
+        if(!Yii::$app->user->isAdminGroup){
+            return $this->redirect('index');
+        }
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -151,6 +192,10 @@ class StampsController extends AdminDefaultController
      */
     public function actionDelete($id)
     {
+        if(!Yii::$app->user->isAdminGroup){
+            return $this->redirect('index');
+        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

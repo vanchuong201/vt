@@ -1,11 +1,11 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use app\models\ParcelStamp;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\searchs\ParcelStampSearch */
+/* @var $searchModel app\models\search\ParcelStampSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $all_service */
 /* @var $all_status */

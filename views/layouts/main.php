@@ -90,8 +90,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                         'items' => [
                                             ['label' => 'Danh sách thành viên', 'icon' => 'user', 'url' => ['/user/index'],],
                                             ['label' => 'Nhóm quyền', 'icon' => 'users', 'url' => ['/role'],],
-                                            ['label' => 'Danh sách quyền', 'icon' => 'expeditedssl', 'url' => ['/permission'],],
-                                            ['label' => 'Xem log đăng nhập', 'icon' => 'sticky-note-o', 'url' => ['/user-visit-log/index'],],
+                                            ['label' => 'Danh sách quyền', 'icon' => 'expeditedssl', 'url' => ['/permission'], 'visible'=>Yii::$app->user->isAdminGroup],
+                                            ['label' => 'Xem log đăng nhập', 'icon' => 'sticky-note-o', 'url' => ['/user-visit-log/index'], 'visible'=>Yii::$app->user->isAdminGroup],
                                         ]
                                     ],
 
@@ -102,7 +102,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                             ['label' => 'Danh sách lô tem', 'icon' => 'tag', 'url' => ['/parcel-stamp'],],
                                             ['label' => 'Danh sách tem', 'icon' => 'list-ol', 'url' => ['/stamps'],],
                                             ['label' => 'Kích hoạt tem', 'icon' => 'certificate', 'url' => ['/stamps/active'],],
-//                                            ['label' => 'Lịch sử kích hoạt tem', 'icon' => 'history', 'url' => ['/stamps/logs-active'],],
+                                            ['label' => 'Lịch sử kích hoạt tem', 'icon' => 'history', 'url' => ['/stamps/logs-active'],],
                                         ]
                                     ],
 
@@ -246,7 +246,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 <li>
                                     <a href="javascript:;">Help</a>
                                 </li>
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <li><a href="/user-management/auth/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </li>
                             </ul>
                         </li>

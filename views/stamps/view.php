@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Stamps */
 
-$this->title = $model->name;
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Stamps', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -33,19 +33,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'serial',
             'qrm',
             'code_sms',
+            'otp',
             'product_id',
-            'name',
-            'order_id',
-            'type',
+            'parcel_id',
             'status',
-            'user_scan',
             'device_id',
             'phone',
-            'country',
-            'city',
             'geo_location',
-            'ip',
+            'city',
             'district',
+            'address',
+            'ip',
             'to_city',
             'to_district',
             'to_address',

@@ -1,6 +1,5 @@
 <?php
 
-use yii\helpers\Html;
 use app\models\Stamps;
 use kartik\grid\GridView;
 
@@ -16,7 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="stamps-index">
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -48,22 +46,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'visible' => Yii::$app->user->isAdminGroup,
             ],
             [
-                'attribute' => 'otp',
-                'visible' => Yii::$app->user->isAdminGroup,
-            ],
-
-            [
                 'attribute' => 'stamp_service',
                 'value' => function(Stamps $model) use ($all_service) {
                     return !empty($all_service[$model->stamp_service]) ? $all_service[$model->stamp_service] : $model->stamp_service ;
                 }
-            ],
-            [
-                'attribute' => 'parcel_id',
-                'value' => function(Stamps $model){
-                    return !empty($model->parcel_id) ? @$model->parcel_->name : '';
-                },
-                'headerOptions' => ['style'=>'width:120px']
             ],
             [
                 'attribute' => 'product_id',
@@ -71,6 +57,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     return !empty($model->product_id) ? @$model->product_->name : '';
                 },
                 'headerOptions' => ['style'=>'width:150px']
+            ],
+
+//            'name',
+            [
+                'attribute' => 'order_id',
+                'value' => function(Stamps $model){
+                    return !empty($model->order_id) ? @$model->order_->name : '';
+                },
+                'headerOptions' => ['style'=>'width:120px']
             ],
             [
                 'class'=>'webvimark\components\StatusColumn',
@@ -84,19 +79,20 @@ $this->params['breadcrumbs'][] = $this->title;
                     [Stamps::DELETED, $all_status[Stamps::DELETED], 'danger'],
                 ],
             ],
-            // 'device_id',
+//            'user_scan',
+//            'device_id',
             [
                 'attribute' => 'phone',
                 'headerOptions' => ['style'=>'width:120px']
             ],
-            // 'geo_location',
-            // 'city',
-            // 'district',
-            // 'address',
-            // 'ip',
-            // 'to_city',
-            // 'to_district',
-            // 'to_address',
+//            'country',
+//            'city',
+//            'geo_location',
+//            'ip',
+//            'district',
+//            'to_city',
+//            'to_district',
+//            'to_address',
             [
                 'attribute' => 'active_time',
                 'label' => 'Th/gian xác thực',
@@ -105,20 +101,28 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'headerOptions' => ['style'=>'width:130px']
             ],
-            // 'own_product',
-            // 'sim_manage',
-            // 'expire_time:datetime',
+//            'own_product',
+//            'sim_manage',
+//            [
+//                'attribute' => 'expire_time',
+//                'value' => function(Stamps $model){
+//                    return $model->created_time ? date('H:i | d/m/Y') : '';
+//                }
+//            ],
             [
                 'attribute' => 'created_time',
                 'value' => function(Stamps $model){
                     return $model->created_time ? date('H:i | d/m/Y') : '';
                 },
-                'headerOptions' => ['style'=>'width:130px']
+                'headerOptions' => ['style'=>'width:150px']
             ],
-            // 'counter',
-            // 'current_counter',
+//            'counter',
+//            'current_counter',
 
-//            ['class' => 'yii\grid\ActionColumn'],
+//            [
+//                'class' => 'yii\grid\ActionColumn',
+//                'contentOptions' => ['style'=>'width:70px']
+//            ],
         ],
     ]); ?>
 </div>

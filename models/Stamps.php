@@ -6,26 +6,24 @@ use Yii;
 use yii\helpers\VarDumper;
 
 /**
- * This is the model class for table "items_2".
+ * This is the model class for table "items_[user_id]".
  *
  * @property integer $id
  * @property string $code_id
  * @property string $serial
  * @property string $qrm
  * @property string $code_sms
+ * @property string $otp
  * @property integer $product_id
- * @property string $name
- * @property integer $order_id
- * @property string $type
+ * @property integer $parcel_id
  * @property integer $status
- * @property string $user_scan
  * @property string $device_id
  * @property string $phone
- * @property string $country
- * @property string $city
  * @property string $geo_location
- * @property string $ip
+ * @property string $city
  * @property string $district
+ * @property string $address
+ * @property string $ip
  * @property string $to_city
  * @property string $to_district
  * @property string $to_address
@@ -40,6 +38,10 @@ use yii\helpers\VarDumper;
  */
 class Stamps extends \yii\db\ActiveRecord
 {
+    static $tbl_prefix = 'items_';
+    static $user_id = null;
+
+
     const INACTIVE = 0;
     const ACTIVE_FOR_RELEASE = 1;
     const SOLD_OUT = 2; // Trạng thái này được kích hoạt khi quét phủ cào : code_id hoặc nhắn sms
@@ -68,7 +70,13 @@ class Stamps extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'items_2';
+        $table = self::$tbl_prefix.self::$user_id;
+        $tableSchema = Yii::$app->db->schema->getTableSchema($table);
+        if($tableSchema){
+            return $table;
+        }else{
+            return false;
+        }
     }
 
     /**
@@ -77,9 +85,8 @@ class Stamps extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'order_id', 'status', 'active_time', 'own_product', 'expire_time', 'created_time', 'stamp_service', 'counter', 'current_counter'], 'integer'],
-            [['code_id', 'serial', 'qrm', 'code_sms', 'name', 'user_scan', 'device_id', 'phone', 'country', 'city', 'geo_location', 'ip', 'district', 'to_city', 'to_district', 'to_address', 'sim_manage'], 'string', 'max' => 128],
-            [['type'], 'string', 'max' => 10],
+            [['product_id', 'parcel_id', 'status', 'active_time', 'own_product', 'expire_time', 'created_time', 'stamp_service', 'counter', 'current_counter'], 'integer'],
+            [['code_id', 'serial', 'qrm', 'code_sms', 'otp', 'device_id', 'phone', 'geo_location', 'city', 'district', 'address', 'ip', 'to_city', 'to_district', 'to_address', 'sim_manage'], 'string', 'max' => 128],
         ];
     }
 
@@ -94,18 +101,16 @@ class Stamps extends \yii\db\ActiveRecord
             'serial' => 'Serial',
             'qrm' => 'Qrm',
             'code_sms' => 'Code Sms',
+            'otp' => 'Otp',
             'product_id' => 'Sản phẩm',
-            'name' => 'Name',
-            'order_id' => 'Lô',
-            'type' => 'Type',
+            'parcel_id' => 'Lô',
             'status' => 'Trạng thái',
-            'user_scan' => 'Người quets',
             'device_id' => 'Thiết bị quét',
             'phone' => 'Số điện thoại',
-            'country' => 'Quốc gia',
+            'geo_location' => 'Vị trí',
             'city' => 'Thành phố',
             'district' => 'Quận huyện',
-            'geo_location' => 'Vị trí',
+            'address' => 'Địa chỉ',
             'ip' => 'Ip',
 
             'to_city' => 'Thành phố phân phối',
@@ -129,33 +134,42 @@ class Stamps extends \yii\db\ActiveRecord
     public function getProduct_(){
         return $this->hasOne(Products::className(), ['id' => 'product_id']);
     }
-    public function getOrder_(){
-        return $this->hasOne(ParcelStamp::className(), ['id' => 'order_id']);
+    public function getParcel_(){
+        return $this->hasOne(ParcelStamp::className(), ['id' => 'parcel_id']);
     }
 
 
     public static function activeStamps($type,$con){
         if($type==self::ACTIVE_BY_PARCEL){
-            if(!empty($count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], ['order_id'=>$con, 'status'=>[self::INACTIVE,self::REVOKED]]))){
-                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! Số lượng: '.$count);
+            $count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], ['order_id'=>$con]);
+            if(isset($count)){
+                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! ');
             }else{
                 Yii::$app->getSession()->setFlash('warning', 'Kích hoạt chưa thành công, vui lòng thử lại !');
             }
         }
 
         elseif ($type==self::ACTIVE_BY_BATCH){
-            $condition = ['and',['>=', 'id', $con[0]],['<=', 'id', $con[1]], ['status'=>[self::INACTIVE,self::REVOKED]] ];
-            if(!empty($count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition))){
-                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! Số lượng: '.$count);
+            $condition = ['and',['>=', 'id', $con[0]],['<=', 'id', $con[1]], ];
+
+//            VarDumper::dump($condition);die;
+//            if(!empty($count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition))){
+            $count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition);
+
+            if( isset($count) ){
+                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! ');
             }else{
                 Yii::$app->getSession()->setFlash('warning', 'Kích hoạt chưa thành công, vui lòng thử lại !');
             }
+            Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! ');
         }
 
         elseif ($type==self::ACTIVE_BY_LIST){
             $condition = ['id'=>$con];
-            if(!empty($count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition))){
-                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! Số lượng: '.$count);
+//            if(!empty($count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition))){
+            $count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition);
+            if(isset($count)){
+                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! ');
             }else{
                 Yii::$app->getSession()->setFlash('warning', 'Kích hoạt chưa thành công, vui lòng thử lại !');
             }

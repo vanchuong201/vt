@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\search\ProductsSearch */
+/* @var $model app\models\logs\search\LogsStatusSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="products-search">
+<div class="logs-status-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,21 +17,25 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'name') ?>
+    <?= $form->field($model, 'code_start') ?>
 
-    <?= $form->field($model, 'vid') ?>
+    <?= $form->field($model, 'code_end') ?>
 
-    <?= $form->field($model, 'gtin') ?>
+    <?= $form->field($model, 'parcel_id') ?>
 
-    <?= $form->field($model, 'gln') ?>
+    <?= $form->field($model, 'service') ?>
+
+    <?php // echo $form->field($model, 'status_old') ?>
+
+    <?php // echo $form->field($model, 'status_new') ?>
+
+    <?php // echo $form->field($model, 'product_id') ?>
 
     <?php // echo $form->field($model, 'user_id') ?>
 
-    <?php // echo $form->field($model, 'status') ?>
+    <?php // echo $form->field($model, 'updated_by') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'created_by') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

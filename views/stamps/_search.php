@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\searchs\StampsSearch */
+/* @var $model app\models\search\StampsSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -25,31 +25,27 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'code_sms') ?>
 
+    <?php // echo $form->field($model, 'otp') ?>
+
     <?php // echo $form->field($model, 'product_id') ?>
 
-    <?php // echo $form->field($model, 'name') ?>
-
-    <?php // echo $form->field($model, 'order_id') ?>
-
-    <?php // echo $form->field($model, 'type') ?>
+    <?php // echo $form->field($model, 'parcel_id') ?>
 
     <?php // echo $form->field($model, 'status') ?>
-
-    <?php // echo $form->field($model, 'user_scan') ?>
 
     <?php // echo $form->field($model, 'device_id') ?>
 
     <?php // echo $form->field($model, 'phone') ?>
 
-    <?php // echo $form->field($model, 'country') ?>
+    <?php // echo $form->field($model, 'geo_location') ?>
 
     <?php // echo $form->field($model, 'city') ?>
 
-    <?php // echo $form->field($model, 'geo_location') ?>
+    <?php // echo $form->field($model, 'district') ?>
+
+    <?php // echo $form->field($model, 'address') ?>
 
     <?php // echo $form->field($model, 'ip') ?>
-
-    <?php // echo $form->field($model, 'district') ?>
 
     <?php // echo $form->field($model, 'to_city') ?>
 

@@ -20,29 +20,27 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'code_sms')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'otp')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'order_id')->textInput() ?>
+    <?= $form->field($model, 'product_id')->textInput() ?>
 
-    <?= $form->field($model, 'type')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'parcel_id')->textInput() ?>
 
     <?= $form->field($model, 'status')->textInput() ?>
-
-    <?= $form->field($model, 'user_scan')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'device_id')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'country')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'geo_location')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'geo_location')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'district')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'ip')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'district')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'to_city')->textInput(['maxlength' => true]) ?>
 

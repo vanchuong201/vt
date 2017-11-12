@@ -5,7 +5,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 use webvimark\extensions\GridPageSize\GridPageSize;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 
 /**
  * @var yii\web\View $this

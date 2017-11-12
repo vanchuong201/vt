@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models\searchs;
+namespace app\models\search;
 
 use Yii;
 use yii\base\Model;
@@ -18,8 +18,8 @@ class StampsSearch extends Stamps
     public function rules()
     {
         return [
-            [['id', 'product_id', 'order_id', 'status', 'active_time', 'own_product', 'expire_time', 'created_time', 'stamp_service', 'counter', 'current_counter'], 'integer'],
-            [['code_id', 'serial', 'qrm', 'code_sms', 'name', 'type', 'user_scan', 'device_id', 'phone', 'country', 'city', 'geo_location', 'ip', 'district', 'to_city', 'to_district', 'to_address', 'sim_manage'], 'safe'],
+            [['id', 'product_id', 'parcel_id', 'status', 'active_time', 'own_product', 'expire_time', 'created_time', 'stamp_service', 'counter', 'current_counter'], 'integer'],
+            [['code_id', 'serial', 'qrm', 'code_sms', 'otp', 'device_id', 'phone', 'geo_location', 'city', 'district', 'address', 'ip', 'to_city', 'to_district', 'to_address', 'sim_manage'], 'safe'],
         ];
     }
 
@@ -61,7 +61,7 @@ class StampsSearch extends Stamps
         $query->andFilterWhere([
             'id' => $this->id,
             'product_id' => $this->product_id,
-            'order_id' => $this->order_id,
+            'parcel_id' => $this->parcel_id,
             'status' => $this->status,
             'active_time' => $this->active_time,
             'own_product' => $this->own_product,
@@ -76,16 +76,14 @@ class StampsSearch extends Stamps
             ->andFilterWhere(['like', 'serial', $this->serial])
             ->andFilterWhere(['like', 'qrm', $this->qrm])
             ->andFilterWhere(['like', 'code_sms', $this->code_sms])
-            ->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'type', $this->type])
-            ->andFilterWhere(['like', 'user_scan', $this->user_scan])
+            ->andFilterWhere(['like', 'otp', $this->otp])
             ->andFilterWhere(['like', 'device_id', $this->device_id])
             ->andFilterWhere(['like', 'phone', $this->phone])
-            ->andFilterWhere(['like', 'country', $this->country])
-            ->andFilterWhere(['like', 'city', $this->city])
             ->andFilterWhere(['like', 'geo_location', $this->geo_location])
-            ->andFilterWhere(['like', 'ip', $this->ip])
+            ->andFilterWhere(['like', 'city', $this->city])
             ->andFilterWhere(['like', 'district', $this->district])
+            ->andFilterWhere(['like', 'address', $this->address])
+            ->andFilterWhere(['like', 'ip', $this->ip])
             ->andFilterWhere(['like', 'to_city', $this->to_city])
             ->andFilterWhere(['like', 'to_district', $this->to_district])
             ->andFilterWhere(['like', 'to_address', $this->to_address])
