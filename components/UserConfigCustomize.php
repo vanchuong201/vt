@@ -6,14 +6,14 @@
  * Time: 12:07 AM
  */
 
-namespace common\components;
+namespace app\components;
 
 use app\models\User;
 use Yii;
 
-class UserConfig extends \webvimark\modules\UserManagement\components\UserConfig
+class UserConfigCustomize extends \webvimark\modules\UserManagement\components\UserConfig
 {
-    public $loginUrl = ['/vt/auth/login'];
+    public $loginUrl = ['/u/auth/login'];
 
     public function getIsBusiness()
     {
@@ -21,8 +21,13 @@ class UserConfig extends \webvimark\modules\UserManagement\components\UserConfig
     }
 
 
+    public function getIsMod(){
+
+    }
+
     public function getIsAdminGroup(){
-        return Yii::$app->user->isSuperadmin;
+        return self::getIsSuperadmin();
+//        return Yii::$app->user->isSuperadmin;
     }
 
 

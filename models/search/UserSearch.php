@@ -6,7 +6,7 @@
  * Time: 12:42 AM
  */
 
-namespace app\models\searchs;
+namespace app\models\search;
 
 class UserSearch extends \webvimark\modules\UserManagement\models\search\UserSearch
 {

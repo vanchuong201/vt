@@ -11,12 +11,12 @@ use yii\helpers\Url;
 use yii\widgets\Pjax;
 use webvimark\extensions\GridBulkActions\GridBulkActions;
 use webvimark\extensions\GridPageSize\GridPageSize;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var app\models\searchs\UserSearch $searchModel
+ * @var app\models\search\UserSearch $searchModel
  */
 
 $this->title = UserManagementModule::t('back', 'Danh sách user');

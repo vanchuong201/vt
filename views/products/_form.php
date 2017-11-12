@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model app\models\Products */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $all_status */
 ?>
 
 <div class="products-form">
@@ -20,10 +21,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'gln')->textInput(['maxlength' => true]) ?>
 
-    <?= Yii::$app->user->isSuperadmin ? $form->field($model, 'user_id')->textInput() : null ?>
+    <?= Yii::$app->user->isAdminGroup ? $form->field($model, 'user_id')->textInput() : null ?>
 
-    <?php if ( !$model->isNewRecord ): ?>
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?php if ( !$model->isNewRecord && Yii::$app->user->isAdminGroup ): ?>
+    <?= $form->field($model, 'status')->dropDownList($all_status) ?>
     <?php endif; ?>
 
 <!--    --><?php //echo $form->field($model, 'created_at')->textInput() ?>
@@ -31,7 +32,7 @@ use yii\widgets\ActiveForm;
 <!--    --><?php //echo $form->field($model, 'created_by')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Tạo mới' : 'Cập nhật', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

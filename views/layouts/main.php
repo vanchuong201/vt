@@ -37,25 +37,24 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0">
-<!--                    <a style="display: block; width: 80%; height: 80%; margin: auto; margin-top: 5px;">-->
-<!--                        --><?php // echo Html::img('css/images/logo_gtel.png',['style'=>' height:100%'])?>
-<!--                    </a>-->
-<!--
-                    <a href="/" class="site_title">
-                        <i class="fa fa-paw"></i>
-                        <span>VQR Solution</span>
-                    </a>
--->
+                    <!--                    <a style="display: block; width: 80%; height: 80%; margin: auto; margin-top: 5px;">-->
+                    <!--                        --><?php // echo Html::img('css/images/logo_gtel.png',['style'=>' height:100%'])?>
+                    <!--                    </a>-->
+                    <!--
+                                        <a href="/" class="site_title">
+                                            <i class="fa fa-paw"></i>
+                                            <span>VQR Solution</span>
+                                        </a>
+                    -->
 
 
                     <a href="/" class="">
                         <i class="" style="display: inline-block; height: 100%; margin-top: 10px; margin-left: 3px;">
-                            <?=Html::img('css/images/logo_gtel1.png',['style'=>' height:80%'])?>
+                            <?= Html::img('/css/images/logo_gtel1.png', ['style' => ' height:80%']) ?>
                         </i>
 
-                        <span><?=Html::img('css/images/logo_gtel2.png',['style'=>' height:80%'])?></span>
+                        <span><?= Html::img('/css/images/logo_gtel2.png', ['style' => ' height:80%']) ?></span>
                     </a>
-
 
 
                 </div>
@@ -68,7 +67,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                     </div>
                     <div class="profile_info">
                         <span>Xin chào,</span>
-                        <h2><?=!empty(Yii::$app->user->identity->full_name)?Yii::$app->user->identity->full_name:'&nbsp;&nbsp;'?></h2>
+                        <h2><?= !empty(Yii::$app->user->identity->full_name) ? Yii::$app->user->identity->full_name : '&nbsp;&nbsp;' ?></h2>
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
@@ -91,16 +90,19 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                         'items' => [
                                             ['label' => 'Danh sách thành viên', 'icon' => 'user', 'url' => ['/user/index'],],
                                             ['label' => 'Nhóm quyền', 'icon' => 'users', 'url' => ['/role'],],
-                                            ['label' => 'Danh sách quyền', 'icon' => 'expeditedssl', 'url' => ['/permission'],],
-                                            ['label' => 'Xem log đăng nhập', 'icon' => 'sticky-note-o', 'url' => ['/user-visit-log/index'],],
+                                            ['label' => 'Danh sách quyền', 'icon' => 'expeditedssl', 'url' => ['/permission'], 'visible'=>Yii::$app->user->isAdminGroup],
+                                            ['label' => 'Xem log đăng nhập', 'icon' => 'sticky-note-o', 'url' => ['/user-visit-log/index'], 'visible'=>Yii::$app->user->isAdminGroup],
                                         ]
                                     ],
 
                                     [
                                         'label' => 'Quản lý lô tem', 'icon' => 'tags', 'url' => "#",
                                         'items' => [
-                                            ['label' => 'Danh sách lô tem', 'icon' => 'tag', 'url' => ['/parcel-stamp'],],
                                             ['label' => 'Danh sách sản phẩm', 'icon' => 'barcode', 'url' => ['/products'],],
+                                            ['label' => 'Danh sách lô tem', 'icon' => 'tag', 'url' => ['/parcel-stamp'],],
+                                            ['label' => 'Danh sách tem', 'icon' => 'list-ol', 'url' => ['/stamps'],],
+                                            ['label' => 'Kích hoạt tem', 'icon' => 'certificate', 'url' => ['/stamps/active'],],
+                                            ['label' => 'Lịch sử kích hoạt tem', 'icon' => 'history', 'url' => ['/stamps/logs-active'],],
                                         ]
                                     ],
 
@@ -228,7 +230,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
                                aria-expanded="false">
-                                <img src="http://placehold.it/128x128" alt=""><?php echo @Yii::$app->user->identity->full_name ?>
+                                <img src="http://placehold.it/128x128"
+                                     alt=""><?php echo @Yii::$app->user->identity->full_name ?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -243,7 +246,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 <li>
                                     <a href="javascript:;">Help</a>
                                 </li>
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <li><a href="/user-management/auth/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </li>
                             </ul>
                         </li>
@@ -331,44 +334,82 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
 
         <!-- page content -->
         <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <?php if (isset($this->title)): ?>
+                        <div class="page-title">
+                            <!--                    <div class="title_left">-->
+                            <!--                        <h1>--><?php //echo $this->title ?><!--</h1>-->
+                            <!--                    </div>-->
+                            <div class="text-right">
+                                <!--                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">-->
+                                <!--                            <div class="input-group">-->
+                                <!--                                <input type="text" class="form-control" placeholder="Search for...">-->
+                                <!--                                <span class="input-group-btn">-->
+                                <!--                                <button class="btn btn-default" type="button">Go!</button>-->
+                                <!--                            </span>-->
+                                <!--                            </div>-->
+                                <!--                        </div>-->
+                                <?=
+                                \yii\widgets\Breadcrumbs::widget(
+                                    [
+                                        'homeLink' => [
+                                            'label' => Yii::t('yii', 'Trang chủ'),
+                                            'url' => Yii::$app->homeUrl,
+                                        ],
+                                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                                    ]
+                                ) ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
 
-            <?php if (isset($this->title)): ?>
-                <div class="page-title">
-                    <div class="title_left">
-                        <h1><?= $this->title ?></h1>
-                    </div>
-                    <div class="text-right">
-                        <!--                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">-->
-                        <!--                            <div class="input-group">-->
-                        <!--                                <input type="text" class="form-control" placeholder="Search for...">-->
-                        <!--                                <span class="input-group-btn">-->
-                        <!--                                <button class="btn btn-default" type="button">Go!</button>-->
-                        <!--                            </span>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
-                        <?=
-                        \yii\widgets\Breadcrumbs::widget(
-                            [
-                                'homeLink' => [
-                                    'label' => Yii::t('yii', 'Trang chủ'),
-                                    'url' => Yii::$app->homeUrl,
-                                ],
-                                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                            ]
-                        ) ?>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <?php if (Yii::$app->session->hasFlash('success')): ?>
+                        <div class="alert alert-success text-left">
+                            <?= Yii::$app->session->getFlash('success') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (Yii::$app->session->hasFlash('warning')): ?>
+                        <div class="alert alert-warning text-left">
+                            <?= Yii::$app->session->getFlash('warning') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (Yii::$app->session->hasFlash('danger')): ?>
+                        <div class="alert alert-danger text-left">
+                            <?= Yii::$app->session->getFlash('danger') ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><?php echo $this->title ?> <small><?=@$this->params['description']?></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li style="float: right"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <?= $content ?>
+                        </div>
                     </div>
                 </div>
-            <?php endif; ?>
-            <div class="clearfix"></div>
-
-            <?= $content ?>
+            </div>
         </div>
         <!-- /page content -->
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a><br/>
-                Extension for Yii framework 2 by <a href="http://yiister.ru" rel="nofollow" target="_blank">Yiister</a>
+<!--                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a><br/>-->
+<!--                Extension for Yii framework 2 by <a href="http://yiister.ru" rel="nofollow" target="_blank">Yiister</a>-->
             </div>
             <div class="clearfix"></div>
         </footer>
