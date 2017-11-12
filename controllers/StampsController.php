@@ -66,6 +66,21 @@ class StampsController extends AdminDefaultController
         ]);
     }
 
+    public function actionChongGia()
+    {
+        echo time();
+        echo date('H:i:s d/m/Y',1510516147);
+        $searchModel = new StampsSearch();
+        $dataProvider = $searchModel->searchCg(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'all_status' => Stamps::getStatus(),
+            'all_service' => Yii::$app->params['all_service'],
+        ]);
+    }
+
     public function actionActive()
     {
         $request = Yii::$app->request;

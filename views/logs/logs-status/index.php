@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= \yii\grid\GridView::widget([
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -87,7 +87,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'created_at',
                 'value' => function(LogsStatus $model){
-                    return $model->created_at ? date('H:i | d/m/Y') : '';
+                    return $model->created_at ? date('H:i | d/m/Y',$model->created_at) : '';
                 },
                 'headerOptions' => ['style'=>'width:130px']
             ],

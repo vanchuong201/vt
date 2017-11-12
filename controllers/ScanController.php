@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\helpers\CodeHelper;
+use app\models\logs\LogsCg;
 use app\models\logs\LogsStatus;
 use app\models\Stamps;
 use Yii;
@@ -53,7 +54,6 @@ class ScanController extends \yii\web\Controller
                             $message = ['class'=>'danger', 'content'=>' Không xác định được mã tem, vui lòng quét lại ! #103 '];
                         }
 
-
                     }
                     elseif ( $stamp->status == Stamps::SOLD_OUT ){
                         $message = ['class'=>'warning', 'content'=>' Sản phẩm đã được <strong>xác thực</strong> trước đây bởi người dùng. (Đã bán) '];
@@ -87,24 +87,37 @@ class ScanController extends \yii\web\Controller
                 $encode = CodeHelper::endCodeStamp($code); // [type_code, id, user_id]
                 Stamps::$user_id = $encode['user_id'];
                 $stamp = Stamps::findOne($encode['id']);
-                if($stamp && $stamp->code_sms === $code_sms){
+                if($stamp && $stamp->code_sms === $code_sms){ // mã xác thực đúng
                     // Thực hiện cập nhật trạng thái cho tem:
                     $stamp->status = Stamps::SOLD_OUT;
+                    $stamp->active_time = time();
                     LogsStatus::writeLogs([
                         'status'=>Stamps::SOLD_OUT, 'code_start'=>$stamp->id,
                         'service'=>$stamp->stamp_service, 'parcel_id'=>$stamp->parcel_id,
                         'product_id'=>$stamp->product_id, 'user_id'=>$encode['user_id'],
                         'created_at'=>time()
                     ]);
+                    LogsCg::writeLogs([
+                        'code'=>$stamp->id, 'status_confirm'=>LogsCg::CONFIRM_SUCCESS,
+                        'code_type'=>$encode['type_code'], 'parcel_id'=>$stamp->parcel_id,
+                        'service'=>$stamp->stamp_service, 'product_id'=>$stamp->product_id,
+                        'user_id'=>$encode['user_id'], 'created_at'=>time()
+                    ]);
                     if($stamp->save()){
                         $return = true;
                     }else{
                         $return = false;
                     }
-                }else{
+                }else{ // Mã xác thực sai
+                    LogsCg::writeLogs([
+                        'code'=>$stamp->id, 'status_confirm'=>LogsCg::CONFIRM_FAILED,
+                        'code_type'=>$encode['type_code'], 'parcel_id'=>$stamp->parcel_id,
+                        'service'=>$stamp->stamp_service, 'product_id'=>$stamp->product_id,
+                        'user_id'=>$encode['user_id'], 'created_at'=>time()
+                    ]);
                     $return = false;
                 }
-            }else{
+            }else{ // Ko bắt được code
                 $return = false;
             }
             return $return;

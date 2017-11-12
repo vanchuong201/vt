@@ -109,8 +109,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                     [
                                         'label' => 'Dịch vụ chống giả', 'icon' => 'asterisk', 'url' => "#",
                                         'items' => [
-                                            ['label' => 'Danh sách tem', 'icon' => 'qrcode', 'url' => ['#'],],
-                                            ['label' => 'Lịch sử quét tem', 'icon' => 'history', 'url' => ['#'],],
+                                            ['label' => 'Danh sách tem', 'icon' => 'qrcode', 'url' => ['/stamps/chong-gia'],],
+                                            ['label' => 'Lịch sử quét tem', 'icon' => 'history', 'url' => ['/logs/logs-chong-gia'],],
                                             ['label' => 'Thống kê quét tem', 'icon' => 'bar-chart', 'url' => ['#'],],
                                         ]
                                     ],

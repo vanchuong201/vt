@@ -101,7 +101,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'active_time',
                 'label' => 'Th/gian xác thực',
                 'value' => function(Stamps $model){
-                    return $model->active_time ? date('H:i | d/m/Y') : '';
+                    return $model->active_time ? date('H:i | d/m/Y',$model->active_time) : '';
                 },
                 'headerOptions' => ['style'=>'width:130px']
             ],
@@ -111,7 +111,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'created_time',
                 'value' => function(Stamps $model){
-                    return $model->created_time ? date('H:i | d/m/Y') : '';
+                    return $model->created_time ? date('H:i | d/m/Y',$model->created_time) : '';
                 },
                 'headerOptions' => ['style'=>'width:130px']
             ],
