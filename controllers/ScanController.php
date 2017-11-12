@@ -91,7 +91,7 @@ class ScanController extends \yii\web\Controller
                     // Thực hiện cập nhật trạng thái cho tem:
                     $stamp->status = Stamps::SOLD_OUT;
                     LogsStatus::writeLogs([
-                        'status'=>Stamps::SOLD_OUT, 'code_start'=>$stamp->serial,
+                        'status'=>Stamps::SOLD_OUT, 'code_start'=>$stamp->id,
                         'service'=>$stamp->stamp_service, 'parcel_id'=>$stamp->parcel_id,
                         'product_id'=>$stamp->product_id, 'user_id'=>$encode['user_id'],
                         'created_at'=>time()

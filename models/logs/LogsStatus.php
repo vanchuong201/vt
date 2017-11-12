@@ -3,7 +3,10 @@
 namespace app\models\logs;
 
 use app\controllers\logs\LogsStatusController;
+use app\models\ParcelStamp;
+use app\models\Products;
 use app\models\Stamps;
+use app\models\User;
 use Yii;
 use yii\helpers\VarDumper;
 
@@ -57,7 +60,7 @@ class LogsStatus extends \yii\db\ActiveRecord
             'code_end' => 'Code End',
             'parcel_id' => 'Lô tem',
             'service' => 'Dịch vụ',
-            'status' => 'Trạng thái xác thực',
+            'status' => 'Trạng thái',
             'product_id' => 'Sản phẩm',
             'phone' => 'Sdt',
             'device_id' => 'Thiết bị',
@@ -68,9 +71,23 @@ class LogsStatus extends \yii\db\ActiveRecord
         ];
     }
 
-//    public function getSerialStart(){
-//        return $this->hasOne(Stamps::className(), ['id' => 'user_id']);
-//    }
+    public function getSerialStart(){
+        Stamps::$user_id = User::getBusinessId();
+        return $this->hasOne(Stamps::className(), ['id' => 'code_start']);
+    }
+    public function getSerialEnd(){
+        Stamps::$user_id = User::getBusinessId();
+        return $this->hasOne(Stamps::className(), ['id' => 'code_end']);
+    }
+    public function getProduct_(){
+        return $this->hasOne(Products::className(), ['id' => 'product_id']);
+    }
+    public function getParcel_(){
+        return $this->hasOne(ParcelStamp::className(), ['id' => 'parcel_id']);
+    }
+    public function getUser_(){
+        return $this->hasOne(User::className(), ['id' => 'updated_by']);
+    }
 
 
     public static function writeLogs($data){

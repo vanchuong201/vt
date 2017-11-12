@@ -2,6 +2,7 @@
 
 namespace app\controllers\logs;
 
+use app\models\Stamps;
 use Yii;
 use app\models\logs\LogsStatus;
 use app\models\logs\search\LogsStatusSearch;
@@ -41,6 +42,8 @@ class LogsStatusController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'all_service' => Yii::$app->params['all_service'],
+            'all_status' => Stamps::getStatus(),
         ]);
     }
 
