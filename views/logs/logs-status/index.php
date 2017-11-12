@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\logs\search\LogsStatusSearch */
@@ -25,10 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'code_end',
             'parcel_id',
             'service',
-            'status_old',
-            'status_new',
+            'status',
             'product_id',
-            'user_id',
+//            'phone',
+//            'device_id',
+//            'lat_lng',
+//            'user_id',
             'updated_by',
             'created_at',
 

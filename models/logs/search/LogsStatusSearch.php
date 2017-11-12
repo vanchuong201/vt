@@ -18,8 +18,8 @@ class LogsStatusSearch extends LogsStatus
     public function rules()
     {
         return [
-            [['id', 'parcel_id', 'service', 'status_old', 'status_new', 'product_id', 'user_id', 'updated_by'], 'integer'],
-            [['code_start', 'code_end', 'created_at'], 'safe'],
+            [['id', 'parcel_id', 'service', 'status', 'product_id', 'user_id', 'updated_by'], 'integer'],
+            [['code_start', 'code_end', 'phone', 'device_id', 'lat_lng', 'created_at'], 'safe'],
         ];
     }
 
@@ -62,8 +62,7 @@ class LogsStatusSearch extends LogsStatus
             'id' => $this->id,
             'parcel_id' => $this->parcel_id,
             'service' => $this->service,
-            'status_old' => $this->status_old,
-            'status_new' => $this->status_new,
+            'status' => $this->status,
             'product_id' => $this->product_id,
             'user_id' => $this->user_id,
             'updated_by' => $this->updated_by,
@@ -71,6 +70,9 @@ class LogsStatusSearch extends LogsStatus
 
         $query->andFilterWhere(['like', 'code_start', $this->code_start])
             ->andFilterWhere(['like', 'code_end', $this->code_end])
+            ->andFilterWhere(['like', 'phone', $this->phone])
+            ->andFilterWhere(['like', 'device_id', $this->device_id])
+            ->andFilterWhere(['like', 'lat_lng', $this->lat_lng])
             ->andFilterWhere(['like', 'created_at', $this->created_at]);
 
         return $dataProvider;

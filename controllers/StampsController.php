@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\helpers\CodeHelper;
+use app\models\logs\LogsStatus;
 use app\models\ParcelStamp;
 use app\models\search\StampsSearch;
 use app\models\Stamps;
@@ -70,31 +71,30 @@ class StampsController extends AdminDefaultController
         $request = Yii::$app->request;
         if($request->isPost){
             $type = $request->post('type_active',0);
-            $parcel = $request->post('parcel',0);
-            $start = $request->post('start',0);
-            $end = $request->post('end',0);
-            $list = $request->post('list',0);
+            $parcel = $request->post('parcel');
+            $start = $request->post('start');
+            $end = $request->post('end');
+            $list = $request->post('list');
+            $product_id = $request->post('product_id');
 
 
-
+            $value = ['status'=>Stamps::ACTIVE_FOR_RELEASE, 'product_id'=>$product_id];
             if($type === Stamps::ACTIVE_BY_PARCEL){
                 if(empty($parcel)){
                     Yii::$app->getSession()->setFlash('warning', 'Bạn chưa chọn lô tem !');
                 }else{
-                    Stamps::activeStamps($type, $parcel);
+                    $count = Stamps::activeStamps($value, ['parcel_id'=>$parcel]);
                 }
             }
-
             elseif ($type === Stamps::ACTIVE_BY_BATCH){
                 if(empty($start) && empty($end)){
                     Yii::$app->getSession()->setFlash('warning', 'Bạn chưa nhập đủ serial đầu, cuối !');
                 }else{
                     $start = CodeHelper::endCodeSerial($start);
                     $end = CodeHelper::endCodeSerial($end);
-                    Stamps::activeStamps($type, [$start['id'],$end['id']]);
+                    $count = Stamps::activeStamps($value, ['and',['>=', 'id', $start['id']],['<=', 'id', $end['id']], ]);
                 }
             }
-
             elseif ($type === Stamps::ACTIVE_BY_LIST){
                 if(empty($list)){
                     Yii::$app->getSession()->setFlash('warning', 'Bạn chưa nhập đủ serial đầu, cuối !');
@@ -104,11 +104,30 @@ class StampsController extends AdminDefaultController
                     foreach ($list as $serial){
                         $list_id[] = CodeHelper::endCodeSerial($serial)['id'];
                     }
-                    Stamps::activeStamps($type, $list_id);
+                    $count = Stamps::activeStamps($value, ['id'=>$list_id]);
                 }
             }
             else{
                 Yii::$app->getSession()->setFlash('warning', 'Bạn chưa chọn kiểu kích hoạt !');
+            }
+
+            if(isset($count)){
+                if( is_int($count) && $count>=0 ){
+                    $parcel ? $logs['parcel_id']=(int)$parcel : null;
+                    $start ? $logs['code_start']=$start['id'] : null;
+                    $end ? $logs['code_end']=$end['id'] : null;
+                    $logs['status']=Stamps::ACTIVE_FOR_RELEASE;
+                    $logs['product_id']=(int)$product_id;
+                    $logs['user_id'] = User::getBusinessId();
+                    $logs['updated_by'] = Yii::$app->user->id;
+                    $logs['created_at'] = time();
+                    LogsStatus::writeLogs($logs);
+
+                    Yii::$app->getSession()->setFlash('success', "Kích hoạt thành công! <br> Số lượng: $count tem được cập nhật");
+//                    Yii::$app->getSession()->setFlash('success', "Kích hoạt thành công!");
+                }else{
+                    Yii::$app->getSession()->setFlash('warning', 'Kích hoạt không thành công. Vui lòng thử lại');
+                }
             }
             return $this->redirect(['active']);
         }

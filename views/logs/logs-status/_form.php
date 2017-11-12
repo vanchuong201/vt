@@ -22,15 +22,20 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'service')->textInput() ?>
 
-    <?= $form->field($model, 'status_old')->textInput() ?>
-
-    <?= $form->field($model, 'status_new')->textInput() ?>
+    <?= $form->field($model, 'status')->textInput() ?>
 
     <?= $form->field($model, 'product_id')->textInput() ?>
+
+    <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'device_id')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'lat_lng')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'user_id')->textInput() ?>
 
     <?= $form->field($model, 'updated_by')->textInput() ?>
+
 
     <?= $form->field($model, 'created_at')->textInput(['maxlength' => true]) ?>
 

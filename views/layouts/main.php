@@ -102,7 +102,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                             ['label' => 'Danh sách lô tem', 'icon' => 'tag', 'url' => ['/parcel-stamp'],],
                                             ['label' => 'Danh sách tem', 'icon' => 'list-ol', 'url' => ['/stamps'],],
                                             ['label' => 'Kích hoạt tem', 'icon' => 'certificate', 'url' => ['/stamps/active'],],
-                                            ['label' => 'Lịch sử kích hoạt tem', 'icon' => 'history', 'url' => ['/stamps/logs-active'],],
+                                            ['label' => 'Lịch sử thay đổi tem', 'icon' => 'history', 'url' => ['/logs/logs-status'],],
                                         ]
                                     ],
 

@@ -2,7 +2,10 @@
 
 namespace app\models\logs;
 
+use app\controllers\logs\LogsStatusController;
+use app\models\Stamps;
 use Yii;
+use yii\helpers\VarDumper;
 
 /**
  * This is the model class for table "logs_status".
@@ -12,9 +15,11 @@ use Yii;
  * @property string $code_end
  * @property integer $parcel_id
  * @property integer $service
- * @property integer $status_old
- * @property integer $status_new
+ * @property integer $status
  * @property integer $product_id
+ * @property string $phone
+ * @property string $device_id
+ * @property string $lat_lng
  * @property integer $user_id
  * @property integer $updated_by
  * @property string $created_at
@@ -36,8 +41,8 @@ class LogsStatus extends \yii\db\ActiveRecord
     {
         return [
             [['id'], 'required'],
-            [['id', 'parcel_id', 'service', 'status_old', 'status_new', 'product_id', 'user_id', 'updated_by'], 'integer'],
-            [['code_start', 'code_end', 'created_at'], 'string', 'max' => 128],
+            [['id', 'parcel_id', 'service', 'status', 'product_id', 'user_id', 'updated_by'], 'integer'],
+            [['code_start', 'code_end', 'phone', 'device_id', 'lat_lng', 'created_at'], 'string', 'max' => 128],
         ];
     }
 
@@ -50,14 +55,25 @@ class LogsStatus extends \yii\db\ActiveRecord
             'id' => 'ID',
             'code_start' => 'Code Start',
             'code_end' => 'Code End',
-            'parcel_id' => 'Parcel ID',
-            'service' => 'Service',
-            'status_old' => 'Status Old',
-            'status_new' => 'Status New',
-            'product_id' => 'Product ID',
+            'parcel_id' => 'Lô tem',
+            'service' => 'Dịch vụ',
+            'status' => 'Trạng thái xác thực',
+            'product_id' => 'Sản phẩm',
+            'phone' => 'Sdt',
+            'device_id' => 'Thiết bị',
+            'lat_lng' => 'Vị trí',
             'user_id' => 'User ID',
-            'updated_by' => 'Updated By',
-            'created_at' => 'Created At',
+            'updated_by' => 'Người cập nhật',
+            'created_at' => 'Thời gian cập nhật',
         ];
+    }
+
+//    public function getSerialStart(){
+//        return $this->hasOne(Stamps::className(), ['id' => 'user_id']);
+//    }
+
+
+    public static function writeLogs($data){
+        $re = Yii::$app->db->createCommand()->insert(self::tableName(),$data)->execute();
     }
 }

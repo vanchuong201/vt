@@ -25,11 +25,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'service') ?>
 
-    <?php // echo $form->field($model, 'status_old') ?>
-
-    <?php // echo $form->field($model, 'status_new') ?>
+    <?php // echo $form->field($model, 'status') ?>
 
     <?php // echo $form->field($model, 'product_id') ?>
+
+    <?php // echo $form->field($model, 'phone') ?>
+
+    <?php // echo $form->field($model, 'device_id') ?>
+
+    <?php // echo $form->field($model, 'lat_lng') ?>
 
     <?php // echo $form->field($model, 'user_id') ?>
 

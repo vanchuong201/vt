@@ -139,40 +139,29 @@ class Stamps extends \yii\db\ActiveRecord
     }
 
 
-    public static function activeStamps($type,$con){
-        if($type==self::ACTIVE_BY_PARCEL){
-            $count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], ['order_id'=>$con]);
-            if(isset($count)){
-                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! ');
-            }else{
-                Yii::$app->getSession()->setFlash('warning', 'Kích hoạt chưa thành công, vui lòng thử lại !');
-            }
-        }
-
-        elseif ($type==self::ACTIVE_BY_BATCH){
-            $condition = ['and',['>=', 'id', $con[0]],['<=', 'id', $con[1]], ];
-
-//            VarDumper::dump($condition);die;
-//            if(!empty($count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition))){
-            $count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition);
-
-            if( isset($count) ){
-                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! ');
-            }else{
-                Yii::$app->getSession()->setFlash('warning', 'Kích hoạt chưa thành công, vui lòng thử lại !');
-            }
-            Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! ');
-        }
-
-        elseif ($type==self::ACTIVE_BY_LIST){
-            $condition = ['id'=>$con];
-//            if(!empty($count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition))){
-            $count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition);
-            if(isset($count)){
-                Yii::$app->getSession()->setFlash('success', 'Kích hoạt thành công! ');
-            }else{
-                Yii::$app->getSession()->setFlash('warning', 'Kích hoạt chưa thành công, vui lòng thử lại !');
-            }
-        }
+//    public static function activeStamps($type,$con){
+//        if($type===self::ACTIVE_BY_PARCEL){ // active lô
+//            $condition = ['parcel_id'=>$con];
+//            $count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition);
+//        }
+//
+//        elseif ($type===self::ACTIVE_BY_BATCH){ // active dãy
+//            $condition = ['and',['>=', 'id', $con[0]],['<=', 'id', $con[1]], ];
+//            $count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition);
+//        }
+//
+//        elseif ($type===self::ACTIVE_BY_LIST){ // active list
+//            $condition = ['id'=>$con];
+//            $count = self::updateAll(['status'=>self::ACTIVE_FOR_RELEASE], $condition);
+//        }
+//        else{
+//            $count = false;
+//        }
+//
+//        return $count;
+//    }
+    public static function activeStamps($value,$condition){
+        $count = self::updateAll($value, $condition);
+        return $count;
     }
 }

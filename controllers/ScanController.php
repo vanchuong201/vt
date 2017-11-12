@@ -3,8 +3,10 @@
 namespace app\controllers;
 
 use app\helpers\CodeHelper;
+use app\models\logs\LogsStatus;
 use app\models\Stamps;
 use Yii;
+use yii\helpers\Url;
 use yii\web\Response;
 
 class ScanController extends \yii\web\Controller
@@ -88,6 +90,12 @@ class ScanController extends \yii\web\Controller
                 if($stamp && $stamp->code_sms === $code_sms){
                     // Thực hiện cập nhật trạng thái cho tem:
                     $stamp->status = Stamps::SOLD_OUT;
+                    LogsStatus::writeLogs([
+                        'status'=>Stamps::SOLD_OUT, 'code_start'=>$stamp->serial,
+                        'service'=>$stamp->stamp_service, 'parcel_id'=>$stamp->parcel_id,
+                        'product_id'=>$stamp->product_id, 'user_id'=>$encode['user_id'],
+                        'created_at'=>time()
+                    ]);
                     if($stamp->save()){
                         $return = true;
                     }else{
@@ -99,9 +107,10 @@ class ScanController extends \yii\web\Controller
             }else{
                 $return = false;
             }
+            return $return;
         }
 
-        return $return;
+        return $this->redirect(Url::home());
     }
 
 
