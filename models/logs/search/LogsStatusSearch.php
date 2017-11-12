@@ -1,16 +1,16 @@
 <?php
 
-namespace app\models\searchs;
+namespace app\models\logs\search;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\ParcelStamp;
+use app\models\logs\LogsStatus;
 
 /**
- * ParcelStampSearch represents the model behind the search form about `app\models\ParcelStamp`.
+ * LogsStatusSearch represents the model behind the search form about `app\models\logs\LogsStatus`.
  */
-class ParcelStampSearch extends ParcelStamp
+class LogsStatusSearch extends LogsStatus
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class ParcelStampSearch extends ParcelStamp
     public function rules()
     {
         return [
-            [['id', 'user_id', 'quantity', 'service', 'status', 'created_at', 'created_by', 'status_zip_excel'], 'integer'],
-            [['name', 'expiry_time', 'link_excel'], 'safe'],
+            [['id', 'parcel_id', 'service', 'status_old', 'status_new', 'product_id', 'user_id', 'updated_by'], 'integer'],
+            [['code_start', 'code_end', 'created_at'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class ParcelStampSearch extends ParcelStamp
      */
     public function search($params)
     {
-        $query = ParcelStamp::find();
+        $query = LogsStatus::find();
 
         // add conditions that should always apply here
 
@@ -60,18 +60,18 @@ class ParcelStampSearch extends ParcelStamp
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'user_id' => $this->user_id,
-            'quantity' => $this->quantity,
+            'parcel_id' => $this->parcel_id,
             'service' => $this->service,
-            'status' => $this->status,
-            'created_at' => $this->created_at,
-            'created_by' => $this->created_by,
-            'status_zip_excel' => $this->status_zip_excel,
+            'status_old' => $this->status_old,
+            'status_new' => $this->status_new,
+            'product_id' => $this->product_id,
+            'user_id' => $this->user_id,
+            'updated_by' => $this->updated_by,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'expiry_time', $this->expiry_time])
-            ->andFilterWhere(['like', 'link_excel', $this->link_excel]);
+        $query->andFilterWhere(['like', 'code_start', $this->code_start])
+            ->andFilterWhere(['like', 'code_end', $this->code_end])
+            ->andFilterWhere(['like', 'created_at', $this->created_at]);
 
         return $dataProvider;
     }

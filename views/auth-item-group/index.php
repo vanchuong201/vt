@@ -8,7 +8,7 @@ use yii\helpers\ArrayHelper;
 use yii\widgets\Pjax;
 use webvimark\extensions\GridBulkActions\GridBulkActions;
 use webvimark\extensions\GridPageSize\GridPageSize;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 
 /**
  * @var yii\web\View $this

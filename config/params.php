@@ -2,6 +2,12 @@
 
 return [
     'adminEmail' => 'admin@example.com',
+    'hot_line' => '1900 xxxx',
+
+    'code_char_alpha' => '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+    'code_char' => 'abcdefghijklmnopqrstuvwxyz',
+    'code_num' => '0123456789',
+
 
     // all service
     'all_service' => [

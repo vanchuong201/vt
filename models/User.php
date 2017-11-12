@@ -25,6 +25,35 @@ class User extends \webvimark\modules\UserManagement\models\User
     const USER_MOD = 2;
     const USER_ADMIN = 3;
 
+
+    public function rules()
+    {
+        return [
+            ['username', 'required'],
+            ['username', 'unique'],
+            ['username', 'trim'],
+
+            [['status', 'email_confirmed', 'business_id', 'type'], 'integer'],
+            [['full_name'], 'string', 'max' => 255],
+
+            ['email', 'email'],
+            ['email', 'validateEmailConfirmedUnique'],
+
+            ['bind_to_ip', 'validateBindToIp'],
+            ['bind_to_ip', 'trim'],
+            ['bind_to_ip', 'string', 'max' => 255],
+
+            ['password', 'required', 'on'=>['newUser', 'changePassword']],
+            ['password', 'string', 'max' => 255, 'on'=>['newUser', 'changePassword']],
+            ['password', 'trim', 'on'=>['newUser', 'changePassword']],
+            ['password', 'match', 'pattern' => Yii::$app->getModule('user-management')->passwordRegexp],
+
+            ['repeat_password', 'required', 'on'=>['newUser', 'changePassword']],
+            ['repeat_password', 'compare', 'compareAttribute'=>'password'],
+        ];
+    }
+
+
     public static function getTypeList()
     {
         return array(
@@ -37,7 +66,7 @@ class User extends \webvimark\modules\UserManagement\models\User
 
     public static function getBusinessId($id=false){
         $user = $id ? User::findOne($id) : Yii::$app->user->identity;
-        $business_id = $user->type == self::USER_BUSINESS ? $user->id : $user->business_id;
+        $business_id = @$user->type == self::USER_BUSINESS ? @$user->id : @$user->business_id;
         return $business_id;
     }
 
