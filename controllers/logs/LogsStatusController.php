@@ -2,6 +2,7 @@
 
 namespace app\controllers\logs;
 
+use app\components\AdminDefaultController;
 use app\models\Stamps;
 use Yii;
 use app\models\logs\LogsStatus;
@@ -13,22 +14,9 @@ use yii\filters\VerbFilter;
 /**
  * LogsStatusController implements the CRUD actions for LogsStatus model.
  */
-class LogsStatusController extends Controller
+class LogsStatusController extends AdminDefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
+
 
     /**
      * Lists all LogsStatus models.

@@ -2,6 +2,7 @@
 
 namespace app\controllers\logs;
 
+use app\components\AdminDefaultController;
 use Yii;
 use app\models\logs\LogsCg;
 use app\models\logs\search\LogsCgSearch;
@@ -12,22 +13,8 @@ use yii\filters\VerbFilter;
 /**
  * LogsChongGiaController implements the CRUD actions for LogsCg model.
  */
-class LogsChongGiaController extends Controller
+class LogsChongGiaController extends AdminDefaultController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all LogsCg models.
