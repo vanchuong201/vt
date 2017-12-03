@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Stamps;
+use yii\helpers\VarDumper;
 
 /**
  * StampsSearch represents the model behind the search form about `app\models\Stamps`.
@@ -92,14 +93,23 @@ class StampsSearch extends Stamps
         return $dataProvider;
     }
 
-    public function searchCg($params)
+    public function searchCg($params, $isExcel = false)
     {
         $query = Stamps::find()->where(['stamp_service'=>Yii::$app->params['service_has_chong_gia']]);
 
         // add conditions that should always apply here
 
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => Yii::$app->request->cookies->getValue('_grid_page_size', 20),
+            ],
+            'sort'=>[
+                'defaultOrder'=>[
+                    'id'=>SORT_DESC,
+                ],
+            ],
         ]);
 
         $this->load($params);
@@ -142,6 +152,7 @@ class StampsSearch extends Stamps
             ->andFilterWhere(['like', 'to_address', $this->to_address])
             ->andFilterWhere(['like', 'sim_manage', $this->sim_manage]);
 
+//        VarDumper::dump($dataProvider->query);
         return $dataProvider;
     }
 }

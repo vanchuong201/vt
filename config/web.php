@@ -61,9 +61,15 @@ $config = [
             'enablePrettyUrl' => true,
             'rules' => [
                 's/<code>' => 'scan',
-                'u/auth/login' => 'user-management/auth/login'
+                'u/auth/login' => 'user-management/auth/login',
+
+                /*modules vo thuat*/
+//                'vt/<vt-controller>'=>'vt/vt-<vt-controller>',
+                'vt-<vt-controller>'=>'vt/vt-<vt-controller>/index',
+                'vt-<vt-controller>/<action>'=>'vt/vt-<vt-controller>/<action>',
             ],
         ],
+//        'qr'=>
 
 //
 //        'view' => [
@@ -75,6 +81,8 @@ $config = [
 //        ],
 
     ],
+
+
     'params' => $params,
     'modules'=>[
         'user-management' => [
@@ -111,6 +119,13 @@ $config = [
             // message source
             // 'downloadAction' => 'gridview/export/download',
             // 'i18n' => []
+        ],
+
+        'vt' => [
+            'class' => 'app\modules\vo_thuat\VoThuat',
+        ],
+        'api' => [
+            'class' => 'app\api\ApiModule',
         ],
     ],
 ];

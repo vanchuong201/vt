@@ -24,7 +24,7 @@ class ScanController extends \yii\web\Controller
             $message = ['class'=>'danger', 'content'=>' Không xác định được mã tem, vui lòng quét lại ! #100 '];
         }
         else{ //
-            $encode = CodeHelper::endCodeStamp($code); // [type_code, id, user_id]
+                                                $encode = CodeHelper::endCodeStamp($code); // [type_code, id, user_id]
 
             Stamps::$user_id = $encode['user_id'];
 
@@ -38,7 +38,7 @@ class ScanController extends \yii\web\Controller
                     $message = ['class'=>'danger', 'content'=>' Không xác định được mã tem, vui lòng quét lại ! #102 '];
                 }else{
                     // Lấy thông tin sản phẩm
-                    $product = [];
+                    $product = []; // AAAAAAAAAAAAAA chưa làm
 
                     // Check Stamp
                     if($stamp->status == Stamps::TO_DISPLAY){ // Tem trưng bày
@@ -73,9 +73,46 @@ class ScanController extends \yii\web\Controller
             'message' => $message,
             'isQrm' => $isQrm,
         ]);
-
     }
 
+
+    public function actionSms(){
+        $request = Yii::$app->request;
+        $sms = $request->get('sms');
+        $code = 'abc123';
+
+        $mess = ''; // trả về sms cho user
+
+        $encode = CodeHelper::endCodeSms($sms);
+        if( !$encode['user_id'] || !Stamps::tableName() ){
+            $mess = 'Mã tem giả';
+        }else{
+            $stamp = Stamps::findOne($encode['id']);
+            if(empty($stamp)){
+                $mess = 'Mã tem giả'; //Không xác định được mã tem, vui lòng quét lại
+            }else{
+                // Lấy thông tin sản phẩm
+                $product = []; // AAAAAAAAAAAAAA chưa làm
+
+                // Check Stamp
+                if($stamp->status == Stamps::TO_DISPLAY){ // Tem trưng bày
+                    $mess = 'trung bay'; // Đây là sản phẩm trưng bày
+                }
+                elseif ( $stamp->status == Stamps::SOLD_OUT ){
+                    $mess = 'da ban'; // san pham da ban
+                }
+                else{
+                    $mess = ' true'; // chox ngayf hoiw ngu :D
+                }
+            }
+        }
+        return $mess;
+    }
+
+
+
+
+    // Xác nhận nhập mã xác thực
     public function actionConfirmCode(){
         Yii::$app->response->format = Response::FORMAT_JSON;
         $request = Yii::$app->request;
@@ -87,7 +124,7 @@ class ScanController extends \yii\web\Controller
                 $encode = CodeHelper::endCodeStamp($code); // [type_code, id, user_id]
                 Stamps::$user_id = $encode['user_id'];
                 $stamp = Stamps::findOne($encode['id']);
-                if($stamp && $stamp->code_sms === $code_sms){ // mã xác thực đúng
+                if($stamp && $stamp->code_id === $code_sms){ // mã xác thực đúng
                     // Thực hiện cập nhật trạng thái cho tem:
                     $stamp->status = Stamps::SOLD_OUT;
                     $stamp->active_time = time();

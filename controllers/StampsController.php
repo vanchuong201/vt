@@ -68,10 +68,11 @@ class StampsController extends AdminDefaultController
 
     public function actionChongGia()
     {
-        echo time();
-        echo date('H:i:s d/m/Y',1510516147);
+//        echo time();
+//        echo date('H:i:s d/m/Y',1510516147);
         $searchModel = new StampsSearch();
         $dataProvider = $searchModel->searchCg(Yii::$app->request->queryParams);
+        $dataProviderExcel = $searchModel->searchCg(Yii::$app->request->queryParams, true);
 
         return $this->render('index', [
             'searchModel' => $searchModel,

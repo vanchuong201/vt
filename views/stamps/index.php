@@ -1,8 +1,9 @@
 <?php
 
-use yii\helpers\Html;
+use yii\widgets\Pjax;
 use app\models\Stamps;
 use kartik\grid\GridView;
+use webvimark\extensions\GridPageSize\GridPageSize;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\search\StampsSearch */
@@ -17,6 +18,26 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
+    <div class="row">
+        <div class="col-md-6 text-left">
+            <?= \kartik\export\ExportMenu::widget([
+                'dataProvider' => $dataProvider,
+                // 'columns' => ['id'],
+                'target' => '_self',
+                'asDropdown' => 'data'
+            ]) ?>
+        </div>
+        <div class="col-md-6 text-right">
+            <?= GridPageSize::widget(['pjaxId'=>'stamp-grid-pjax']) ?>
+        </div>
+    </div>
+
+<!--    <div class="col-sm-6 text-right">-->
+<!--        -->
+<!--    </div>-->
+    <?php Pjax::begin([
+        'id' => 'stamp-grid-pjax'
+    ])?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -121,4 +142,5 @@ $this->params['breadcrumbs'][] = $this->title;
 //            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    <?php Pjax::end(); ?>
 </div>

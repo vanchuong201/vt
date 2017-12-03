@@ -89,15 +89,15 @@ if (!empty($arProcess)) {
         $inBlock++;
         fclose($f);
     }
-    $file_url = dirname(__DIR__) . $ds . 'backend/web/assets/excel' . $ds ;
+    $file_url = dirname(__DIR__) . $ds . 'web/assets/excel' . $ds ;
     if (!file_exists($file_url)) {
         @mkdir($file_url);
     }
-    zip($file_url,  "ICHECK_CODE_LO_" . $item_order_id );
+    zip($file_url,  "GTEL_CODE_LO_" . $item_order_id );
 
-    deleteDir($file_url."ICHECK_CODE_LO_" . $item_order_id);
+    deleteDir($file_url."GTEL_CODE_LO_" . $item_order_id);
 
-    $link_download = 'assets/excel' . $ds . "ICHECK_CODE_LO_" . $item_order_id . ".zip";
+    $link_download = 'assets/excel' . $ds . "GTEL_CODE_LO_" . $item_order_id . ".zip";
 
     $sql = "update items_order set `status_zip_excel`=1,`link_excel`='" . $link_download . "' where id=" . $item_order_id; //da sinh xong //
     $mysql->setQuery($sql);
@@ -141,7 +141,7 @@ chống giả-bảo hành-tràn hàng là cgbh.icheck.com.vn
  */
 function setDomain($type)
 {
-    return 'https://cg.icheck.com.vn/';
+    return 'http://tem.gtel.vn/s/';
 
     // Hiện tại check dịch vụ theo tem, ko lấy theo domain nên tạm thời cứ trỏ về domain chống giả.
 //    switch ($type) {
