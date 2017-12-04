@@ -9,9 +9,10 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
- * @property integer $vid
+ * @property string $short_description
+ * @property string $description
+ * @property string $image
  * @property string $gtin
- * @property string $gln
  * @property integer $user_id
  * @property integer $status
  * @property integer $created_at
@@ -38,8 +39,9 @@ class Products extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['vid', 'user_id', 'status', 'created_at', 'created_by'], 'integer'],
-            [['name', 'gtin', 'gln'], 'string', 'max' => 255],
+            [['short_description', 'description', 'image'], 'string'],
+            [['user_id', 'status', 'created_at', 'created_by'], 'integer'],
+            [['name', 'gtin'], 'string', 'max' => 250],
         ];
     }
 
@@ -50,13 +52,14 @@ class Products extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'vid' => 'Vid',
             'name' => 'Tên sản phẩm',
-            'gtin' => 'Mã code',
-            'gln' => 'Mã doanh nghiệp',
+            'short_description' => 'Mô tả ngắn',
+            'description' => 'Mô tả',
+            'image' => 'Hình ảnh',
+            'gtin' => 'Mã gtin',
             'user_id' => 'Doanh nghiệp',
             'status' => 'Trạng thái',
-            'created_at' => 'Ngày tạo',
+            'created_at' => 'Thời gian tạo',
             'created_by' => 'Người tạo',
         ];
     }

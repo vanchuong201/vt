@@ -15,24 +15,26 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'vid')->textInput() ?>
+    <?= $form->field($model, 'short_description')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+
+    <?php // $form->field($model, 'image')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'gtin')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'gln')->textInput(['maxlength' => true]) ?>
 
     <?= Yii::$app->user->isAdminGroup ? $form->field($model, 'user_id')->textInput() : null ?>
 
     <?php if ( !$model->isNewRecord && Yii::$app->user->isAdminGroup ): ?>
-    <?= $form->field($model, 'status')->dropDownList($all_status) ?>
+        <?= $form->field($model, 'status')->dropDownList($all_status) ?>
     <?php endif; ?>
 
-<!--    --><?php //echo $form->field($model, 'created_at')->textInput() ?>
-<!---->
-<!--    --><?php //echo $form->field($model, 'created_by')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'created_at')->textInput() ?>
+
+    <?= $form->field($model, 'created_by')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Tạo mới' : 'Cập nhật', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -19,11 +19,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'vid') ?>
+    <?= $form->field($model, 'short_description') ?>
 
-    <?= $form->field($model, 'gtin') ?>
+    <?= $form->field($model, 'description') ?>
 
-    <?= $form->field($model, 'gln') ?>
+    <?= $form->field($model, 'image') ?>
+
+    <?php // echo $form->field($model, 'gtin') ?>
 
     <?php // echo $form->field($model, 'user_id') ?>
 

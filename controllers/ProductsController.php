@@ -7,10 +7,7 @@ use app\models\User;
 use Yii;
 use app\models\Products;
 use app\models\search\ProductsSearch;
-use yii\helpers\VarDumper;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * ProductsController implements the CRUD actions for Products model.
@@ -55,8 +52,10 @@ class ProductsController extends AdminDefaultController
     public function actionCreate()
     {
         $model = new Products();
-        $model->status = Products::PRODUCT_ACTIVE;
-        $model->user_id = Yii::$app->user->id;
+        if(!Yii::$app->user->isAdminGroup){
+            $model->status = Products::PRODUCT_ACTIVE;
+            $model->user_id = User::getBusinessId();
+        }
         $model->created_at = time();
         $model->created_by = Yii::$app->user->id;
 
@@ -65,6 +64,7 @@ class ProductsController extends AdminDefaultController
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'all_status' => Products::getStatus(),
             ]);
         }
     }

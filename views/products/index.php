@@ -31,14 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['style' => 'width:10px'],
                 'visible' => Yii::$app->user->isAdminGroup,
             ],
-            [
-                'attribute' => 'vid',
-                'contentOptions' => ['style' => 'width:10px'],
-                'visible' => Yii::$app->user->isAdminGroup,
-            ],
             'name',
+            'short_description:text',
             'gtin',
-            'gln',
             [
                 'attribute' => 'user_id',
                 'value' => function(Products $model){
