@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\helpers\CodeHelper;
 use app\models\logs\LogsCg;
 use app\models\logs\LogsStatus;
+use app\models\Products;
 use app\models\Stamps;
 use Yii;
 use yii\helpers\Url;
@@ -18,6 +19,7 @@ class ScanController extends \yii\web\Controller
         $error = false;
         $message = [];
         $isQrm = false;
+        $product = new \stdClass();
 
         if(empty($code)){ // empty code
             $error = true;
@@ -38,7 +40,7 @@ class ScanController extends \yii\web\Controller
                     $message = ['class'=>'danger', 'content'=>' Không xác định được mã tem, vui lòng quét lại ! #102 '];
                 }else{
                     // Lấy thông tin sản phẩm
-                    $product = []; // AAAAAAAAAAAAAA chưa làm
+                    $product = Products::findOne($stamp->product_id);
 
                     // Check Stamp
                     if($stamp->status == Stamps::TO_DISPLAY){ // Tem trưng bày
@@ -72,6 +74,7 @@ class ScanController extends \yii\web\Controller
             'error' => $error,
             'message' => $message,
             'isQrm' => $isQrm,
+            'product' => $product,
         ]);
     }
 

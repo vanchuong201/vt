@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\tinymce\TinyMce;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Products */
@@ -15,9 +16,33 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'short_description')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'short_description')->widget(TinyMce::className(), [
+        'options' => ['rows' => 6],
+        'language' => 'es',
+        'clientOptions' => [
+            'plugins' => [
+                "advlist autolink lists link charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        ]
+    ]);?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?php // $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'description')->widget(TinyMce::className(), [
+        'options' => ['rows' => 6],
+        'language' => 'es',
+        'clientOptions' => [
+            'plugins' => [
+                "advlist autolink lists link charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        ]
+    ]);?>
 
     <?php // $form->field($model, 'image')->textarea(['rows' => 6]) ?>
 

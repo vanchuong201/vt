@@ -3,6 +3,7 @@
 /* @var $message */
 /* @var $error */
 /* @var $isQrm */
+/* @var $product app\models\Products */
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +37,9 @@
 
     <!--Product image-->
     <div class="row" id="product-image" >
+        <p></p>
         <div class="col-md-4 col-sm-4 col-xs-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">
-            <img src="/css/images/ex/2.jpg" width="100%">
+            <img src="/css/images/no-image-product.gif" width="100%">
         </div>
     </div>
     <!--Product name-->
@@ -76,41 +78,45 @@
 
     <div class="row" id="product-detail">
         <div class="col-md-12">
-            <h3 class="text-center">THÔNG TIN SẢN PHẨM</h3>
-            <strong>Công dụng:</strong>
-            <p> - Giúp an thần kinh</p>
-            <p> - Hỗ trợ liệu pháp điều trị rối loạn giấc ngủ ở trẻ nhỏ</p>
-            <strong>Đối tượng sử dụng:</strong>
-            <p> - Trẻ bị rối lọan giấc ngủ</p>
-            <p> - Trẻ hay giật mình, quấy khóc</p>
-            <p> - Trẻ bị lo âu, mất ngủ</p>
-            <strong>Chứng chỉ & chứng nhận</strong>
-            <p> 23917/2015/ATTP-XNCB</p>
+            <?=$product->description?>
         </div>
 
-        <div class="col-md-12">
-            <h3 class="text-center">Thông tin doanh nghiệp</h3>
-            <div class="row">
-                <p class="col-md-3 col-sm-3 col-xs-3"><strong>Công ty</strong></p>
-                <p class="col-md-9 col-sm-9 col-xs-9">Coca Cola</p>
-            </div>
-            <div class="row">
-                <p class="col-md-3 col-sm-3 col-xs-3"><strong>Địa chỉ</strong></p>
-                <p class="col-md-9 col-sm-9 col-xs-9">Hoàng Hoa Thám, Tây Hồ, Hà Nội</p>
-            </div>
-            <div class="row">
-                <p class="col-md-3 col-sm-3 col-xs-3"><strong>SĐT</strong></p>
-                <p class="col-md-9 col-sm-9 col-xs-9">1900 1001</p>
-            </div>
-            <div class="row">
-                <p class="col-md-3 col-sm-3 col-xs-3"><strong>Email</strong></p>
-                <p class="col-md-9 col-sm-9 col-xs-9">CocaCola@gmail.com</p>
-            </div>
-            <div class="row">
-                <p class="col-md-3 col-sm-3 col-xs-3"><strong>Website</strong></p>
-                <p class="col-md-9 col-sm-9 col-xs-9">coca-cola.com</p>
-            </div>
-        </div>
+<!--        <div class="col-md-12">-->
+<!--            <h3 class="text-center">THÔNG TIN SẢN PHẨM</h3>-->
+<!--            <strong>Công dụng:</strong>-->
+<!--            <p> - Giúp an thần kinh</p>-->
+<!--            <p> - Hỗ trợ liệu pháp điều trị rối loạn giấc ngủ ở trẻ nhỏ</p>-->
+<!--            <strong>Đối tượng sử dụng:</strong>-->
+<!--            <p> - Trẻ bị rối lọan giấc ngủ</p>-->
+<!--            <p> - Trẻ hay giật mình, quấy khóc</p>-->
+<!--            <p> - Trẻ bị lo âu, mất ngủ</p>-->
+<!--            <strong>Chứng chỉ & chứng nhận</strong>-->
+<!--            <p> 23917/2015/ATTP-XNCB</p>-->
+<!--        </div>-->
+<!---->
+<!--        <div class="col-md-12">-->
+<!--            <h3 class="text-center">Thông tin doanh nghiệp</h3>-->
+<!--            <div class="row">-->
+<!--                <p class="col-md-3 col-sm-3 col-xs-3"><strong>Công ty</strong></p>-->
+<!--                <p class="col-md-9 col-sm-9 col-xs-9">Coca Cola</p>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <p class="col-md-3 col-sm-3 col-xs-3"><strong>Địa chỉ</strong></p>-->
+<!--                <p class="col-md-9 col-sm-9 col-xs-9">Hoàng Hoa Thám, Tây Hồ, Hà Nội</p>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <p class="col-md-3 col-sm-3 col-xs-3"><strong>SĐT</strong></p>-->
+<!--                <p class="col-md-9 col-sm-9 col-xs-9">1900 1001</p>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <p class="col-md-3 col-sm-3 col-xs-3"><strong>Email</strong></p>-->
+<!--                <p class="col-md-9 col-sm-9 col-xs-9">CocaCola@gmail.com</p>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <p class="col-md-3 col-sm-3 col-xs-3"><strong>Website</strong></p>-->
+<!--                <p class="col-md-9 col-sm-9 col-xs-9">coca-cola.com</p>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
     <hr>
     <!--  IS STAMP INFO end -->

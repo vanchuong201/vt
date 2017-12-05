@@ -34,8 +34,21 @@ $this->params['breadcrumbs'][] = $this->title;
                 'visible' => Yii::$app->user->isAdminGroup,
             ],
             'name',
-            'short_description:ntext',
-            'description:ntext',
+//            'short_description:ntext',
+            [
+                'attribute' => 'short_description',
+                'value' => function(Products $model){
+                    return $model->short_description;
+                },
+                'format'=>'raw',
+            ],
+            [
+                'attribute' => 'description',
+                'value' => function(Products $model){
+                    return $model->description;
+                },
+                'format'=>'raw',
+            ],
             'image:ntext',
             'gtin',
             [
