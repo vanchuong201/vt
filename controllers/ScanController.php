@@ -26,7 +26,7 @@ class ScanController extends \yii\web\Controller
             $message = ['class'=>'danger', 'content'=>' Không xác định được mã tem, vui lòng quét lại ! #100 '];
         }
         else{ //
-                                                $encode = CodeHelper::endCodeStamp($code); // [type_code, id, user_id]
+             $encode = CodeHelper::endCodeStamp($code); // [type_code, id, user_id]
 
             Stamps::$user_id = $encode['user_id'];
 

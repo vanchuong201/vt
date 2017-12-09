@@ -106,7 +106,7 @@ class ProductsController extends AdminDefaultController
         if(!$model->save()){
             Yii::$app->getSession()->setFlash('warning', 'Thao tác xóa sản phẩm chưa thành công. Vui lòng thử lại !');
         }else{
-            Yii::$app->getSession()->setFlash('success', 'Xóa lô tem thành công !');
+            Yii::$app->getSession()->setFlash('success', 'Xóa sản phẩm thành công !');
         }
         return $this->redirect(['index']);
     }
