@@ -1,0 +1,1514 @@
+/* 
+   ------------------------------------------------------
+	RESPONSIVE STYLES
+   ------------------------------------------------------
+*/
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+@media (min-width: 1440px) and (max-width: 2880px) {
+	
+	
+		
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+@media (min-width: 992px) and (max-width: 1199px) { 
+
+	/*------------------------------------------*/
+	/*	 BASE
+	/*------------------------------------------*/
+	
+	.wide-160 { padding-top: 140px; padding-bottom: 140px; }
+	.wide-150 { padding-top: 130px; padding-bottom: 130px; }
+	.wide-140 { padding-top: 120px; padding-bottom: 120px; }
+	.wide-130 { padding-top: 110px; padding-bottom: 110px; }
+	.wide-120 { padding-top: 100px; padding-bottom: 100px; }
+	
+	/* Headers */	
+	h5 { font-size: 15px; line-height: 21px; }
+	h5.h5-lg { font-size: 16px; line-height: 22px; }
+	
+	h4.h4-small { font-size: 17px; line-height: 23px; }
+	h4 { font-size: 18px; line-height: 25px; }
+	h4.h4-lg { font-size: 19px; line-height: 27px; margin-bottom: 10px; }
+	
+	h3.h3-small { font-size: 22px; line-height: 28px; }	
+	h3 { font-size: 26px; line-height: 32px; margin-bottom: 15px; }
+	h3.h3-medium { font-size: 28px; line-height: 36px; } 
+	h3.h3-lg { font-size: 30px; line-height: 38px; }
+	
+	h2 { font-size: 34px; line-height: 44px; }
+	h2.h2-medium { font-size: 38px; line-height: 44px; }
+	h2.h2-lg { font-size: 40px; line-height: 48px; }
+	
+	/* Paragraphs */
+	p { font-size: 15px; line-height: 23px; }
+	p.p-lg {font-size: 17px; line-height: 27px;}
+	p.p-huge { font-size: 19px; line-height: 26px; }
+	
+	/* Buttons */	
+	.btn.btn-medium { font-size: 14px; padding: 12px 36px; }
+	.btn.btn-lg { padding: 15px 60px; }
+	
+	/* Section Title */	
+	.section-title h3 { font-size: 36px; line-height: 40px; }
+	.section-title-thin h4 { font-size: 28px; line-height: 38px; }
+	.section-title p { font-size: 18px; line-height: 26px; padding: 0 12%; }
+	.section-title-thin p { font-size: 18px; line-height: 26px; }
+	
+	/*------------------------------------------*/
+	/*	 INTRO
+	/*------------------------------------------*/
+	
+	.intro-row-180 { padding-top: 160px; padding-bottom: 160px; }
+	.intro-row-160 { padding-top: 140px; padding-bottom: 140px; }
+	.intro-row-140 { padding-top: 120px; padding-bottom: 120px; }
+	.intro-row-120 { padding-top: 100px; padding-bottom: 100px; }
+	.intro-row-100 { padding-top: 80px; padding-bottom: 80px; }
+	
+	#intro-5 .intro_slider { height: 700px; }
+	#intro-5 .slides { padding-top: 195px; }
+	#intro-15-content { padding-top: 80px; padding-bottom: 450px; }
+	.intro-15-image img { margin-top: -440px; }	
+	
+	/*------------------------------------------*/
+	/*	 Intro Transprent Herder
+	/*------------------------------------------*/
+	
+	.wide-intro .intro-row-180 { padding-top: 200px; padding-bottom: 160px; }
+	.wide-intro .intro-row-160 { padding-top: 180px; padding-bottom: 140px; }
+	.wide-intro .intro-row-140 { padding-top: 160px; padding-bottom: 120px; }
+	.wide-intro .intro-row-120 { padding-top: 140px; padding-bottom: 100px; }
+	.wide-intro .intro-row-100 { padding-top: 120px; padding-bottom: 80px; }
+	.wide-intro #intro-15-content { padding-top: 120px; padding-bottom: 450px; }	
+	
+	/* Intro H2 Header */	
+	h2.intro-normal { font-size: 46px; line-height: 54px; }
+	h2.intro-medium { font-size: 52px; line-height: 60px; }
+	h2.intro-lg { font-size: 62px; line-height: 72px; }
+	h2.intro-huge { font-size: 78px; line-height: 84px; }
+	
+	/* Intro H3 Header */	
+	.intro-txt h3 { font-size: 42px; line-height: 52px; }
+	#intro-15 .intro-txt h3, #intro-23 .intro-txt h3 { font-size: 34px; line-height: 42px; }
+	#intro-19 .intro-txt h3 { margin-bottom: 8px; }
+	
+	/* Intro Paragraphs */
+	.intro-txt p.intro-small { font-size: 15px; line-height: 25px; }
+	.intro-txt p { font-size: 17px; line-height: 27px; }
+	.intro-txt p.intro-lg { font-size: 19px; line-height: 29px; }
+	
+	/* Intro Register Forms */
+	#intro-form form { margin: 0; }
+	#intro-form h4 { font-size: 18px; line-height: 26px; }
+	
+	/* Intro Newsletter Form */
+	#intro-newsletter { padding: 0 10%; }
+	#intro-newsletter .form-control { height: 50px; padding: 11px 20px; font-size: 16px; }
+	#intro-newsletter .btn { height: 50px; font-size: 14px; padding: 11px 60px;  }
+	
+	/*------------------------------------------*/
+	/*	  Countdown Element
+	/*------------------------------------------*/
+	
+	#clock .cbox-1 { padding: 20px 40px; }
+	#clock span.cbox-1-digit {font-size: 75px; line-height: 75px; }
+	#clock span.cbox-1-txt {font-size: 18px; line-height: 18px; padding-top: 15px; }
+	
+	/* Intro Content */
+	#intro-14 .intro-txt.m-top-120 { margin-top: 100px; }
+	#intro-6 .intro-txt.m-top-30 { margin-top: 0; }
+	.ilist.m-bottom-10 { margin-bottom: 3px; }
+			
+	/*------------------------------------------*/
+	/*	 CONTENT
+	/*------------------------------------------*/	
+	
+	/* Process */
+	.prbox-icon span { font-size: 90px; line-height: 90px; }
+	
+	/* About */
+	.abox-1 span { font-size: 80px; line-height: 80px; }
+	.abox-4.m-bottom-20 { margin-bottom: 15px; }
+		
+	.progress { height: 6px; margin-bottom: 15px; }
+	.progress-bar { height: 6px; }
+	
+	/* Promo */
+	.promo-1-txt { padding: 0 5%; }
+	
+	/* Services */
+	.sbox-1 span { width: 55px; height: 55px; font-size: 50px; line-height: 50px!important; margin-top: 5px; }
+	.sbox-2 span, .sbox-3 span { font-size: 50px; }
+	.sbox-1-txt { padding-left: 20px; }
+	
+	.services-section .sbox-3.m-top-120 { margin-top: 70px; }
+	#services-7-1.services-section .sbox-3.m-top-120 { margin-top: 120px; }	
+	.sbox-3.m-bottom-40 { margin-bottom: 25px; }
+	.sbox-3.m-bottom-50 { margin-bottom: 35px; }
+	
+	/* Content */
+	.content-1-txt, #content-2-3 .content-2-txt, #content-2-4 .content-2-txt, .content-3-txt { margin-top: 20px; }
+	
+	#content-1-4 .content-1-txt, .content-2-txt, #content-1-2 .content-1-txt, 
+	#content-1-8 .content-1-txt, .content-2-txt, #content-2-3 .content-2-txt { margin-top: 0; }
+	
+	#content-1-7 .content-1-txt, #content-1-10 .content-1-txt, #content-1-11 .content-1-txt, 
+	#content-2-2 .content-2-txt, #content-2-4 .content-2-txt, .content-11-txt { margin-top: 40px; }
+	
+	.content-section h2.h2-huge { font-size: 40px; line-height: 45px; margin-bottom: 15px; }
+	#content-1-3 p.p-lg.m-bottom-20, #content-1-4 p.p-lg.m-bottom-20 { margin-bottom: 15px; }
+	.content-1-btn, .content-4-btn { margin-top: 25px; }
+	.content-section .cbox-1.m-top-30, .content-3-txt .skills.m-top-30  { margin-top: 20px; }
+	.content-5-txt .btn.m-top-20 { margin-top: 15px; }
+	#content-6-1 .m-top-30, #content-6-2 .m-top-30 { margin-top: 15px; }
+
+	.content-section .cbox-1.m-bottom-25 { margin-bottom: 10px; }
+	#content-1-8 .content-1-txt.p-left-45 { padding-left: 30px; }
+	#content-3-1 .content-3-txt.p-right-60, #content-3-2 .content-3-txt.p-right-45, #content-4-2.content-4-txt.p-right-45 { padding-right: 20px; }
+	.content-4-txt .cbox-2.m-top-30 { margin-top: 15px; }
+	
+	#content-7-1 .content-7-txt, #content-7-3 .content-7-txt, #content-7-5 .content-7-txt { padding-left: 50px; }
+	#content-7-2 .content-7-txt, #content-7-4 .content-7-txt, #content-7-6 .content-7-txt { padding-right: 50px; }		
+	.content-7-txt .cbox-3.m-top-30.m-bottom-40 { margin-top: 25px; margin-bottom: 20px; }
+	.content-7-txt .cbox-3.m-bottom-40 { margin-bottom: 30px; }	
+	
+	.content-8-skills .chart-item  { padding: 0 10px; }	
+	
+	.content-9-txt-holder { padding: 85px 55px; } 
+	.cbox-4 { padding: 50px 35px; }
+	.cbox-4 p.p-lg { font-size: 16px; line-height: 26px; }
+	.cbox-4 .btn.m-top-30 { margin-top: 20px; }
+	#content-11-1 .statistic-number { font-size: 40px; line-height: 40px; }
+	#content-11-2 .statistic-number { font-size: 55px; line-height: 55px; }
+	#content-11-1 .statistic-block p { font-size: 16px; line-height: 16px; }
+	#content-11-2 .statistic-block p { font-size: 16px; line-height: 16px; font-weight: 300; }
+	
+	/* Tabs */
+	.nav-tabs > li > a { font-size: 15px; padding: 10px 20px; }
+	#tabs-1-1 .nav-tabs > li > a { font-size: 17px; padding: 15px 20px; }
+	#tabs-2-1 .tab-content > .tab-pane, #tabs-3-1 .tab-content > .tab-pane {  padding: 15px 5px 0; }
+	.nav-tabs > li > a span { font-size: 50px; line-height: 50px; margin-bottom: 10px; }
+		
+	/* Statistic */
+	.statistic-number { font-size: 60px; line-height: 60px; }
+	.statistic-block span {	font-size: 40px; line-height: 40px; }
+	
+	/* Portfolio */
+	.portfolio-item .overlay-content h4 { padding-left: 15px; } 
+	.portfolio-item .overlay-content p { padding: 0 15px; } 
+	
+	/* Pricing */
+	.pricing-table .price span, #pricing-3-1 .pricing-table .price span { font-size: 80px; line-height: 60px; }
+	#pricing-2-1 .pricing-table .price span { font-size: 75px; line-height: 55px; }
+	.pricing-table ul.features { font-size: 15px; line-height: 15px; padding: 15px 25px; }
+	#pricing-4-2 .sale-item { padding: 0 7px; }
+	
+	/* Team */
+	#team-1-1 .team_members_wrapper .col-md-3 { padding: 0 7px; }
+	
+	/* Banner */
+	.banner-txt h2 { font-size: 48px; line-height: 56px; }
+	#banner-4 .banner-txt h2, #banner-5 .banner-txt h2 { font-size: 38px; line-height: 46px; }
+	#banner-1 .banner-txt p, #banner-4 .banner-txt p { padding: 0; }
+	#banner-3 .banner-txt p { padding: 0 10%; }
+		
+	/* Blog */
+	.blog-post-link a { font-size: 17px; line-height: 23px; }
+	.blog-2-post .blog-post-link a { font-size: 25px; line-height: 30px; }
+	#blog-1-1 .blog-articles-holder .col-sm-4, #blog-3-1 .col-sm-4 { padding: 0 10px; }
+	#blog-3-1 .blog-3-post { padding: 40px; }
+	
+	/* FAQs */
+	.panel-heading h4 { margin-bottom: 0; }
+	.question h5 { margin-bottom: 5px; }
+	
+	/* Testimonials */
+	.testimonial-txt p { font-size: 20px; line-height: 28px; padding: 10px 0 20px; }
+	.review-4 .testimonial-txt p { padding: 10px 5%; }
+	.review-3 .message-body { padding: 40px 30px; }
+	#reviews-5-1 .flexslider { padding: 60px; }
+	
+	/* Newsletter */
+	.newsletter-txt h2, .newsletter-txt h4 { margin-bottom: 2px; }
+	#newsletter-5 .newsletter-form .btn, #newsletter-6 .newsletter-form .btn { padding: 10px 30px; }
+	
+	/* Call To Action */
+	#call-to-action-5 h2 { font-size: 45px; line-height: 45px; }
+	
+	/* Contacts */
+	#contacts-3-1 .google-map, #contacts-3-2 .google-map, 
+	#contacts-3-3 .google-map, #contacts-3-4 .google-map { padding: 0px 0px 90%; }
+	#contacts-4-1 .google-map, #contacts-4-2 .google-map { padding: 0px 0px 70%; }
+	
+	.contacts-7-txt, .contacts-7-form { padding: 60px 40px; }
+	.contacts-7-form #input-name { padding-right: 0; }
+	.contacts-7-form #input-email { padding-left: 0; }
+	
+	/* Footer */
+	#footer-1-4 p.txt-medium { font-size: 14px; line-height: 22px; font-weight: 400; }
+	
+
+	
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+@media only screen and (max-width: 991px) {	
+
+	/*------------------------------------------*/
+	/*	 BASE
+	/*------------------------------------------*/
+	
+	.wide-160 { padding-top: 140px; padding-bottom: 140px; }
+	.wide-150 { padding-top: 130px; padding-bottom: 130px; }
+	.wide-140 { padding-top: 120px; padding-bottom: 120px; }
+	.wide-130 { padding-top: 110px; padding-bottom: 110px; }
+	.wide-120 { padding-top: 100px; padding-bottom: 100px; }
+	
+	.division .p-left-30, .division .p-left-45, .division .p-left-60 { padding-left: 15px;}
+	.division .p-right-30, .division .p-right-45, .division .p-right-60 { padding-right: 15px;}
+
+	/* Headers */
+	h5 { font-size: 14px; line-height: 20px; }
+	h5.h5-lg { font-size: 15px; line-height: 21px; }
+	
+	h4.h4-small { font-size: 16px; line-height: 22px; }	
+	h4 { font-size: 17px; line-height: 23px; }
+	h4.h4-lg { font-size: 18px; line-height: 24px; margin-bottom: 10px; } 
+	
+	h3.h3-small { font-size: 20px; line-height: 26px; }
+	h3 { font-size: 22px; line-height: 28px; margin-bottom: 15px; }
+	h3.h3-medium { font-size: 23px; line-height: 29px; } 
+	h3.h3-lg { font-size: 25px; line-height: 31px; } 
+	
+	h2 { font-size: 30px; line-height: 38px; margin-bottom: 15px; }
+	h2.h2-medium { font-size: 34px; line-height: 40px; }
+	h2.h2-lg { font-size: 38px; line-height: 46px; }
+	
+	/* Paragraphs */
+	p { font-size: 14px; line-height: 22px; }
+	p, p.p-lg { font-size: 15px; line-height: 22px; }
+	p.p-lg.m-bottom-20 { margin-bottom: 15px; }
+	p.p-huge { font-size: 17px; line-height: 25px; }	
+	
+	/* Buttons */	
+	.btn { font-size: 12px; font-weight: 400; padding: 10px 24px; }
+	.btn.btn-medium { font-size: 13px; font-weight: 500; padding: 12px 30px; }
+	.btn.btn-lg { font-size: 14px; font-weight: 500; padding: 13px 40px; }
+	
+	/* Section Title */	
+	.section-title { margin-bottom: 50px; }
+	.section-title h3 { font-size: 32px; line-height: 36px; }
+	.section-title-thin h4 { font-size: 26px; line-height: 36px; }
+	.section-title p, .section-title-thin p { font-size: 16px; line-height: 24px; padding: 0 12%; }
+	
+	/*------------------------------------------*/
+	/*	 Navigation Menu
+	/*------------------------------------------*/
+		
+	.navbar-nav > li > a { font-size: 13px; padding: 0 10px; }
+	.navbar-nav > li > p { font-size: 15px; }
+	.navbar-nav > li > a.header-btn { font-size: 13px; margin-top: 12px; padding: 5px 20px; }
+	.navbar-nav > li > p.m-left-15.m-right-10 { margin-left: 5px; margin-right: 5px; }
+	.navbar-nav > li > p.m-left-15 { margin-left: 10px; }
+	.navbar-nav.m-left-100 { margin-left: 0;  }
+	
+	/*------------------------------------------*/
+	/*	 INTRO
+	/*------------------------------------------*/
+	
+	.intro-section .flex-row.vertical-align { display: block!important; }
+	#intro-6 .intro-txt, #intro-14 .intro-txt, #intro-19 .intro-txt { text-align: center; }
+	
+	.intro-row-180 { padding-top: 140px; padding-bottom: 140px; }
+	.intro-row-160 { padding-top: 120px; padding-bottom: 120px; }
+	.intro-row-140 { padding-top: 100px; padding-bottom: 100px; }
+	.intro-row-120 { padding-top: 80px; padding-bottom: 80px; }
+	.intro-row-100 { padding-top: 80px; padding-bottom: 80px; }
+	
+	#intro-5 .intro_slider { height: 680px; }
+	#intro-5 .slides {padding-top: 195px;}
+	#intro-15-content { padding-top: 80px; padding-bottom: 350px; }
+	.intro-15-image img { margin-top: -340px; }	
+	#intro-19 .intro-img { margin-top: 50px; }
+
+	/*------------------------------------------*/
+	/*	 Intro Transprent Herder
+	/*------------------------------------------*/
+	
+	.wide-intro .intro-row-180 { padding-top: 180px; padding-bottom: 140px; }
+	.wide-intro .intro-row-160 { padding-top: 160px; padding-bottom: 120px; }
+	.wide-intro .intro-row-140 { padding-top: 140px; padding-bottom: 100px; }
+	.wide-intro .intro-row-120 { padding-top: 120px; padding-bottom: 80px; }
+	.wide-intro .intro-row-100 { padding-top: 120px; padding-bottom: 80px; }
+	.wide-intro #intro-15-content { padding-top: 120px; padding-bottom: 350px; }	
+	
+	/* Intro H2 Header */	
+	h2.intro-normal { font-size: 40px; line-height: 48px; }
+	h2.intro-medium { font-size: 46px; line-height: 54px; }
+	h2.intro-lg { font-size: 55px; line-height: 63px; }
+	h2.intro-huge { font-size: 65px; line-height: 75px; }
+	
+	/* Intro H3 Header */	
+	.intro-txt h3 { font-size: 36px; line-height: 44px; }
+	#intro-15 .intro-txt h3, #intro-23 .intro-txt h3 { font-size: 30px; line-height: 40px; }
+	#intro-19 .intro-txt h3 { margin-bottom: 10px; }
+	
+	/* Intro Paragraphs */
+	.intro-txt p.intro-small { font-size: 15px; line-height: 25px; }
+	.intro-txt p { font-size: 16px; line-height: 26px; }
+	.intro-txt p.intro-lg { font-size: 18px; line-height: 28px; }
+	#intro-4 .intro-txt p, #intro-15 .intro-txt p { padding: 0; }
+	#intro-9 .intro-txt p, #intro-13 .intro-txt p, #intro-22 .intro-txt p { padding: 0 5%; }
+	#intro-19 .intro-txt p, #intro-22 .intro-txt p { padding: 0 15%; }
+
+	/* Intro Register Form */
+	#intro-form form { width: 65%; margin: 40px auto 0; }
+	#intro-form h4 { font-size: 16px; line-height: 24px; }
+	
+	/* Intro Newsletter Form */
+	#intro-newsletter { padding: 0 10%; }
+	#intro-newsletter .form-control { height: 48px; padding: 11px 20px; font-size: 16px; }
+	#intro-newsletter .btn { height: 48px; font-size: 14px; padding: 11px 60px;  }
+	
+	#intro-19 .intro-txt .btn { margin-top: 10px; }
+	#intro-21 h2.intro-medium { margin-bottom: 10px; }
+	#intro-21 .intro-txt .btn { margin-top: 20px; }
+	
+	/*------------------------------------------*/
+	/*	  Countdown Element
+	/*------------------------------------------*/
+	
+	#clock .cbox-1 { padding: 20px 35px; }
+	#clock span.cbox-1-digit {font-size: 65px; line-height: 65px; }
+	#clock span.cbox-1-txt {font-size: 16px; line-height: 16px; padding-top: 10px; }
+	
+	/* Intro Content */
+	.intro-stores-badge.m-top-40 { margin-top: 30px; }
+	
+	#intro-6 .intro-txt.m-top-30, #intro-14 p.m-top-30 { margin-top: 0; }
+	#intro-6 .intro-txt { padding: 0 5%; }
+	
+	#intro-14 .intro-txt { margin-top: 40px; }
+	#intro-7 p.m-top-20.m-bottom-40 { margin-top: 20px; margin-bottom: 30px; }
+	
+	.intro-list.m-top-30 { margin-top: 20px; }
+	.ilist.m-bottom-10 { margin-bottom: 3px; }
+	#intro-14 .intro-img img { width: 70%; height: 70%; }
+	
+	#intro-17 .barWrapper h5 { font-size: 15px; }
+	#intro-17 .skill-percent { font-size: 15px; line-height: 15px; font-weight: 700; top: 10px; }	
+	#intro-17 .intro-txt p { font-size: 15px; line-height: 18px; }
+	
+	#intro-18-content p.m-top-20 { margin-top: 0; }	
+	#intro-18 .m-top-80 { margin-top: 60px; }	
+	
+	#intro-22 .stores-badge.m-top-80 { margin-top: 30px; }
+	#intro-23 .intro-txt .btn { margin-top: 10px; } 
+		
+	/*------------------------------------------*/
+	/*	 CONTENT
+	/*------------------------------------------*/	
+	
+	/* Process */
+	.prbox-icon span { font-size: 75px; line-height: 75px; }	
+	.prbox-icon::after { top: 15%; }
+	
+	/* About */
+	.about-image-3-1 { margin-top: 12px; }
+	.abox-1 span { font-size: 75px; line-height: 75px; }
+	.abox-2-icon span {	font-size: 52px; line-height: 52px; }
+	.abox-4.m-bottom-20.b-bottom-grey { margin-bottom: 0; border-bottom: none;  }
+	.abox-4-txt p.p-bottom-10 { padding-bottom: 0; }
+	#about-4-2 .about-txt.b-left-grey { border-left: none; }
+	
+	/* Progress */
+	.progress, .progress-bar { height: 6px; }
+	div.progressBar { padding: 3px 0; }
+	.goalProgress { margin-bottom: 10px; }
+	
+	/* Promo */
+	.promo-1-txt { padding: 0; }
+	.promo-5-txt h2 { font-size: 45px; line-height: 55px; }
+	#promo-5 .promo-box { text-align: center; }
+	
+	#promo-6 .promo-txt.m-top-80 { margin-top: 0; }
+	
+	/* Services */
+	.sbox-1 span { width: 50px; height: 50px; font-size: 45px; line-height: 45px!important; margin-top: 5px; }
+	.sbox-2 span, .sbox-3 span { font-size: 45px; }
+	.sbox-1-txt { padding-left: 20px; }
+	
+	.services-section .sbox-3.m-top-120 { margin-top: 0; }
+	#services-7-1.services-section .sbox-3.m-top-120 { margin-top: 80px; }	
+	.sbox-3 h4 { margin-bottom: 5px; }
+	.sbox-3.m-bottom-40 { margin-bottom: 18px; }
+	.sbox-3.m-bottom-50 { margin-bottom: 28px; }
+	
+	/* Content */
+	.content-1-txt, #content-1-2 .content-1-txt, #content-1-8 .content-1-txt, 
+	#content-1-10 .content-1-txt, #content-1-11 .content-1-txt, .content-2-txt, 
+	#content-2-2 .content-2-txt, #content-2-3 .content-2-txt, #content-2-4 .content-2-txt, 
+	.content-3-txt, .content-4-txt, .content-11-txt { margin-top: 0; }
+	
+	#content-1-3 .content-1-txt { margin-top: 80px; }
+	#content-1-5 .content-1-txt, #content-1-6 .content-1-txt { margin-top: 50px; }
+	#content-1-9 .content-1-txt { margin-top: 40px; }
+	#content-1-10 .cbox-1 span, #content-1-11 .cbox-1 span { width: 50px; height: 60px; font-size: 40px; line-height: 40px!important; float: left; margin-right: 10px;  }
+	
+	#content-1-8 .cbox-1 h4, #content-1-10 .cbox-1 h4, #content-1-11 .cbox-1 h4 { margin-bottom: 5px; }
+	#content-1-10 .cbox-1.m-top-20, #content-1-10 .cbox-1.m-top-25, 
+	#content-1-11 .cbox-1.m-top-20, #content-1-11 .cbox-1.m-top-25 { margin-top: 15px; }
+	
+	.content-section h2.h2-huge { font-size: 36px; line-height: 42px; margin-bottom: 15px; }
+	#content-1-5 .stores-badge.m-top-40, #content-1-6 .stores-badge.m-top-40 { margin-top: 30px; }
+	#content-1-5 .stores-badge img, #content-1-6 .stores-badge img { width: 40%; height: 40%; }
+	.content-3-txt .skills .progress { margin-bottom: 8px; }
+	.content-3-txt .skills.m-top-30, .content-4-txt .cbox-2.m-top-30, 
+	.content-5-txt .btn.m-top-20, #content-6-1 .m-top-30, #content-6-2 .m-top-30 { margin-top: 15px; }
+	#content-1-3 p.p-lg.m-bottom-20, #content-1-4 p.p-lg.m-bottom-20 { margin-bottom: 15px; }
+	.content-1-btn, .content-4-btn { margin-top: 25px; }
+	
+	#content-7-1 .content-7-txt, #content-7-3 .content-7-txt, #content-7-5 .content-7-txt { padding-left: 50px; }
+	#content-7-2 .content-7-txt, #content-7-4 .content-7-txt, #content-7-6 .content-7-txt { padding-right: 50px; }	
+	.content-7-txt .cbox-3.m-top-30.m-bottom-40 { margin-top: 25px; margin-bottom: 20px; }
+	.content-7-txt .cbox-3.m-bottom-40 { margin-bottom: 30px; }	
+	
+	.content-8-skills .chart-item  { padding: 0 5px; }	
+	
+	.content-section .cbox-1.m-top-30  { margin-top: 20px; }
+	.content-section .cbox-1.m-bottom-20 { margin-bottom: 10px; }
+	.content-section .cbox-1-icon span { width: 40px; height: 40px; font-size: 40px; line-height: 40px!important; margin-top: 6px; }	
+	.content-section .cbox-1-txt { padding-left: 15px; } 
+	
+	.content-2-txt .cbox-1-icon span { width: 35px; height: 35px; font-size: 35px; line-height: 35px!important;margin-top: 6px; }	
+	.content-2-txt .cbox-1.p-bottom-15.m-bottom-25, .content-2-txt .cbox-1.m-bottom-25 { padding-bottom: 0; margin-bottom: 12px; }	
+	.content-2-txt .b-bottom-grey { border-bottom: none; }
+	.content-2-txt .cbox-1-txt { padding-left: 15px; } 
+	
+	.content-9-txt-holder { padding: 70px 55px; } 
+	
+	.content-section .skills.m-top-30, 
+	.content-section .panel-group.m-top-30, 
+	.content-section .cbox-2.m-top-30 { margin-top: 20px; }
+	.content-1-btn { margin-top: 25px; }
+	.content-4-btn { margin-top: 20px; }
+	
+	.content-section .cbox-2.m-bottom-15 { margin-bottom: 10px; }
+	.cbox-4 { width: 750px; margin: 0 auto; padding: 60px 15px; text-align: center; }	
+	.cbox-4 span { font-size: 50px; margin-bottom: 20px; }
+	.cbox-4 .btn.m-top-30 { margin-top: 20px; }
+	
+	#content-6-1 .m-top-40, #content-6-1 .m-top-30, 
+	#content-6-2 .m-top-40, #content-6-2 .m-top-30 { margin-top: 20px; } 
+	
+	#content-11-1 .statistic-number { font-size: 32px; line-height: 32px; }
+	#content-11-1 .statistic-block { padding-right: 10px; }
+	#content-11-2 .statistic-number { font-size: 45px; line-height: 45px; }
+	#content-11-2 .statistic-block p { font-size: 16px; line-height: 16px; font-weight: 300; }
+	#content-11-2 .m-top-30 { margin-top: 20px; }
+	
+	/* Tabs */
+	.nav-tabs > li > a { font-size: 15px; padding: 10px 20px; }
+	#tabs-1-1 .nav-tabs > li > a { font-size: 16px; padding: 15px 20px; }
+	.nav-tabs > li > a span { font-size: 45px; line-height: 45px; margin-bottom: 10px; }
+	#tabs-3-1 .nav-tabs > li > a { font-size: 15px; padding: 15px; margin-right: 10px; }
+	#tabs-3-1 .tab-content > .tab-pane { padding: 15px 5px 0; }
+	
+	#tabs-3-1 .col-sm-8.m-top-80 { margin-top: 0; }
+	
+	/* Statistic */
+	.statistic-block span { font-size: 40px; line-height: 40px; }
+	.statistic-number { font-size: 50px; line-height: 50px; }
+	#content-12-1 .statistic-number { font-size: 32px; line-height: 32px; }
+	.statistic-block p { font-size: 14px; line-height: 19px; }
+	#content-12-2 .statistic-block p { font-size: 16px; line-height: 16px; font-weight: 400; }
+		
+	/* Portfolio */
+	.gallery-filter .btn-group > .btn { font-size: 13px; }
+	.portfolio-item .overlay-content h4 { padding-left: 15px; } 
+	.portfolio-item .overlay-content p { padding: 0 15px; } 
+	
+	/* Pricing */
+	.pricing-row .col-sm-4, #pricing-2-1 .pricing-row .col-sm-4 { padding: 0 4px; }
+	.pricing-table h4 { padding-top: 40px; padding-bottom: 15px; } 
+	#pricing-2-1 .pricing-table h4 { padding-bottom: 0; }
+	#pricing-2-1 .pricing-table .price { padding-top: 65px; padding-bottom: 10px; }
+	
+	.pricing-table .price span, #pricing-3-1 .pricing-table .price span { font-size: 75px; line-height: 55px; }	
+	#pricing-2-1 .pricing-table .price span {font-size: 70px;line-height: 50px;}	
+	.pricing-table .price p { font-size: 15px; line-height: 15px; }
+	.pricing-table .price sup { font-size: 38px; font-weight: 400; top: -15px; }	
+	#pricing-2-1 .pricing-table .price sup {  top: -10px; }	
+	.pricing-table ul.features { font-size: 15px; line-height: 15px; padding: 15px 25px; }
+	#pricing-2-1 .pricing-table ul.features { padding: 5px 25px 15px; }
+	.pricing-table .btn { margin: 10px 0 40px; }
+	#pricing-2-1 .pricing-table .btn { margin: 15px 0 55px; }
+	
+	#team-1-2 .team_members_wrapper .col-sm-4, 
+	#blog-1-1 .blog-articles-holder .col-sm-4, 
+	#blog-3-1 .col-sm-4, .review-3 { padding: 0 7px; }
+	
+	/* Banner */
+	.banner-txt h2 { font-size: 42px; line-height: 50px; }
+	#banner-4 .banner-txt h2, #banner-5 .banner-txt h2 { font-size: 32px; line-height: 40px; }
+	#banner-1 .banner-txt p, #banner-4 .banner-txt p { padding: 0; }
+	#banner-3 .banner-txt p { padding: 0 10%; }
+	
+	/* Blog */
+	.blog-post-link a { font-size: 17px; line-height: 23px; }
+	.blog-2-post .blog-post-link a { font-size: 22px; line-height: 26px; }
+	.blog-3-post { padding: 35px 30px; }
+	#blog-3-1 .blog-post-avatar { margin-top: -25px;}
+	
+	/* FAQs */
+	.panel-heading h4 { margin-bottom: 0; }
+	.question.m-bottom-25 { margin-bottom: 5px; }
+	.question h5 { margin-bottom: 5px; }
+	
+	/* Testimonials */
+	.review-1 .testimonial-avatar img { width: 110px; height: 110px; }	
+	.review-3 .testimonial-avatar img { width: 100px; height: 100px; margin: 0 auto 8px; }
+	
+	.testimonial-txt p { font-size: 18px; line-height: 26px; padding: 10px 0 20px; }
+	.review-3 .testimonial-txt p { font-size: 15px; line-height: 22px; padding: 10px 0 4px; }
+	.review-4 .testimonial-txt p { font-size: 16px; line-height: 22px; padding: 10px 5%; }
+	.review-3 .message-body { padding: 40px 25px; }
+	#reviews-5-1 .flexslider { padding: 40px 50px; }
+	
+	p.author { font-size: 14px; line-height: 14px; font-weight: 700; margin-bottom: 2px; }
+	.reviews span { font-size: 15px; }
+	
+	/* Clients */
+	#clients-3-1 .clients-logo-holder { padding: 0; } 
+	.clients-logo { padding: 30px 10px; }
+	
+	/* Newsletter */
+	#newsletter-3.p-top-80.p-bottom-80, #newsletter-4.p-top-80.p-bottom-80 { padding-top: 60px; padding-bottom: 60px; }
+	.newsletter-txt h2, .newsletter-txt h4 { margin-bottom: 2px; }
+	.newsletter .form-control, #newsletter-5.newsletter .form-control, #newsletter-6.newsletter .form-control { height: 46px; font-size: 15px; padding: 10px 20px; }
+	.newsletter-form .btn, #newsletter-5 .newsletter-form .btn, #newsletter-6 .newsletter-form .btn { height: 46px; font-size: 14px; padding: 10px 30px; }
+	#newsletter-3 .newsletter-form .btn, #newsletter-4 .newsletter-form .btn { padding: 10px 50px; }
+	.newsletter-txt { text-align: center; margin-bottom: 20px; }
+	.newsletter-form.m-top-25 { margin-top: 20px; }
+	
+	/* Call To Action */
+	.cta-2-txt { text-align: center; margin-bottom: 15px; }
+	.cta-3-txt, .cta-4-txt { text-align: center; margin-bottom: 15px; }
+	.cta-4-btn { text-align: center; }
+	#call-to-action-5 h2 { font-size: 40px; line-height: 40px; }
+	#call-to-action-5 .stores-badge.m-top-25 { margin-top: 15px; }
+	.call-to-action .stores-badge img { width: 20%; height: 20%; }
+	
+	/* Contacts */
+	#contacts-3-1 .google-map, #contacts-3-2 .google-map, 
+	#contacts-3-3 .google-map, #contacts-3-4 .google-map { padding: 0px 0px 90%; }
+	#contacts-4-1 .google-map, #contacts-4-2 .google-map { padding: 0px 0px 70%; }
+	
+	.contacts-section.p-top-80.p-bottom-50 { padding-top: 60px; padding-bottom: 30px; }
+	.contact-box span { font-size: 50px; line-height: 50px; }
+	
+	#contacts-7-1 .container, #contacts-7-1 .row, .contacts-7-form, .contacts-7-txt { display: block; }
+	.contacts-7-txt, .contacts-7-form { padding: 50px 60px; }
+	#contacts-7-1 .row { padding: 0 15px; }
+	
+	.contacts-7-form #input-name { padding-right: 0; }
+	.contacts-7-form #input-email { padding-left: 0; }
+	.contacts-7-form .form_btn .btn { margin-top: 15px; }
+	
+	.contact-form .form-control, .callback-form .form-control { height: 46px; font-size: 15px; padding: 5px 12px; margin-bottom: 10px; }
+	p.call-back-notice { font-size: 14px; line-height: 22px; }
+
+	/* Footer */
+	#footer-1-1 .foo-social i, #footer-1-2 .foo-social i, #footer-1-3 .foo-social i {margin-right: 5px; } 
+	
+
+	
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+@media only screen and (max-width: 767px) {	
+
+	/*------------------------------------------*/
+	/*	 BASE
+	/*------------------------------------------*/
+		
+	.wide-160 { padding-top: 110px; padding-bottom: 110px; }
+	.wide-150 { padding-top: 110px; padding-bottom: 110px; }
+	.wide-140 { padding-top: 100px; padding-bottom: 100px; }
+	.wide-130 { padding-top: 90px; padding-bottom: 90px; }
+	.wide-120 { padding-top: 80px; padding-bottom: 80px; }
+	
+	.division, .half-division, .pre-footer { padding-left: 45px; padding-right: 45px; }	
+	#content-10-1.division, #contact-map-2.division, .footer.division { padding-left: 0; padding-right: 0; }
+	
+	/* Spacing & Alignment For Demos */
+	.wide-100 { padding-top: 80px; padding-bottom: 80px; }
+	.wide-90 { padding-top: 80px; padding-bottom: 50px; }
+	.wide-80 { padding-top: 80px; padding-bottom: 50px; }
+	.wide-70 { padding-top: 80px; padding-bottom: 50px; }
+	.wide-60 { padding-top: 80px; padding-bottom: 50px; }
+	.wide-50 { padding-top: 80px; padding-bottom: 50px; }
+	.wide-40 { padding-top: 80px; padding-bottom: 50px; }
+	.wide-30 { padding-top: 80px; padding-bottom: 50px; }
+	.wide-20 { padding-top: 80px; padding-bottom: 50px; }
+	
+	.p-top-100 { padding-top: 80px; }
+	.p-top-80.p-bottom-30 { padding-top: 60px; padding-bottom: 30px; }
+	.p-top-80.p-bottom-20 { padding-top: 60px; padding-bottom: 30px; }	
+	
+	/* Headers */
+	h5 { font-size: 14px; line-height: 20px; }
+	h5.h5-lg { font-size: 14px; line-height: 20px; margin-bottom: 2px; }
+	
+	h4.h4-small { font-size: 15px; line-height: 21px; }	
+	h4 { font-size: 16px; line-height: 22px; margin-bottom: 8px; }
+	h4.h4-lg { font-size: 17px; line-height: 23px; margin-bottom: 8px; } 
+	
+	h3.h3-small { font-size: 19px; line-height: 25px; }
+	h3 { font-size: 21px; line-height: 27px; margin-bottom: 10px; }
+	h3.h3-medium { font-size: 23px; line-height: 29px; } 
+	h3.h3-lg { font-size: 25px; line-height: 31px; } 
+	
+	h2 { font-size: 29px; line-height: 37px; margin-bottom: 10px; }
+	h2.h2-medium { font-size: 33px; line-height: 39px; }
+	h2.h2-lg { font-size: 37px; line-height: 45px; }
+	
+	/* Paragraphs */
+	p { font-size: 14px; line-height: 22px; }
+	p.p-lg { font-size: 15px; line-height: 22px; }
+	p.p-huge { font-size: 16px; line-height: 24px; }
+	
+	/* Buttons */	
+	.btn { font-size: 12px; font-weight: 400; padding: 10px 24px; }
+	.btn.btn-medium { font-size: 13px; padding: 11px 28px; }
+	.btn.btn-lg { font-size: 14px; padding: 12px 36px; }
+	
+	/* Section Title */	
+	.section-title { margin-bottom: 50px; }
+	.section-title h3 { font-size: 30px; line-height: 34px; }
+	.section-title-thin h4 { font-size: 24px; line-height: 30px; }
+	.section-title p { font-size: 15px; line-height: 23px; padding: 0 12%; }
+	.section-title-thin p { font-size: 15px; line-height: 23px; padding: 0; }
+
+	/*------------------------------------------*/
+	/*	 Navigation Menu
+	/*------------------------------------------*/
+	
+	.header { margin-bottom: 60px; }
+	.navbar-brand { padding: 22px 45px; }
+	.navbar { padding: 0; box-shadow: 0 0 2px rgba(50, 50, 50, 0.4); }
+	.navbar-nav { background: #f9f9f9; margin-top: 0; margin-bottom: 0; border-top: 1px solid #ddd; }	
+	.navbar-nav > li, .dropdown-menu > li { text-align: center; }
+	.navbar-nav > li > a { color: #333; font-size: 14px; font-weight: 700; line-height: 40px; text-align: center; }
+	.navbar-nav > li > p { font-size: 15px; line-height: 40px; margin: 0; }
+	.navbar-nav > li > p i { line-height: 40px; }
+	.navbar-nav > li > a.header-btn { font-size: 14px; padding: 7px 18px; margin-top: 0px; margin-left: 0; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; }
+	.navbar-nav > li > a.header-btn:hover { background-color: #333; border-color: #333; color: #fff; }
+	.navbar-nav > li > p.m-left-15.m-right-10 { margin: 0; }
+	.navbar-nav > li > p.m-left-15 { margin-left: 0; }
+	.navbar-nav > li > p i, .navbar-nav > li > p a i { margin-right: 3px; }
+			
+	#navigation-menu { text-align: center; }
+	.navbar-nav > li.header-socials { display: inline-block; margin: 8px auto; }
+	
+	.navbar.no-bg { padding: 0; background-color: #fff; }	
+	.navbar.no-bg .logo-white { display: none; }
+	.navbar.no-bg .logo-black { display: block; }
+	
+	.no-bg .navbar-nav > li > a { color: #333; }
+	
+	/*------------------------------------------*/
+	/*	 INTRO
+	/*------------------------------------------*/
+	
+	.intro-txt { text-align: center; }
+	#intro-3 .intro-txt, #intro-10 .intro-txt, #intro-16 .intro-txt, #intro-17 .intro-txt { text-align: left; }
+	
+	.intro-row-180, .wide-intro .intro-row-180 { padding-top: 120px; padding-bottom: 120px; }
+	.intro-row-160, .wide-intro .intro-row-160 { padding-top: 100px; padding-bottom: 100px; }
+	.intro-row-140, .wide-intro .intro-row-140 { padding-top: 80px; padding-bottom: 80px; }
+	.intro-row-120, .wide-intro .intro-row-120 { padding-top: 60px; padding-bottom: 60px; }
+	.intro-row-100, .wide-intro .intro-row-100 { padding-top: 60px; padding-bottom: 60px; }
+	
+	#intro-5 .intro_slider { height: 620px; }
+	#intro-15-content, .wide-intro #intro-15-content { padding-top: 60px; padding-bottom: 300px; }
+	.intro-15-image img { margin-top: -290px; }	
+	
+	#intro-5 .slides { padding-top: 185px; }
+	#intro-6 .intro-txt.m-top-30, #intro-14 p.m-top-30 { margin-top: 0; }
+	#intro-6 .intro-txt { padding: 0 15px; }
+	#intro-14 .intro-txt { margin-top: 40px; }
+	#intro-7 p.m-top-20.m-bottom-40 { margin-top: 20px; margin-bottom: 30px; }
+	.intro-list.m-top-30 { margin-top: 20px; }
+	
+	/* Intro H2 Header */	
+	h2.intro-normal { font-size: 32px; line-height: 36px; }
+	h2.intro-medium { font-size: 38px; line-height: 44px;  margin-bottom: 10px; }
+	h2.intro-lg { font-size: 46px; line-height: 52px; }
+	h2.intro-huge { font-size: 56px; line-height: 62px; }
+	
+	/* Intro H3 Header */	
+	.intro-txt h3 { font-size: 30px; line-height: 36px; }
+	#intro-15 .intro-txt h3, #intro-23 .intro-txt h3 { font-size: 28px; line-height: 34px; }
+	#intro-19 .intro-txt h3 { margin-bottom: 10px; }
+	
+	/* Intro Paragraphs */
+	.intro-txt p.intro-small { font-size: 14px; line-height: 24px; }
+	.intro-txt p { font-size: 15px; line-height: 25px; }
+	.intro-txt p.intro-lg { font-size: 17px; line-height: 27px; }
+	#intro-4 .intro-txt p, #intro-15 .intro-txt p { padding: 0; }
+	#intro-9 .intro-txt p, #intro-13 .intro-txt p { padding: 0 8%; }
+	
+	/* Intro Register Form */
+	#intro-form form { width: 70%; }
+	#intro-form h4 { font-size: 16px; line-height: 24px; }
+	#intro-form p { font-size: 14px; line-height: 20px; padding: 0 20px; }
+	
+	/* Intro Newsletter Form */
+	#intro-newsletter { padding: 0 10%; }
+	#intro-newsletter .form-control { height: 44px; font-size: 14px; padding: 10px 20px; }
+	#intro-newsletter .btn { height: 44px; font-size: 13px; padding: 9px 50px; }
+	
+	/*------------------------------------------*/
+	/*	  Countdown Element
+	/*------------------------------------------*/
+	
+	#intro-18 .m-top-80 { margin-top: 40px; }
+	#clock .cbox-1 { padding: 10px 30px; }
+	#clock span.cbox-1-digit {font-size: 55px; line-height: 55px; }
+	#clock span.cbox-1-txt {font-size: 14px; line-height: 14px; padding-top: 10px; }
+	
+	/* Intro Content */
+	.intro-txt .btn { margin-top: 15px; }	
+	#intro-3 .intro-txt p { padding-right: 15%; } 
+	#intro-5-content p.m-bottom-40, .intro-7-content p.m-bottom-40 { margin-bottom: 20px; }	
+	.intro-6-content p.m-top-20 { margin-top: 0; }
+	.intro-stores-badge img, #intro-22 .stores-badge img { width: 25%; height: 25%; }
+	
+	#intro-14 .intro-img img { width: 60%; height: 60%; }	
+	.ilist.m-bottom-10 { margin-bottom: 0; }
+	.ilist-txt { padding-left: 10px; }
+	
+	#intro-17 .barWrapper h5 { font-size: 15px; }
+	#intro-17 .skill-percent { font-size: 15px; line-height: 15px; font-weight: 700; top: 10px; }
+	
+	.scroll-down-arrow.m-top-30 { margin-top: 20px; }	 
+	.scroll-down-arrow { font-size: 40px; }	 
+			
+	/*------------------------------------------*/
+	/*	 CONTENT
+	/*------------------------------------------*/	
+
+	.flex-row { display: block; }
+	
+	/* Progress */
+	div.progressBar { padding: 3px 0; }
+	.goalProgress { margin-bottom: 15px; }
+	
+	/* Process */
+	.prbox-icon::after { display: none; }
+	.prbox-icon span { margin-bottom: 20px; }
+	.prbox-1 p { padding: 0 15%; }
+	
+	/* About */
+	.abox-1 span { font-size: 70px; line-height: 70px; }
+	.about-image-3-1 { margin-top: 0; padding-right: 15px; } 
+	.about-image-3-2 {	padding-left: 15px;}
+ 	.about-quote.m-bottom-50 { margin-bottom: 30px; }
+	#about-4-1 img.img-responsive { margin-bottom: 20px; }
+	
+	/* Promo */
+	.promo-5-txt.m-bottom-60 { margin-bottom: 30px; }
+	.promo-4-txt h3.h3-lg { margin-bottom: 20px; }
+	.promo-5-txt h2 { font-size: 40px; line-height: 50px; }
+	
+	/* Content */	
+	.content-1-txt, #content-2-3 .content-2-txt, #content-2-4 .content-2-txt, .content-3-txt,
+	#content-1-2 .content-1-txt, #content-2-2 .content-2-txt, #content-1-3 .content-1-txt,
+	#content-1-5 .content-1-txt, #content-1-6 .content-1-txt, #content-1-10 .content-1-txt, 
+	#content-1-11 .content-1-txt, .content-2-txt, #content-1-9 .content-1-txt, .content-4-txt,
+	#content-3-2 .content-3-txt, #content-4-2 .content-4-txt, .content-11-txt { margin-top: 0; }
+		
+	#content-1-4.p-top-100 { padding-top: 80px; padding-bottom: 30px; }
+	#content-1-4 .content-1-img { margin-bottom: 50px; }
+	.content-1-img, .content-2-img, .content-3-img, .content-4-img, .content-11-img { margin-left: 45px; margin-right: 45px; }
+	
+	#content-1-5 .content-1-txt, #content-1-6 .content-1-txt { text-align: center; }
+	
+	.content-section h2.h2-huge { font-size: 32px; line-height: 38px; }
+	#content-1-5 .stores-badge img, #content-1-6 .stores-badge img { width: 25%; height: 25%; }
+	.content-section .stores-badge.m-top-40 { margin-top: 30px; }
+	
+	.cbox-1 span { width: 55px; height: 60px; float: left; margin-right: 10px;  }
+	#content-1-10 .cbox-1 span, #content-1-11 .cbox-1 span { width: 50px; height: 40px; font-size: 40px; line-height: 40px!important; float: left; margin-right: 10px;  }
+	#content-1-8 .cbox-1 h4, #content-1-10 .cbox-1 h4, #content-1-11 .cbox-1 h4 { margin-bottom: 3px; }
+	#content-1-10 .cbox-1.m-top-20, #content-1-10 .cbox-1.m-top-25, 
+	#content-1-11 .cbox-1.m-top-20, #content-1-11 .cbox-1.m-top-25 { margin-top: 25px; }
+	
+	
+	#content-3-1 .content-3-txt, #content-3-2 .content-3-txt { margin-bottom: 50px; }
+	
+	#content-7-1.wide-50, #content-7-2.wide-50, #content-7-3.wide-50, 
+	#content-7-4.wide-50, #content-7-5.wide-50, #content-7-6.wide-50 { padding-bottom: 80px; }
+	
+	.content-7-txt .cbox-3.m-top-30.m-bottom-40 { margin-top: 20px; }
+	.content-7-txt .cbox-3.m-bottom-40 { margin-bottom: 20px; }
+	
+	.content-7-1-img, .content-7-2-img, .content-7-3-img, 
+	.content-7-4-img, .content-7-5-img, .content-7-6-img { 
+		background-position: center center; 
+		position: relative;
+		height: 350px; 
+		width: auto!important; 
+		margin-left: 15px; 
+		margin-right: 15px; 
+	}
+	
+	.content-7-2-img, .content-7-4-img, .content-7-6-img { left: 0; } 	
+	#content-7-1 .content-7-txt, #content-7-3 .content-7-txt, #content-7-5 .content-7-txt { padding: 0 15px; }
+	#content-7-2 .content-7-txt, #content-7-4 .content-7-txt, #content-7-6 .content-7-txt { padding: 0 15px; }
+	
+	#content-7-5 .cbox-1 { margin-top: 20px; }
+	
+	#content-8-1.wide-50, #content-8-2.wide-50 { padding-bottom: 80px; }
+	.content-8-skills .chart-item  { padding: 0 15px; }
+		
+	.content-9-txt, .content-9-txt-holder { padding: 50px; }	
+	.content-9-txt h3 { margin-bottom: 10px; }
+	
+	.cbox-4 { width: auto!important; }	
+	#content-10-1 .btn.m-top-30 { margin-top: 15px; }
+	#content-11-1 .statistic-block { padding-right: 15px; }
+	#content-11-2 .content-11-txt { text-align: center; }
+	
+	/* Tabs */
+	.tabs-section .m-bottom-50 { margin-bottom: 50px; }
+	
+	/* Services */
+	.services-section.wide-50, .services-section.p-top-80.p-bottom-30 { padding-top: 80px; padding-bottom: 40px; }
+	.services-section .sbox-1.m-bottom-50, .services-section .sbox-2.m-bottom-50 { margin-bottom: 40px; }	
+	.services-section .sbox-3 { text-align: center; }
+	.sbox-3 p { padding: 0 10%; }
+	.sbox-3-img, .sbox-4-img { margin-bottom: 40px; margin-top: 40px; }
+	.sbox-3-img img, .sbox-4-img img {width: 50%; height: 50%; }
+
+	#services-4-1 .sbox-2, #services-4-2 .sbox-2, #services-4-3 .sbox-2 { text-align: center; }	
+	#services-7-1.services-section .sbox-3.m-top-120 { margin-top: 0; }
+		
+	/* Statistic */
+	.statistic-block span {	font-size: 35px; line-height: 35px; }
+	.statistic-number { font-size: 45px; line-height: 45px; }
+	
+	/* Portfolio */
+	#portfolio-2-1, #portfolio-2-2 { padding-top: 80px; padding-bottom: 60px; }
+	#portfolio-2-1 .portfolio-items-list, #portfolio-2-2 .portfolio-items-list { margin: 0 15px; }
+	#portfolio-2-1 .portfolio-item, #portfolio-2-2 .portfolio-item { margin-bottom: 20px; }
+	
+	/* Pricing */
+	.pricing-notice p { font-size: 15px; line-height: 20px; padding: 0 10%; }
+	.pricing-row .col-sm-4, .sale-item { margin-left: 45px; margin-right: 45px; }
+	.pricing-row .col-sm-4, #pricing-2-1 .pricing-row .col-sm-4, #team-1-2 .team_members_wrapper .col-sm-4, 
+	#blog-1-1 .blog-articles-holder .col-sm-4, #blog-3-1 .col-sm-4, .review-3 { padding: 0 15px; }
+	#pricing-3-1 .pricing-row .col-sm-4.m-top-15 { margin-top: 0; }
+	
+	/* Team */
+	.team_members_wrapper .col-sm-6, .team_members_wrapper .col-sm-4 { margin-left: 45px; margin-right: 45px; }
+	#team-2-1.wide-100, #team-2-2.wide-100, #team-2-3.wide-100 { padding-top: 80px; padding-bottom: 60px; }
+	#team-2-1 .team-member, #team-2-2 .team-member, #team-2-3 .team-member { margin-bottom: 20px; }
+	
+	/* Banner */
+	.banner-txt h2 { font-size: 35px; line-height: 42px; }
+	#banner-4 .banner-txt h2, #banner-5 .banner-txt h2 { font-size: 25px; line-height: 32px; }
+	#banner-6 .banner-txt { text-align: center; }
+	#banner-3 .banner-txt p { padding: 0 5%; }
+	
+	/* Blog */	
+	#blog-3-1 .blog-3-post, .review-3 .message-body, #reviews-5-1 .flexslider  { margin: 0 10%; }
+	
+	/* FAQs */
+	.panel-heading h4 { margin-bottom: 0; }
+	
+	/* Testimonials */	
+	.review-1 .testimonial-avatar img { width: 100px; height: 100px; }	
+	.review-3 .testimonial-avatar img { width: 90px; height: 90px; margin: 0 auto 8px; }
+	
+	.testimonial-txt p { font-size: 16px; line-height: 24px; padding: 10px 0 20px; }
+	.review-3 .testimonial-txt p { font-size: 15px; line-height: 22px; padding: 10px 0 4px; }	
+	.review-4 .testimonial-txt p { font-size: 15px; line-height: 22px; padding: 10px 5%; }
+	.review-5 .testimonial-txt p { font-size: 15px; line-height: 22px; }
+	p.author { font-size: 13px; line-height: 13px; font-weight: 700; margin-bottom: 2px; }
+	.reviews span { font-size: 14px; }
+	
+	/* Call To Action */
+	#call-to-action-5 h2 { font-size: 32px; line-height: 32px; }
+		
+	/* Google Map */
+	#contacts-3-1 .google-map, #contacts-3-2 .google-map, #contacts-3-3 .google-map, 
+	#contacts-3-4 .google-map, #contacts-4-1 .google-map, #contacts-4-2 .google-map { padding: 0px 0px 50%; }
+	
+	.callback-form > div { padding: 0 15px; }
+	
+	/* Footer */
+	#footer-1-4 .footer-1-links li, .footer-news li {display: block !important; margin-right: 0;}
+	.footer-copyright, .footer-links.text-right, .footer-2-socials.text-right { text-align: center; }
+	.footer-links, .footer-icons { display: block; margin-top: 5px; }
+	
+	
+	
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+@media only screen and (max-width: 640px) {	
+
+	/*------------------------------------------*/
+	/*	 BASE
+	/*------------------------------------------*/
+	
+	.division, .half-division, .pre-footer { padding-left: 15px; padding-right: 15px; }	
+	#content-10-1.division, .footer.division { padding-left: 0; padding-right: 0; }
+	
+	/* Section Title */	
+	.section-title p { padding: 0 5%; }
+
+	/*------------------------------------------*/
+	/*	 Navigation Menu
+	/*------------------------------------------*/
+	
+	.navbar-brand { padding: 22px 30px; }
+	.navbar-toggle { margin: 11px 30px 11px 0; }
+	
+	/*------------------------------------------*/
+	/*	 INTRO
+	/*------------------------------------------*/
+	
+	.intro-txt { text-align: center; }
+	#intro-3 .intro-txt, #intro-10 .intro-txt, #intro-16 .intro-txt, #intro-17 .intro-txt { text-align: left; }
+	
+	.intro-row-180, .wide-intro .intro-row-180 { padding-top: 110px; padding-bottom: 110px; }
+	.intro-row-160, .wide-intro .intro-row-160 { padding-top: 80px; padding-bottom: 80px; }
+	.intro-row-140, .wide-intro .intro-row-140 { padding-top: 70px; padding-bottom: 70px; }
+	.intro-row-120, .wide-intro .intro-row-120 { padding-top: 60px; padding-bottom: 60px; }
+	.intro-row-100, .wide-intro .intro-row-100 { padding-top: 60px; padding-bottom: 60px; }
+	
+	#intro-5 .intro_slider { height: 540px; }
+	#intro-15-content, .wide-intro #intro-15-content { padding-top: 60px; padding-bottom: 240px; }
+	.intro-15-image img { margin-top: -240px; }	
+	
+	#intro-5 .slides { padding-top: 150px; }
+	#intro-7 p.m-top-20.m-bottom-40 { margin-top: 20px; margin-bottom: 30px; }
+	
+	/* Intro H2 Header */	
+	h2.intro-normal { font-size: 30px; line-height: 34px; }
+	h2.intro-medium { font-size: 36px; line-height: 40px; }
+	h2.intro-lg { font-size: 44px; line-height: 48px; }
+	h2.intro-huge { font-size: 54px; line-height: 60px; }
+	
+	/* Intro H3 Header */	
+	.intro-txt h3 { font-size: 28px; line-height: 34px; }
+	#intro-15 .intro-txt h3, #intro-23 .intro-txt h3 { font-size: 26px; line-height: 32px; }
+	
+	/* Intro Paragraphs */
+	.intro-txt p.intro-small { font-size: 14px; line-height: 24px; }
+	.intro-txt p { font-size: 14px; line-height: 24px; }
+	.intro-txt p.intro-lg { font-size: 16px; line-height: 26px; }
+	#intro-9 .intro-txt p, #intro-13 .intro-txt p { padding: 0; }
+	#intro-17 .intro-txt p { font-size: 15px; line-height: 18px; }
+	#intro-19 .intro-txt p, #intro-22 .intro-txt p { padding: 0 10%; }
+	
+	/* Intro Register Form */
+	#intro-form form { width: 85%; }
+	#intro-form h4 { font-size: 16px; line-height: 24px; }
+	#intro-form p { font-size: 14px; line-height: 20px; padding: 0 20px; }
+	
+	/* Intro Newsletter Form */
+	#intro-newsletter { padding: 0 8%; }
+	#intro-newsletter.m-top-40 { margin-top: 30px; }	
+	#intro-newsletter .form-control, #intro-newsletter .input-group-btn { width: 100%; float: none!important; margin-bottom: 8px; }
+	#intro-newsletter .input-group-btn, #intro-newsletter .input-group .form-control, #intro-newsletter .input-group { display: block; text-align: center; }
+	#intro-newsletter .input-group .form-control { height: 45px; display: block; float:none!important; width: 100%; border-radius: 0; padding: 5px 20px; border-right: 2px solid #fff; }	
+	#intro-newsletter .newsletter-form .btn { height: 45px; display: inline-block; float:none!important; width: 100%!important; border-radius: 0; }
+	
+	/*------------------------------------------*/
+	/*	  Countdown Element
+	/*------------------------------------------*/
+	
+	#clock .cbox-1 { padding: 10px 24px; }
+	#clock span.cbox-1-digit {font-size: 50px; line-height: 50px; }
+	#clock span.cbox-1-txt {font-size: 14px; line-height: 14px; padding-top: 10px; }
+	
+	/* Intro Content */
+	.intro-txt .btn { margin-top: 20px; }
+	#intro-14 .intro-img img { width: 60%; height: 60%; }	
+	#intro-14 .intro-stores-badge.m-top-40 { margin-top: 15px; }
+	.ilist.m-bottom-10 { margin-bottom: 0; }
+	.ilist-txt { padding-left: 10px; }
+	#intro-17 .barWrapper h5 { font-size: 14px; }
+	#intro-17 .skill-percent { font-size: 14px; line-height: 14px; font-weight: 500; top: 10px; }
+	#intro-22 .intro-txt img.intro-logo { width: 12%; height: 12%; }	
+	#intro-22 .stores-badge.m-top-80 { margin-top: 15px; }
+	
+	/*------------------------------------------*/
+	/*	 CONTENT
+	/*------------------------------------------*/	
+	
+	.col-xs-3, .col-xs-4, .col-xs-6, .col-xs-10 { width: 100%; display: block; float: none!important; } 
+	.col-xs-offset-1, .col-xs-offset-2 { margin-right: 0!important; margin-left: 0!important;}
+	
+	/* Process */
+	.prbox-icon span { font-size: 60px; line-height: 60px; }	
+	
+	/* About */
+	.about-quote { text-align: left; }
+	#about-6-1 .col-xs-6.m-bottom-50, #about-6-2 .col-xs-6.m-bottom-50 { margin-bottom: 0; }
+	
+	/* Promo */
+	.pbox span { width: 50px; height: 50px; font-size: 45px; line-height: 45px!important;}
+	.promo-5-txt.m-bottom-60 { margin-bottom: 30px; }
+	.promo-4-txt h3.h3-lg { margin-bottom: 20px; }
+	.promo-5-txt h2 { font-size: 34px; line-height: 42px; }
+	
+	/* Content */
+	#content-7-5 .cbox-1 { margin-top: 30px; }
+	#content-11-2 .col-xs-6 { width: 50%; float: left!important; }
+	#content-11-1 .col-xs-3  { width: 25%; float: left!important; }
+	
+	/* Tabs */
+	.tab-pane .cbox-1 span { 
+		width: 40px; 
+		height: 60px; 
+		font-size: 44px; 
+		line-height: 44px!important;
+		margin-top: 4px; 
+		float: left;
+		margin-right: 20px; 
+	}
+	
+	/* Services */
+	.sbox-3 p { padding: 0; }
+	
+	/* Pricing */
+	.pricing-row .col-sm-4 { margin-left: 30px; margin-right: 30px; }
+	.pricing-notice p { font-size: 14px; line-height: 20px; padding: 0 14%; }
+	
+	/* Team */
+	.team_members_wrapper .col-sm-6, .team_members_wrapper .col-sm-4 { margin-left: 30px; margin-right: 30px; }
+	
+	/* Banner */
+	.banner-txt h2 { font-size: 30px; line-height: 38px; }
+	#banner-4 .banner-txt h2, #banner-5 .banner-txt h2 { font-size: 20px; line-height: 28px; }
+	#banner-3 .banner-txt p { padding: 0; }
+	
+	/* Blog */	
+	#blog-3-1 .blog-3-post, .review-3 .message-body, #reviews-5-1 .flexslider  { margin: 0 30px; }
+	
+	/* Clients */	
+	#clients-3-1 .col-xs-6 { width: 50%; float: left!important; }
+	.item, #clients-3-1 .col-md-3 { padding: 0 10px; }
+	
+	/* Call To Action */
+	#call-to-action-5 h2 { font-size: 30px; line-height: 30px; }
+	.call-to-action .stores-badge img { width: 25%; height: 25%; }
+
+	/*Contacts*/	
+	.contacts-7-txt, .contacts-7-form { padding: 50px 30px; }
+	
+	
+	
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+@media only screen and (max-width : 479px) {
+
+	/*------------------------------------------*/
+	/*	 BASE
+	/*------------------------------------------*/
+	
+	.wide-160 { padding-top: 90px; padding-bottom: 90px; }
+	.wide-150 { padding-top: 90px; padding-bottom: 90px; }
+	.wide-140 { padding-top: 80px; padding-bottom: 80px; }
+	.wide-130 { padding-top: 70px; padding-bottom: 70px; }
+	.wide-120 { padding-top: 60px; padding-bottom: 60px; }
+	.p-top-100 { padding-top: 60px; }
+	
+	.division, .half-division, .pre-footer { padding-left: 5px; padding-right: 5px; }	
+	#content-10-1.division, .footer.division { padding-left: 0; padding-right: 0; }
+	
+	/* Spacing & Alignment For Demos */
+	.wide-100 { padding-top: 60px; padding-bottom: 60px; }
+	.wide-90 { padding-top: 60px; padding-bottom: 30px; }
+	.wide-80 { padding-top: 60px; padding-bottom: 30px; }
+	.wide-70 { padding-top: 60px; padding-bottom: 30px; }
+	.wide-60 { padding-top: 60px; padding-bottom: 30px; }
+	.wide-50 { padding-top: 60px; padding-bottom: 30px; }
+	.wide-40 { padding-top: 60px; padding-bottom: 30px; }
+	
+	/* Headers */
+	h4.h4-small { font-size: 14px; line-height: 20px; }	
+	h4 { font-size: 15px; line-height: 21px; margin-bottom: 8px; }
+	h4.h4-lg { font-size: 16px; line-height: 22px; margin-bottom: 8px; } 
+	
+	h3.h3-small { font-size: 18px; line-height: 24px; }
+	h3 { font-size: 20px; line-height: 26px; margin-bottom: 10px; }
+	h3.h3-medium { font-size: 21px; line-height: 27px; } 
+	h3.h3-lg { font-size: 23px; line-height: 29px; } 
+	
+	h2 { font-size: 26px; line-height: 34px; margin-bottom: 10px; }
+	h2.h2-medium { font-size: 28px; line-height: 34px; }
+	h2.h2-lg { font-size: 32px; line-height: 40px; }
+	
+	/* Paragraphs */
+	p { font-size: 14px; line-height: 22px; }
+	p.p-lg { font-size: 15px; line-height: 22px; }
+	p.p-huge { font-size: 16px; line-height: 24px; }
+	
+	/* Buttons */	
+	.btn { font-size: 12px; font-weight: 400; padding: 9px 20px; }
+	.btn.btn-medium { font-size: 12px; padding: 10px 26px; }
+	.btn.btn-lg { font-size: 13px;  padding: 11px 28px; }
+	
+	/* Section Title */	
+	.section-title, .section-title-thin { margin-bottom: 50px; }
+	.section-title h3 { font-size: 28px; line-height: 32px; }
+	.section-title-thin h4 { font-size: 20px; line-height: 26px; }
+	.section-title p, .section-title-thin p { font-size: 14px; line-height: 22px; padding: 0; }
+
+	/*------------------------------------------*/
+	/*	 Navigation Menu
+	/*------------------------------------------*/
+	
+	.navbar-brand { padding: 22px 15px; }
+	.navbar-toggle { margin: 11px 15px 11px 0; }
+	
+	/*------------------------------------------*/
+	/*	 INTRO
+	/*------------------------------------------*/
+	
+	#intro-5 .intro_slider { height: 500px; }
+	#intro-5 .slides { padding-top: 120px; }
+	
+	/* Intro H2 Header */	
+	h2.intro-normal { font-size: 26px; line-height: 32px; }
+	h2.intro-medium { font-size: 30px; line-height: 34px; }
+	h2.intro-lg { font-size: 40px; line-height: 44px; }
+	h2.intro-huge { font-size: 50px; line-height: 56px; }
+	
+	/* Intro H3 Header */	
+	.intro-txt h3 { font-size: 25px; line-height: 30px; }
+	#intro-15 .intro-txt h3, #intro-23 .intro-txt h3 { font-size: 24px; line-height: 30px; }
+	
+	/* Intro Paragraphs */
+	.intro-txt p.intro-small { font-size: 14px; line-height: 24px; }
+	.intro-txt p { font-size: 14px; line-height: 24px; }
+	#intro-3 .intro-txt p { padding-right: 0; }
+	#intro-19 .intro-txt p, #intro-22 .intro-txt p { padding: 0; }
+	
+	/* Intro Register Form */
+	#intro-form form { width: 90%; }
+	#intro-form .form-control { height: 42px; }
+	
+	/* Intro Newsletter Form */
+	#intro-newsletter { padding: 0; }
+	#intro-newsletter .form-control { height: 40px; font-size: 14px; padding: 10px 20px; }
+	#intro-newsletter .btn { height: 40px; font-size: 13px; padding: 9px 35px; }
+	
+	/*------------------------------------------*/
+	/*	  Countdown Element
+	/*------------------------------------------*/
+	
+	#clock .cbox-1 { padding: 10px 20px; }
+	#clock span.cbox-1-digit {font-size: 40px; line-height: 40px; }
+	#clock span.cbox-1-txt {font-size: 13px; line-height: 13px; padding-top: 10px; }
+	
+	/* Intro Content */
+	#intro-17 p.intro-small.m-top-40 { margin-top: 25px; }
+	#intro-17 .barWrapper.m-top-50 { margin-top: 30px; }
+	.intro-stores-badge img, #intro-22 .stores-badge img { width: 30%; height: 30%; }	
+	#intro-22 .intro-txt img.intro-logo { width: 18%; height: 18%; }	
+			
+	/*------------------------------------------*/
+	/*	 CONTENT
+	/*------------------------------------------*/	
+	
+	/* Process */
+	.prbox-1 p { padding: 0; }
+	
+	/* About */
+	.abox-1 span { font-size: 60px; line-height: 60px; }
+	.abox-2-icon span {	font-size: 45px; line-height: 45px; }
+	.abox-2-icon.m-bottom-20 { margin-bottom: 12px; }
+	.abox-3 span { width: 35px; height: 35px; font-size: 35px; line-height: 35px!important; }
+	.abox-3-txt { margin-left: 54px; } 
+	.progress { margin-bottom: 15px; }
+	.skill-percent { font-size: 14px; line-height: 14px; top: 8px; }
+	
+	/* Promo */
+	.promo-4-txt h3.h3-lg { margin-bottom: 15px; }
+	.promo-5-txt h2 { font-size: 30px; line-height: 38px; }
+	
+	/* Content */
+	.content-1-img, .content-2-img, .content-3-img, .content-4-img, .content-11-img { margin-left: 5px; margin-right: 5px; }
+	.content-section h2.h2-huge { font-size: 28px; line-height: 32px; }
+	#content-1-5 .stores-badge img, #content-1-6 .stores-badge img { width: 35%; height: 35%; }
+	.content-9-txt, .content-9-txt-holder { padding: 50px 30px; }
+	#content-11-1 .col-xs-3  { width: 33%; }	
+		
+	/* Tabs */
+	#tabs-1-1 .nav-tabs > li > a { padding: 12px 15px; }
+	#tabs-2-1 .tab-content > .tab-pane, #tabs-3-1 .tab-content > .tab-pane { padding: 15px 0 0; }
+
+	#tabs-2-1 .nav-tabs { border: none; }
+	#tabs-2-1 .nav-tabs li { display: block; width: 100%; margin-bottom: 3px; }		
+	.nav-tabs > li > a span { font-size: 40px; line-height: 40px; margin-bottom: 10px; }
+	#tabs-3-1 .nav-tabs > li > a { font-size: 15px; padding: 10px; margin-right: 3px; }
+	
+	/* Services */
+	.sbox-3-img img, .sbox-4-img img {width: 80%; height: 80%; }
+	#services-4-1 .sbox-2 p, #services-4-2 .sbox-2 p, #services-4-3 .sbox-2 p { padding: 0; }
+
+	/* Portfolio */
+	.btn-group { display: block; }
+	.gallery-filter .btn-group > .btn { width: 100%; display: block; float: none!important; margin-bottom: 5px; } 
+	
+	/* Pricing */
+	.pricing-row .col-sm-4, .sale-item { margin-left: 5px; margin-right: 5px; }
+	.pricing-notice p { font-size: 14px; line-height: 20px; padding: 0 5%; }
+	
+	/* Team */
+	.team_members_wrapper .col-sm-6, .team_members_wrapper .col-sm-4 { margin-left: 5px; margin-right: 5px; }
+	
+	/* Banner */
+	.banner-txt h2 { font-size: 26px; line-height: 34px; }
+	#banner-4 .banner-txt h2, #banner-5 .banner-txt h2 { font-size: 18px; line-height: 26px; }
+	
+	/* Blog */	
+	.blog-post-link a { font-size: 18px; line-height: 24px; }
+	#blog-3-1 .blog-3-post, .review-3 .message-body, #reviews-5-1 .flexslider  { margin: 0 5px; }
+	
+	/* FAQs */
+	.panel-heading h4 { margin-bottom: 0; }
+	
+	/* Testimonials */	
+	.review-1 .testimonial-avatar img { width: 90px; height: 90px; }	
+	.review-3 .testimonial-avatar img { width: 80px; height: 80px; margin: 0 auto 5px; }
+	
+	.testimonial-txt p { font-size: 14px; line-height: 22px; padding: 10px 0 20px; }
+	.review-3 .testimonial-txt p { font-size: 14px; line-height: 20px; padding: 10px 0 4px; }	
+	.review-4 .testimonial-txt p { font-size: 14px; line-height: 20px; padding: 10px 5%; }
+	.review-5 .testimonial-txt p { font-size: 14px; line-height: 20px; }
+	
+	/* Newsletter */
+	.newsletter-txt h2 { font-size: 20px; line-height: 26px; }
+	#newsletter-3 .newsletter-form .btn, #newsletter-4 .newsletter-form .btn { padding: 10px 35px; }
+	
+	/* Call To Action */
+	#call-to-action-5 h2 { font-size: 26px; line-height: 26px; }
+	.call-to-action .stores-badge img { width: 30%; height: 30%; }
+	
+	/* Google Map*/	
+	#contact-map-1 .google-map {padding: 0px 0px 50%;}
+	#contact-map-2 .google-map {padding: 0px 0px 45%;}
+	#contacts-3-1 .google-map, #contacts-3-2 .google-map, #contacts-3-3 .google-map, 
+	#contacts-3-4 .google-map, #contacts-4-1 .google-map, #contacts-4-2 .google-map { padding: 0px 0px 60%; }
+	
+	
+	
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+@media (max-width: 320px) {	
+
+	/*------------------------------------------*/
+	/*	 BASE
+	/*------------------------------------------*/
+	
+	/* Headers */
+	h4.h4-small { font-size: 13px; line-height: 19px; }	
+	h4 { font-size: 14px; line-height: 20px; margin-bottom: 8px; }
+	h4.h4-lg { font-size: 15px; line-height: 21px; margin-bottom: 8px; } 
+	
+	h3.h3-small { font-size: 17px; line-height: 23px; }
+	h3 { font-size: 18px; line-height: 21px; margin-bottom: 10px; }
+	h3.h3-medium { font-size: 19px; line-height: 25px; } 
+	h3.h3-lg { font-size: 20px; line-height: 26px; } 
+	
+	h2 { font-size: 23px; line-height: 29px; margin-bottom: 10px; }
+	h2.h2-medium { font-size: 24px; line-height: 30px; }
+	h2.h2-lg { font-size: 28px; line-height: 34px; }
+	
+	/* Paragraphs */
+	p { font-size: 14px; line-height: 22px; }
+	p.p-lg { font-size: 14px; line-height: 22px; }
+	p.p-huge { font-size: 14px; line-height: 24px; }
+	
+	/* Section Title */	
+	.section-title, .section-title-thin { margin-bottom: 40px; }
+	.section-title h3 { font-size: 24px; line-height: 28px; }
+	.section-title-thin h4 { font-size: 18px; line-height: 24px; }
+	
+	a.banner-video-icon  {width: 42px; height: 42px;}
+	a.banner-video-icon i {font-size: 13px; line-height: 42px; }
+	.modal-video span { font-size: 12px; }
+	.modal-video span.m-left-10 { margin-left: 5px; }
+	
+	/*------------------------------------------*/
+	/*	 INTRO
+	/*------------------------------------------*/
+		
+	#intro-5 .intro_slider { height: 460px; }	
+	#intro-5 .slides { padding-top: 90px; }
+	
+	#intro-15-content, .wide-intro #intro-15-content { padding-top: 60px; padding-bottom: 140px; }
+	.intro-15-image img { margin-top: -140px; }	
+	
+	/* Intro H2 Header */	
+	h2.intro-normal { font-size: 18px; line-height: 24px; }
+	h2.intro-medium { font-size: 20px; line-height: 26px; }
+	h2.intro-lg { font-size: 22px; line-height: 28px; }
+	h2.intro-huge { font-size: 24px; line-height: 30px; }
+	
+	/* Intro H3 Header */	
+	.intro-txt h3 { font-size: 20px; line-height: 26px; }
+	#intro-15 .intro-txt h3 { font-size: 18px; line-height: 24px; }
+	
+	/* Intro Paragraphs */
+	.intro-txt p.intro-small { font-size: 13px; line-height: 20px; }
+	.intro-txt p { font-size: 13px; line-height: 20px; }
+	
+	/* Intro Register Form */
+	#intro-form form { width: 100%; padding: 20px 8px; }
+	#intro-form .form-control { height: 36px; font-size: 14px; margin-bottom: 12px; }
+	#intro-form h4 { font-size: 13px;  line-height: 18px; }
+	#intro-form p { font-size: 13px; line-height: 18px; padding: 0 10px; }
+	
+	/* Intro Newsletter Form */
+	#intro-newsletter { padding: 0; }
+	#intro-newsletter .form-control { height: 40px; font-size: 14px; padding: 10px 20px; }
+	#intro-newsletter .btn { height: 40px; font-size: 13px; padding: 9px 35px; }
+	
+	/*------------------------------------------*/
+	/*	  Countdown Element
+	/*------------------------------------------*/
+	
+	#clock .cbox-1 { padding: 5px 15px; }
+	#clock span.cbox-1-digit {font-size: 30px; line-height: 30px; }
+	#clock span.cbox-1-txt {font-size: 13px; line-height: 13px; padding-top: 10px; }
+	
+	/* Intro Content */
+	.intro_slide .btn, #intro-7-content .btn { margin-bottom: 15px; margin-right: 0; }
+	.intro-stores-badge img, #intro-22 .stores-badge img { width: 45%; height: 45%; }
+	#intro-22 .intro-txt img.intro-logo { width: 25%; height: 25%; }
+	
+	/*------------------------------------------*/
+	/*	 CONTENT
+	/*------------------------------------------*/	
+		
+	/* Promo */
+	.pbox span { width: 45px; height: 45px; font-size: 40px; line-height: 40px!important;}
+	.promo-5-txt.m-bottom-60 { margin-bottom: 30px; }
+	.promo-4-txt h3.h3-lg { margin-bottom: 20px; }
+	.promo-5-txt h2 { font-size: 26px; line-height: 32px; }
+	
+	/* Content */
+	#content-1-10 .cbox-1 span, #content-1-11 .cbox-1 span { height: 60px; }
+	
+	.content-1-img, .content-2-img, .content-3-img, .content-4-img, .content-11-img { margin-left: 0; margin-right: 0; }
+	.content-section h2.h2-huge { font-size: 26px; line-height: 32px; }
+	#content-1-5 .stores-badge img, #content-1-6 .stores-badge img { width: 45%; height: 45%; }
+
+	.content-9-skills .chart-item  { margin-bottom: 10px; }
+	
+	.content-9-txt, .content-9-txt-holder { padding: 30px 20px; }	
+	#content-11-2 .col-xs-6, #content-11-1 .col-xs-3 { text-align: center; width: 100%; float: none!important; }
+	
+	/* Tabs */
+	#tabs-2-1 .nav-tabs { border: none; }
+	#tabs-3-1 .nav-tabs li { display: block; width: 100%; margin-bottom: 3px; }		
+	#tabs-3-1 .nav-tabs > li > a { color: #666; padding: 10px; background-color: #e5e5e5; }
+	#tabs-3-1 .nav-tabs > li.active > a, #tabs-3-1 .nav-tabs > li.active > a:hover,#tabs-3-1 .nav-tabs > li.active > a:focus { background-color: #25c6ff; color: #fff ; border-bottom: none; }	
+	.nav-tabs > li > a span { display: none; }
+	
+	/* Pricing */
+	.pricing-row .col-sm-4, .sale-item { margin-left: 0; margin-right: 0; }
+	
+	/* Team */
+	.team_members_wrapper .col-sm-6, .team_members_wrapper .col-sm-4 { margin-left: 0; margin-right: 0; }
+	
+	/* Banner */
+	.banner-txt h2 { font-size: 20px; line-height: 26px; }
+	#banner-4 .banner-txt h2, #banner-5 .banner-txt h2 { font-size: 16px; line-height: 24px; }
+	#banner-1 .banner-txt p.m-bottom-40, #banner-3 .banner-txt p.m-bottom-30, #banner-4 .banner-txt p.m-bottom-40 { margin-bottom: 25px; }
+	#banner-4 .banner-txt .btn.m-right-15 { margin-right: 0; margin-bottom: 20px; }
+	
+	/* Blog */	
+	.blog-post-link.b-bottom-theme { border-bottom: none; }
+	.blog-post-link a { font-size: 16px; line-height: 22px; }
+	.blog-2-post .blog-post-link a { font-size: 16px; line-height: 22px; }
+	.blog-2-post .blog-post-avatar, .blog-post-author { display: none; }
+	#blog-3-1 .blog-3-post, .review-3 .message-body, #reviews-5-1 .flexslider  { margin: 0; }
+	
+	/* FAQs */
+	.panel-heading h4 { margin-bottom: 0; }
+	
+	/* Testimonials */
+	.review-4 .testimonial-txt p { font-size: 14px; line-height: 20px; padding: 10px 0; }
+	
+	/* Clients */	
+	#clients-3-1 .col-xs-6 { width: 100%; float: none!important; }
+	
+	/* Newsletter */
+	.newsletter .form-control, .input-group-btn { width: 100%; float: none!important; margin-bottom: 5px; }
+	.input-group-btn, .input-group .form-control, .newsletter .input-group { display: block; text-align: center; }	
+	.input-group .form-control { height: 45px; display: block; float:none!important; width: 100%; border-radius: 0; padding: 5px 20px; border-right: 2px solid #fff; }	
+	.newsletter-form .btn { height: 45px; display: inline-block; float:none!important; width: 100%!important; border-radius: 0; }
+	
+	/* Call To Action */
+	#call-to-action-5 h2 { font-size: 20px; line-height: 20px; }
+	.call-to-action .stores-badge img { width: 40%; height: 40%; }
+	#call-to-action-4 h3, #call-to-action-5-2 h3 {line-height: 25px; }
+	
+	/*Contacts*/	
+	.contacts-7-txt, .contacts-7-form { padding: 40px 20px; }
+	p.call-back-notice { margin-left: 15px; margin-right: 15px; }
+
+	
+	
+}
+
+
+	
