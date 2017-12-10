@@ -147,4 +147,5 @@ if (YII_ENV_DEV) {
     ];
 }
 
+//$config['defaultRoute'] = 'user/index';
 return $config;
