@@ -15,51 +15,54 @@ use Yii;
 class SmsController extends Controller {
     public function actionIndex(){
         $request = Yii::$app->request;
+        $message = ''; $status = 0;
 
         $phone = trim($request->get('phone',null));
         $code = trim($request->get('code',null));
 
         if(empty($code)){ // empty code
-            $message = 'Không xác định được mã tem !';
+            $message = 'Khong xac dinh duoc ma tem !';
         }
         else{ //
             $encode = CodeHelper::endCodeStamp($code); // [type_code, id, user_id]
             Stamps::$user_id = $encode['user_id'];
 
             if( !$encode['user_id'] || !Stamps::tableName() ){ // Không có bảng tem này
-                $message = 'Mã tem không tồn tại!';
+                $message = 'Ma tem khong ton tai!';
             }else{
                 $stamp = Stamps::findOne($encode['id']);
                 if(empty($stamp)){ // không có tem này
-                    $message = 'Mã tem không tồn tại !';
+                    $message = 'Ma tem khong ton tai !';
                 }else{
                     // Check Stamp
                     if($stamp->status == Stamps::TO_DISPLAY){ // Tem trưng bày
-                        $message = 'Đây là sản phẩm trưng bày!';
+                        $message = 'Day la san pham trung bay!';
                     }
                     elseif ($stamp->status == Stamps::ACTIVE_FOR_RELEASE){ // Tem đang ở trạng thái kích hoạt đem đi dán
                         if($encode['type_code'] == 1 || $encode['type_code'] == 2){
                             if($stamp->phone == $phone){
-                                $message = 'Bạn đã xác thực sản phẩm này trước đó rồi!';
+                                $message = 'Ban da xac thuc san pham nay truoc do roi!';
                             }else{
-                                $message = 'Bạn đã xác thực thành công sản phẩm này!';
+                                $status = 1;
+                                $message = 'Ban da xac thuc thanh cong san pham nay!';
                             }
                         }else{
-                            $message = 'Mã tem không hợp lệ!';
+                            $message = 'Ma tem khong hop le!';
                         }
 
                     }
                     elseif ( $stamp->status == Stamps::SOLD_OUT ){
-                        $message = 'Sản phẩm đã được xác thực!';
+                        $message = 'San pham da duoc xac thuc truoc do!';
                     }
                     else{
-                        $message = 'Mã tem lỗi!';
+                        $message = 'Ma tem loi!';
                     }
                 }
             }
         }
 
         echo json_encode([
+            'status'=>$status,
             'message' => $message,
             ]);
         die;
