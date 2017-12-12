@@ -16,6 +16,7 @@ use Yii;
  * @property integer $type
  * @property integer $business_id
  * @property string $full_name
+ * @property string $short_name
  */
 
 class User extends \webvimark\modules\UserManagement\models\User
