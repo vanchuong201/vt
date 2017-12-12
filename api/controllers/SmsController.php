@@ -45,6 +45,9 @@ class SmsController extends Controller {
                             }else{
                                 $status = 1;
                                 $message = 'Ban da xac thuc thanh cong san pham nay!';
+                                $stamp->status = Stamps::SOLD_OUT;
+                                $stamp->phone = $phone;
+                                $stamp->save(false);
                             }
                         }else{
                             $message = 'Ma tem khong hop le!';
