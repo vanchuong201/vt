@@ -11,6 +11,7 @@ use app\helpers\CodeHelper;
 use app\models\Stamps;
 use yii\rest\Controller;
 use Yii;
+use app\models\User;
 
 class SmsController extends Controller {
     public function actionIndex(){
@@ -43,8 +44,9 @@ class SmsController extends Controller {
                             if($stamp->phone == $phone){
                                 $message = 'Ban da xac thuc san pham nay truoc do roi!';
                             }else{
+                                $short_name_company = User::findOne($encode['user_id'])->short_name;
                                 $status = 1;
-                                $message = 'Ban da xac thuc thanh cong san pham nay!';
+                                $message = "San pham chinh hang duocj phan phoi boi cong ty $short_name_company ";
                                 $stamp->status = Stamps::SOLD_OUT;
                                 $stamp->phone = $phone;
                                 $stamp->save(false);
