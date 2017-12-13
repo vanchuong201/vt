@@ -46,7 +46,7 @@ class SmsController extends Controller {
                             }else{
                                 $short_name_company = User::findOne($encode['user_id'])->short_name;
                                 $status = 1;
-                                $message = "San pham chinh hang duocj phan phoi boi cong ty $short_name_company ";
+                                $message = $short_name_company ? "San pham chinh hang duoc phan phoi boi cong ty $short_name_company " : "San pham chinh hang. Ban da xac thuc thanh cong";
                                 $stamp->status = Stamps::SOLD_OUT;
                                 $stamp->phone = $phone;
                                 $stamp->save(false);
